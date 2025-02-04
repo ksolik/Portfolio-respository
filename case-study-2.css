@@ -1,0 +1,1430 @@
+@import url(https://fonts.googleapis.com/css2?family=Rajdhani:wght@100;300;500;600&display=swap);
+/* Reset default margins, paddings, and set box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+/* Body settings: black background, Rajdhani font, prevent horizontal scrolling */
+body {
+    background-color: black;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+}
+  
+/* Black square: occupies 100% width, fixed height of 800px (per your current code), starts at the very top */
+.black-square {
+    background-color: black;
+    width: 100%;
+    height: 800px;
+    position: relative;
+    overflow: visible; /* Allow the image to extend beyond if needed */
+}
+  
+/* Cover title: placed 350px from the top of the black section; centered horizontally */
+.cover-title {
+    margin-top: 350px;
+    text-align: center;
+    color: white;
+    font-size: 48px;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+  
+/* Cover image: placed 521px below the title, fixed dimensions, centered horizontally */
+.cover-image {
+    display: block;
+    margin: 400px auto 0 auto;
+    width: 1024px;
+    height: 484.25px;
+}
+  
+/* Grey square: full width, fixed height of 4549px */
+.grey-square {
+    background-color: #E9E9E9;
+    width: 100%;
+    height: 4650px;
+}
+  
+/* Context Section styling */
+.context-section {
+    width: 664px;              /* Fixed width as specified */
+    height: 141px;             /* Fixed height as specified */
+    margin: 50px auto 0 auto;   /* 50px spacing from the element above; auto centers horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+  
+.context-title {
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+    width: 100%;
+}
+  
+.context-text {
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    width: 100%;
+}
+  
+/* Design Process Section styling */
+.design-process-section {
+    width: 664px;               /* Fixed width as specified */
+    margin: 50px auto 0;        /* 50px spacing above this section; auto centers horizontally */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+  
+.design-process-title {
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+  
+.design-columns {
+    width: 100%;
+    display: flex;
+    gap: 100px;
+    padding-left: 80px;
+}
+  
+.design-column-title {
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+  
+.design-column-text {
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+/* Common styling for the new Introduction, Problem, and Goal sections */
+.section-title {
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+    width: 100%;
+}
+  
+.section-text {
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+/* Introduction Section */
+.intro-section {
+    width: 664px;
+    height: 161px;
+    margin: 50px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Problem Section */
+.problem-section {
+    width: 664px;
+    height: 121px;
+    margin: 50px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+  
+/* Goal Section */
+.goal-section {
+    width: 664px;
+    height: 101px;
+    margin: 50px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.contextual-inquiry-section {
+    width: 664px;              /* Fixed width as specified */
+    height: 101px;             /* Fixed height as specified */
+    margin: 50px auto 0 auto;   /* Adjust vertical spacing as needed; auto centers horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.contextual-inquiry-title {
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.contextual-inquiry-text {
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    width: 100%;
+}
+/* User Types Section */
+.user-types-section {
+    width: 826px;               /* Fixed width */
+    height: 277px;              /* Fixed height */
+    margin: 50px auto 0;        /* Centers the section horizontally */
+    display: flex;
+    gap: 150px;                  /* 50px gap between each user box */
+    justify-content: center;    /* Center the boxes as a group */
+    align-items: center;
+}
+
+/* Primary Users Box */
+.primary-box {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+.primary-bg {
+    width: 200px;
+    height: 200px;
+    background: #EE984B;
+    border: 1px solid black;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.primary-overlay {
+    width: 200px;
+    height: 200px;
+    background: white;
+    border: 1px solid black;
+    position: absolute;
+    top: 31px;
+    left: 53px;
+}
+.primary-text {
+    position: absolute;
+    top: 50px; /* Adjust as needed */
+    left: 53px;
+    width: 200px;
+    text-align: center;
+    color: black;
+    font-family: Rajdhani, sans-serif;
+}
+
+/* Secondary Users Box */
+.secondary-box {
+    width: 253px;  /* Container width from your inline code */
+    height: 231px; /* Container height from your inline code */
+    position: relative;
+}
+.secondary-bg {
+    width: 200px;
+    height: 200px;
+    background: black;
+    border: 1px solid black;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.secondary-overlay {
+    width: 200px;
+    height: 200px;
+    background: white;
+    border: 1px solid black;
+    position: absolute;
+    top: 31px;
+    left: 53px;
+}
+.secondary-text {
+    position: absolute;
+    top: 54px; /* Adjust as needed */
+    left: 53px;
+    width: 200px;
+    text-align: center;
+    color: black;
+    font-family: Rajdhani, sans-serif;
+}
+
+/* Excluded Users Box */
+.excluded-box {
+    width: 253px;  /* Container width from your inline code */
+    height: 256px; /* Container height from your inline code */
+    position: relative;
+}
+.excluded-bg {
+    width: 200px;
+    height: 200px;
+    background: #D9D9D9;
+    border: 1px solid black;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.excluded-overlay {
+    width: 200px;
+    height: 200px;
+    background: white;
+    border: 1px solid black;
+    position: absolute;
+    top: 31px;
+    left: 53px;
+}
+.excluded-text {
+    position: absolute;
+    top: 56px; /* Adjust as needed */
+    left: 53px;
+    width: 200px;
+    text-align: center;
+    color: black;
+    font-family: Rajdhani, sans-serif;
+}
+
+/* Common typography for user type texts */
+.user-header {
+    font-size: 24px;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+.user-subtitle {
+    font-size: 20px;
+    font-weight: 500;
+    word-wrap: break-word;
+    display: block;
+    margin-top: 10px;
+}
+/* Maps Section */
+.maps-section {
+    width: 1086.5px;         /* Fixed width */
+    height: 512px;           /* Fixed height */
+    margin: 50px auto 0;     /* 50px spacing above; centers the section horizontally */
+    position: relative;      /* Establishes a positioning context for inner absolute elements */
+    opacity: 1;              /* Visible */
+  }
+  
+  .maps-inner {
+    width: 883px;
+    height: 486px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .maps-title {
+    width: 664px;
+    position: absolute;
+    top: 0;
+    left: 219px;
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+  
+  .maps-img {
+    width: 500.07px;
+    height: 419px;
+    position: absolute;
+    top: 67px;
+    left: 0px;
+    border-radius: 22.77px;
+  }
+  
+  .maps-img-2 {
+    width: 447.50px;
+    height: 464px;
+    position: absolute;
+    top: 48px;
+    left: 639px;
+  }
+/* Findings Section Container */
+.findings-section {
+    width: 1086.5px;           /* Fixed width */
+    margin: 50px auto 0;       /* 50px spacing above; centers horizontally */
+  }
+  
+  /* Findings Text Block */
+  .findings-text-block {
+    width: 664px;
+    margin: 0 auto 20px auto;  /* Centered with 20px spacing below */
+    text-align: center;
+  }
+  
+  .findings-title {
+    color: black;
+    font-size: 24px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+  
+  .findings-description {
+    color: black;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+  }
+  
+  /* Findings Icons Container */
+  .findings-icons {
+    width: 778px;             /* Fixed width as provided */
+    margin: 0 auto;           /* Center the container horizontally */
+    display: flex;
+    justify-content: space-evenly;  /* Evenly space the icon boxes */
+    align-items: center;
+  }
+  
+  /* Each Icon Box */
+  .icon-box {
+    display: flex;
+    flex-direction: column;   /* Stack emoji above text */
+    align-items: center;
+  }
+  
+  /* Icon Emoji: placed above the text with a 10px gap */
+  .icon-emoji {
+    font-size: 130px;
+    color: black;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    margin-bottom: 10px;      /* 10px gap between emoji and label */
+  }
+  
+  /* Icon Label */
+  .icon-label {
+    font-size: 16px;
+    color: black;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    text-align: center;
+    word-wrap: break-word;
+  }
+/* Takeaway Section */
+.takeaway-section {
+    width: 664px;                /* Fixed width */
+    height: 141px;               /* Fixed height */
+    margin: 50px auto 0;         /* 50px top margin; centered horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;                 /* 10px gap between elements */
+  }
+  
+  .takeaway-title {
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+    width: 100%;
+  }
+  
+  .takeaway-text {
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    width: 100%;
+  }
+  .hmw-statement-section {
+    width: 274px;              /* Fixed width */
+    height: 121px;             /* Fixed height */
+    margin: 50px auto 0;       /* 50px spacing above; centers the section horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;                 /* No gap between the two items (as specified) */
+  }
+  
+  .hmw-statement-title {
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+    width: 100%;
+  }
+  
+  .hmw-statement-text {
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    width: 100%;
+  }
+  .our-approach-section {
+    width: 664px;              /* Fixed width consistent with other sections */
+    /* Set a top margin of 50px to match spacing between sections */
+    margin: 50px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;               /* 10px gap between the title and text */
+    /* Height is not fixed here; it will grow to contain its content */
+  }
+  
+  .our-approach-title {
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+  
+  .our-approach-text {
+    width: 100%;
+    text-align: left;         /* Left-align the paragraph text */
+    color: black;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    line-height: 1.5;
+    /* Optional: add some margin-top if needed */
+  }
+  
+  .our-approach-bullets {
+    margin: 10px 0 0 20px;    /* Add a left indent for the bullets and some top margin */
+    padding: 0;
+    list-style-type: disc;    /* Standard bullet points */
+  }
+  
+  .our-approach-bullets li {
+    margin-bottom: 5px;       /* Small spacing between bullet items */
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    color: black;
+    word-wrap: break-word;
+  }
+  .lowfi-prototype-section {
+    width: 664px;               /* Fixed width */
+    height: 141px;              /* Fixed height as specified */
+    margin: 50px auto 0;        /* 50px spacing above; centers horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;                  /* 10px gap between title and text */
+  }
+  
+  .lowfi-prototype-section .section-title {
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+    width: 100%;
+  }
+  
+  .lowfi-prototype-section .section-text {
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    width: 100%;
+  }
+  .lowfi-proto-image-section {
+    width: 1110px;             /* Fixed width */
+    height: 796.73px;          /* Fixed height */
+    margin: 50px auto 0;       /* 50px spacing above; centers the section horizontally */
+    opacity: 1;                /* Set to 1 so the image is visible */
+  }
+  
+  .lowfi-proto-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;         /* Ensures the image fills the container */
+  }
+  .final-section {
+    width: 664px;              /* Fixed width */
+    height: 141px;             /* Fixed height */
+    margin: 50px auto 0;       /* 50px spacing above; centered horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;                 /* 10px gap between the title and the text */
+  }
+  
+  .final-section .section-title {
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+  
+  .final-section .section-text {
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+  }
+  .getstarted-section {
+    width: 958px;           /* Fixed width */
+    height: 355.56px;       /* Fixed height */
+    margin: 50px auto 0;     /* 50px spacing above; centers the section horizontally */
+    position: relative;     /* Establishes positioning context for children */
+    opacity: 1;             /* Ensure the section is visible */
+}
+  
+.getstarted-img {
+    width: 500px;
+    height: 355.56px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+  
+.getstarted-text {
+    width: 301px;
+    position: absolute;
+    top: 123px;
+    left: 657px;
+    color: white;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;       /* Changed to medium */
+    word-wrap: break-word;
+    text-align: center;
+}
+  
+.step1-section {
+    width: 962px;           /* Fixed width */
+    height: 355.56px;       /* Fixed height */
+    margin: 50px auto 0;    /* 50px spacing above and centered horizontally */
+    position: relative;     /* Establishes positioning context for children */
+    opacity: 1;             /* Visible */
+}
+  
+.step1-img {
+    width: 500px;
+    height: 355.56px;
+    position: absolute;
+    top: 0;
+    left: 462px;
+}
+  
+.step1-text {
+    width: 301px;
+    position: absolute;
+    top: 103px;
+    left: 0;
+    text-align: right;
+    color: white;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;       /* Changed to medium */
+    word-wrap: break-word;
+}
+  
+.step2-section {
+    width: 958px;           /* Fixed width */
+    height: 355.56px;       /* Fixed height */
+    margin: 50px auto 0;    /* 50px spacing above; centers horizontally */
+    position: relative;     /* Establishes positioning context for absolute children */
+    opacity: 1;             /* Visible */
+}
+  
+.step2-img {
+    width: 500px;
+    height: 355.56px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+  
+.step2-text {
+    width: 301px;
+    position: absolute;
+    top: 103px;
+    left: 657px;
+    color: white;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;       /* Changed to medium */
+    word-wrap: break-word;
+    text-align: right;
+}
+.step3-section {
+    width: 962px;              /* Fixed width */
+    height: 355.56px;          /* Fixed height */
+    margin: 50px auto 0;       /* 50px top margin; centers the section horizontally */
+    position: relative;        /* Establishes positioning context for absolute children */
+    opacity: 1;                /* Set to 1 so the section is visible */
+  }
+  
+  .step3-img {
+    width: 500px;
+    height: 355.56px;
+    position: absolute;
+    top: 0;
+    left: 462px;
+  }
+  
+  .step3-text {
+    width: 301px;
+    position: absolute;
+    top: 103px;
+    left: 0;
+    color: white;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    text-align: right;
+  }
+  .step4-section {
+    width: 958px;              /* Fixed width */
+    height: 355.56px;          /* Fixed height */
+    margin: 50px auto 0;       /* 50px top margin; centers the section horizontally */
+    position: relative;        /* Establishes positioning context for children */
+    opacity: 1;                /* Set to 1 so the section is visible */
+  }
+  
+  .step4-img {
+    width: 500px;
+    height: 355.56px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .step4-text {
+    width: 301px;
+    position: absolute;
+    top: 107.89px;
+    left: 657px;
+    color: white;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    text-align: right;
+  }
+  .step5-section {
+    width: 962px;             /* Fixed width */
+    height: 355.56px;         /* Fixed height */
+    margin: 50px auto 0;       /* 50px top margin; centers the section horizontally */
+    position: relative;        /* Establishes positioning context for children */
+    opacity: 1;                /* Section is visible */
+  }
+  
+  .step5-img {
+    width: 500px;
+    height: 355.56px;
+    position: absolute;
+    top: 0;
+    left: 462px;
+  }
+  
+  .step5-text {
+    width: 301px;
+    position: absolute;
+    top: 98px;
+    left: 0;
+    color: white;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    text-align: right;
+  }
+  .step6-9-section {
+    width: 1147px;              /* Fixed width */
+    height: 1712.59px;          /* Fixed height */
+    margin: 50px auto 0;        /* 50px top margin; centers the container horizontally */
+    position: relative;         /* Establishes positioning context for absolutely positioned children */
+    /* (If you want it visible, ensure opacity: 1; or remove the opacity property) */
+    opacity: 1;
+  }
+  
+  /* Step 6 Image */
+  .step6-img {
+    width: 500px;
+    height: 355.56px;
+    position: absolute;
+    top: 0px;
+    left: 0px;  /* Changed from 462px to 0px to match the Step 4 image */
+  }  
+  
+  /* Step 7 Image */
+  .step7-img {
+    width: 500px;
+    height: 355.56px;
+    position: absolute;
+    top: 456px;
+    left: 647px;
+  }
+  
+  /* Step 8 Image */
+  .step8-img {
+    width: 500px;
+    height: 355.06px;
+    position: absolute;
+    top: 912px;
+    left: 0px;
+  }
+  
+  /* Step 9 Image */
+  .step9-img {
+    width: 500px;
+    height: 355.59px;
+    position: absolute;
+    top: 1357px;
+    left: 647px;
+  }
+  
+  /* Step 6 Text */
+  .step6-text {
+    width: 301px;
+    position: absolute;
+    top: 108px;
+    left: 657px;
+    color: white;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    text-align: right;
+  }
+  
+  /* Step 8 Text */
+  .step8-text {
+    width: 301px;
+    position: absolute;
+    top: 1014px;
+    left: 657px;
+    color: white;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    text-align: right;
+  }
+  
+  /* Step 7 Text */
+  .step7-text {
+    width: 301px;
+    position: absolute;
+    top: 554px;
+    left: 185px;
+    text-align: right;
+    color: white;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+  }
+  
+  /* Step 9 Text */
+  .step9-text {
+    width: 301px;
+    position: absolute;
+    top: 1480px;
+    left: 185px;
+    text-align: right;
+    color: white;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+  }
+  .iron-recs-section {
+    width: 1050px;           /* Fixed width */
+    height: 545.56px;         /* Fixed height */
+    margin: 50px auto 0;      /* 50px spacing above; centers the section horizontally */
+    position: relative;       /* Establishes positioning context for absolute children */
+    opacity: 1;               /* Visible */
+  }
+  
+  .iron-recs-images {
+    width: 1050px;
+    height: 355.56px;
+    position: relative;
+  }
+  
+  .iron-recs-img {
+    position: absolute;
+    width: 500px;
+    height: 355.56px;
+    top: 0;
+  }
+  
+  /* First image positioned on the left */
+  .iron-recs-img:first-of-type {
+    left: 0;
+  }
+  
+  /* Second image positioned with a 50px gap */
+  .iron-recs-img:last-of-type {
+    left: 550px;
+  }
+  
+  .iron-recs-text {
+    width: 339px;
+    position: absolute;
+    top: 405.56px;
+    left: 355px;  /* (1050px - 339px) / 2 = 355.5, approximately */
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-family: Rajdhani, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+  }
+  .styleguide-section {
+    width: 1316px;           /* Fixed width */
+    height: 653.59px;         /* Fixed height */
+    margin: 50px auto 0;      /* 50px spacing above; centers the section horizontally */
+    position: relative;       /* Establishes positioning context */
+    opacity: 1;               /* Set to 1 so the section is visible */
+  }
+  
+  .styleguide-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;        /* Ensures the image covers the container */
+  }
+/* The footer container */
+.footer-section {
+    padding: 50px 30px;
+    background: none; /* or #030303 if you want black, up to you */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 30px;
+  }
+  
+  /* Title (Contact) */
+  .footer-title {
+    font-size: 3em;
+    font-weight: 300;
+    margin-bottom: 20px;
+    padding-left: 17px;
+    font-family: 'Rajdhani', sans-serif;
+  }
+  
+  /* The content wrapper for the footer (Contact & Links) */
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* The list that holds Email & LinkedIn links */
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+  }
+  
+  /* Each link line item */
+  .footer-links li {
+    margin-bottom: 20px; /* space between email and LinkedIn */
+  }
+  
+  /* The link styling for Email & LinkedIn */
+  .contact-link {
+    font-size: 1.5em;
+    font-weight: 300;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-left: 17px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Underline effect for the link hover */
+  .contact-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  .contact-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  /* The horizontal line under links */
+  .footer-hr {
+    width: 80%;
+    border: 0;
+    border-top: 0.5px solid white;
+    margin: 10px auto;
+  }
+  
+  /* Copyright text at the bottom */
+  .footer-copyright {
+    font-size: 0.8em;
+    font-weight: 300;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    text-align: left;
+    margin-left: 145px;
+    margin-top: 10px;
+  }
+  
+  /* Additional Footer Reset/Styling */
+  .footer-section {
+    margin: 100px auto 0;
+    padding: 0; /* No extra padding or margin on sides or below */
+    width: 100%; /* Full width */
+    background-color: #000;  /* Black background */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box; /* So widths/padding are calculated consistently */
+  }
+  
+/* Navigation Bar Styles */
+.navbarholder {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 650px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 25px;  /* 50px height / 2 */
+    border: 2px solid rgb(52, 51, 51);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.navinitials {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2em;
+    font-weight: 500; /* Use the weight you need (remember to include it via Google Fonts) */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navcontentholder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navlinkholder {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+}
+
+.navlink {
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2em;
+    font-weight: 300;
+    color: white;
+    position: relative;
+}
+
+.navlinktext::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.navlink:hover .navlinktext::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbarholder {
+        width: 80vw;
+        height: 40px;
+        border-radius: 20px;
+    }
+    .navinitials {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+    .navlink {
+        font-size: 1em;
+    }
+    .navlinkholder {
+        gap: 20px;
+    }
+}
+/* --- Custom Cursor Styles --- */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+    transition:
+      width 0.2s ease,
+      height 0.2s ease,
+      border-color 0.2s ease,
+      background-color 0.2s ease,
+      transform 0.1s ease;
+  }
+  
+  /* Enlarges cursor on hover over interactive elements */
+  .cursor-hover {
+    width: 60px !important;
+    height: 60px !important;
+    border-color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(15px) opacity(80%);
+    -webkit-backdrop-filter: blur(15px) opacity(80%);
+  }
+  
+  /* Cursor changes to a vertical limegreen line when hovering over text */
+  .cursor-text-hover {
+    width: 2px !important;
+    height: 24px; /* Adjust the height to match your text line height */
+    background-color: limegreen;
+    border: none;
+    border-radius: 0;
+    transform: translate(-50%, -50%);
+    /* No transition for immediate effect */
+  }
+  
+  /* Ensure the custom cursor stays on top */
+  .custom-cursor {
+    z-index: 101;
+  }
+  .custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    /* Remove initial left/top positioning */
+    /* Instead, let JavaScript position it on the first mousemove */
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.1s ease;
+    
+    /* Start hidden */
+    opacity: 0;
+  }
+  /* Hide the default browser cursor on all elements */
+body, * {
+    cursor: none !important;
+  }
+  /* fadeIn.css */
+
+/* The initial state for all elements that should fade in.
+   They start with zero opacity and are shifted 30px downward. */
+.fade-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+  }
+  
+  /* When the element has the in-view class, it fades in and moves to its natural position */
+  .fade-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* --- Next Project Block Styling (match to Case Study 1) --- */
+.nextprojectwrapper {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nextprojectholder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    padding: 40px 60px;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+  }
+  
+  .nextthumbnailholder {
+    position: relative;
+    width: 15%;
+    height: 120px;
+    overflow: hidden;
+  }
+  
+  .nextthumbnailgradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+  }
+  
+  .div-block-405 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+  }
+  
+  .text-block-105 {
+    font-size: 40px;
+    font-weight: 400;
+    font-family: 'Rajdhani', sans-serif;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .text-block-106 {
+    font-size: 36px;
+    font-weight: 300;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+  }
+  
+  .image-145 {
+    width: 80px;
+    height: auto;
+    margin-left: 30px;
+  }
+  /* --- Scroll Effect for User Types Section --- */
+
+/* 
+   This class is added to the overlay+text container 
+   so we can animate it via JavaScript. 
+*/
+.scroll-animate {
+    /* Start them slightly up and left so they appear more "inclined" */
+    transform: translate(-40px, -40px);
+  
+    /* Some smoothing if desired (JS is overriding transform on scroll) */
+    transition: transform 0.1s ease-out;
+  }
+  /* Outer wrapper that centers the entire block */
+.nextprojectwrapper {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* The clickable block itself */
+  .nextprojectholder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;  /* or flex-start if you want the arrow closer */
+    width: 100%;
+    max-width: 1000px;              /* limit width so the block doesn't span full page */
+    margin: 0 auto;                 /* center horizontally within the wrapper */
+    text-decoration: none;
+    color: inherit;
+    padding: 40px 60px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Hover effect (optional) */
+  .nextprojectholder:hover {
+    background-color: rgba(0, 0, 0, 1);
+    transform: scale(1.02);
+  }
+  
+  /* The thumbnail area (if you have an image or gradient) */
+  .nextthumbnailholder {
+    position: relative;
+    width: 15%;
+    height: 120px;
+    overflow: hidden;
+  }
+  
+  /* Gradient overlay on the thumbnail */
+  .nextthumbnailgradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+  }
+  
+  /* Inner text + arrow container */
+  .div-block-405 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* or flex-end, or a gap, to move arrow around */
+    width: 85%;
+    gap: 20px; /* optional spacing between text & arrow */
+  }
+  
+  /* "View Next Project" heading */
+  .text-block-105 {
+    font-size: 40px;
+    font-weight: 400;
+    font-family: 'Rajdhani', sans-serif;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  /* Subheading, e.g. project name */
+  .text-block-106 {
+    font-size: 36px;
+    font-weight: 300;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+  }
+  
+  /* Arrow image styling */
+  .image-145 {
+    width: 60px;
+    height: auto;
+    margin-left: 0; /* reduce this to move arrow closer to text */
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .nextprojectholder {
+      flex-direction: column; /* stack text + arrow vertically */
+      text-align: center;
+      padding: 30px;
+    }
+  
+    .div-block-405 {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .image-145 {
+      margin-left: 0;
+      margin-top: 20px;
+      width: 50px;
+    }
+  
+    .text-block-105 {
+      font-size: 32px;
+    }
+    .text-block-106 {
+      font-size: 28px;
+    }
+  }
+  
+  @media (max-width: 430px) {
+    .text-block-105 {
+      font-size: 28px;
+    }
+    .text-block-106 {
+      font-size: 24px;
+    }
+    .image-145 {
+      width: 40px;
+    }
+  }
+  .grey-square {
+    background-color: #E9E9E9;
+    /* If you want it to always span the visible viewport width */
+    width: 100vw;
+    min-width: 1316px;     
+    height: 4650px;
+    overflow-x: auto; /* allow horizontal scroll if content is wider than 100vw */
+  
+    /* If you still want a minimum width, do it like this: 
+       min-width: 1316px; 
+       but that will force horizontal scroll on smaller devices. 
+       So you might NOT want that. */
+  }
+  

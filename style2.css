@@ -1,0 +1,958 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Rajdhani', sans-serif; 
+    cursor: none; 
+    background-color: #030303;
+    scroll-behavior: smooth;
+  }
+  
+  /* Optionally, apply it directly to specific sections to enforce it */
+  .home-section, .info-section, .contact-section, .case-studies {
+    overflow-x: hidden; /* Prevent horizontal overflow for these key elements */
+  }
+
+/* Custom Cursor styling */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%; /* Makes the cursor circular */
+  position: absolute;
+  pointer-events: none; /* Prevents the cursor from interfering with clicks */
+  z-index: 2; /* Ensures cursor is on top of other elements */
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Enlarges cursor on hover */
+.cursor-hover {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(255, 255, 255, 1);
+}
+
+/* Make sure the cursor follows the mouse position smoothly */
+.custom-cursor {
+  position: fixed;
+  transform: translate(-50%, -50%); /* Keeps cursor centered around mouse pointer */
+}
+
+/* WebGL Canvas for background animation */
+canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-color: transparent;
+  object-fit: contain; /* Maintains proportions */
+  border: none;
+  box-shadow: none;
+  transition: opacity 0.5s ease; /* Smooth opacity transitions */
+}
+
+/* Home Section containing all content at the top */
+.home-section {
+  min-height: 100vh; /* Takes up the full viewport height */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 50px; /* Adds spacing at the top */
+}
+
+/* Position the text to the left-middle of the viewport */
+.overlay {
+  position: absolute; /* Keeps the text fixed as you scroll */
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  z-index: 1;
+  color: white;
+  text-align: left;
+  transition: opacity 1s ease-out; /* Smooth fade effect */
+}
+
+/* Styling for the main header text (e.g., your name) */
+header h1 {
+  font-size: 3em;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Block containing the "I'm a designer" text and circle */
+.h2-designer-block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 50px;
+  position: relative;
+  top: -70px; /* Adjusts vertical position */
+  left: -57px; /* Adjust this value to move the entire block to the left */
+}
+
+/* Wrapper for the text animation inside the circle */
+.text-flip-wrapper {
+  position: relative;
+  margin-left: 10px; /* Space between "I'm a" and the circle */
+  margin-right: -50px; /* Closer space to "designer" */
+  display: inline-block;
+  width: 140px; /* Matches the width of the circle */
+  text-align: center; /* Centers the text horizontally */
+}
+
+/* Basic styling for the non-animated intro text */
+.intro-text {
+  font-size: 1.8em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin: 0;
+  font-family: 'Rajdhani', sans-serif; /* Ensure consistent font usage */
+}
+
+/* Styling for the animated role text (e.g., UX/UI, graphic) */
+.role {
+  font-family: 'Rajdhani', sans-serif; /* Consistent font usage */
+  font-weight: 300;
+  font-size: 1.8em;
+  margin: 0;
+  position: absolute;
+  opacity: 0; /* Start off invisible for the animation */
+  top: -17px; /* Adjust to keep text inside circle vertically */
+  left: -17%; /* Ensures horizontal alignment */
+  transform: translateX(-50%); /* Ensures text stays horizontally centered */
+  transition: transform 0.6s ease, opacity 0.6s ease; /* Smooth animation */
+  text-align: center; /* Centers the text horizontally */
+}
+
+/* Oval-shaped border around the animated text */
+.text-flip-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 140px; /* Circle width */
+  height: 40px; /* Circle height */
+  border: 2px solid rgba(255, 255, 255, 0.7); /* White transparent border */
+  border-radius: 50px;
+  top: -20px; /* Adjusts circle position vertically */
+  left: 0px; /* Centers the circle horizontally */
+  z-index: -1; /* Ensures the circle is behind the text */
+}
+
+/* Adjusts space between "I'm a" and the circle */
+.h2-designer-block .intro-text {
+  margin-right: 20px;
+}
+
+/* Adjusts space between the circle and "designer" */
+.h2-designer-block h2 {
+  margin-left: 60px; /* Add more space between the circle and "designer" */
+  font-size: 1.8em;
+  font-weight: 300;
+  font-family: 'Rajdhani', sans-serif; /* Keep consistent font */
+}
+
+/* Navigation list styles */
+nav ul {
+  list-style: none; /* Removes default list styling */
+  padding: 0;
+  margin: -80px 0 0;
+}
+
+/* List item for each link in the navigation */
+nav ul li {
+  margin: 10px 0;
+}
+
+/* Styles for the navigation links */
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: 300;
+  position: relative;
+  transition: color 0.3s ease, border-color 0.3s ease; /* Adds smooth transition */
+}
+
+/* Underline effect for hover on navigation links */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+/* Underline animation when hovering over navigation links */
+nav ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Scrollable Case Studies section */
+.case-studies {
+  padding: 0px 0px;
+  background: none;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 17px;
+  position: relative;
+}
+
+/* Case Studies content */
+.case-studies-content {
+  max-width: 600px;
+  padding-left: 30px;
+  margin-bottom: 100px;
+}
+
+/* Case Studies header */
+.case-studies h2 {
+  font-size: 3em;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+/* Case Studies list */
+.case-studies ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+/* Case Studies list items */
+.case-studies ul li {
+  margin: 10px 0;
+}
+
+/* Case Studies link styles */
+.case-studies ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative; /* Needed for the underline effect */
+}
+
+/* Underline effect for hover on case study links */
+.case-studies ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0); /* Initially hidden */
+  transform-origin: right;
+  transition: transform 0.3s ease; /* Smooth underline effect */
+}
+
+/* Show underline on hover for case studies */
+.case-studies ul li a:hover::after {
+  transform: scaleX(1); /* Underline expands on hover */
+  transform-origin: left; /* Expands from left to right */
+}
+
+/* Hover effect for Case Studies links */
+.case-studies ul li a:hover {
+  color: white;
+}
+/* Center the View Resume link in the education-experience section */
+.resume-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Resume Link Styling */
+.resume-link a {
+  font-size: 1.5em;
+  font-weight: 300;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Underline Effect for Resume Link */
+.resume-link a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.resume-link a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Ensures smooth opacity transitions for the background canvas */
+canvas {
+  transition: opacity 0.5s ease;
+}
+/* Contact Section */
+.contact-section {
+    padding: 50px 30px;
+    background: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 30px;
+  }
+  
+  /* Contact Section Title */
+  .contact-section h2 {
+    font-size: 3em;
+    font-weight: 300;
+    margin-bottom: 20px;
+    padding-left: 17px;
+    font-family: 'Rajdhani', sans-serif;
+  }
+  
+  /* Contact links (Email and LinkedIn) */
+  .contact-section ul li a {
+    font-size: 1.5em;
+    font-weight: 300;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-left: 17px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Underline effect for Email and LinkedIn */
+  .contact-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  /* Add spacing between Email and LinkedIn */
+  .contact-section ul li {
+    margin-bottom: 20px; /* Adds space between email and LinkedIn */
+  }
+  
+  /* Adding space below the contact section */
+#contact-section {
+    padding-bottom: 0px; /* Adjust this value for more/less space */
+  }
+  
+  
+/* Custom cursor over the navbar */
+.custom-cursor {
+  z-index: 101; /* Ensure the custom cursor stays above the navbar */
+}
+
+html {
+  scroll-behavior: smooth; /* Enables smooth scrolling across the page */
+}
+
+.scroll-fa.contde {
+  transition: opacity 1s ease-out;
+}
+/* Case Studies Grid Styling */
+.case-studies {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background: none;
+  color: white;
+  width: 100%;
+  margin: 0;
+}
+
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0; /* No space between each box */
+  width: 100%; /* Full width of the page */
+}
+
+/* Individual Case Study Box Styling */
+.case-study-box {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 400px; /* Height for larger boxes */
+font-size: 2em; /* Larger font size */
+font-weight: 300;
+font-family: 'Rajdhani', sans-serif;
+color: rgb(24, 23, 23); /* Default text color */
+text-align: center;
+border-radius: 0; /* No rounded corners */
+overflow: hidden; /* Ensures content does not overflow the box */
+position: relative;
+text-decoration: none; /* Remove underlining from the case study links */
+background-color: #fafafc; /* Default background color matching Case Study 2 */
+transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Image Styling for Case Studies */
+.case-study-1 img,
+.case-study-2 img,
+.case-study-3 img {
+width: 250%; /* Increase the width to make the image appear larger */
+height: 250%; /* Increase the height to make the image appear larger */
+object-fit: cover; /* Ensures the image covers the entire area without distortion */
+position: absolute; /* Absolute positioning to center the enlarged image */
+top: 50%; /* Start centering vertically */
+left: 50%; /* Start centering horizontally */
+transform: translate(-50%, -50%); /* Properly centers the image */
+pointer-events: none; /* Prevents image from blocking hover */
+}
+
+/* Hover Effect for Case Study Boxes */
+.case-study-box:hover {
+background-color: #060606; /* Darker hover color matching Case Study 2 */
+color: white; /* Text color changes to white on hover */
+}
+
+/* Text color changes on hover */
+.case-study-box:hover h2, 
+.case-study-box:hover p {
+color: white; /* Ensures text color is white on hover */
+}
+
+/* Remove underline effect from case study links */
+.case-study-link {
+text-decoration: none; /* Remove underline from link itself */
+}
+
+.case-study-link:hover {
+text-decoration: none; /* Remove underline on hover */
+}
+
+/* Enlarged Cursor Effect on Case Study Boxes */
+.case-study-box:hover ~ .custom-cursor,
+.case-study-box:hover .custom-cursor {
+width: 60px; /* Enlarged width */
+height: 60px; /* Enlarged height */
+border-color: rgba(255, 255, 255, 1); /* Makes cursor border solid white */
+transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease; /* Smooth transition */
+}
+
+/* Navigation Bar Container */
+.navbarholder {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 600px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 50px;
+  border: 2px solid rgb(52, 51, 51);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  transition: all 0.3s ease;
+}
+
+/* Nav Initials on the Left */
+.navinitials {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Nav Content Holder */
+.navcontentholder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Navigation Links Holder */
+.navlinkholder {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end;
+}
+
+/* Navigation Links */
+.navlink {
+  text-decoration: none;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  color: white;
+  position: relative;
+}
+
+.navlinktext::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.navlink:hover .navlinktext::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Responsiveness for the Navbar */
+@media (max-width: 768px) {
+  .navbarholder {
+    width: 80vw; /* Adjust width for smaller screens */
+    height: 40px; /* Adjust height */
+  }
+
+  .navinitials {
+    font-size: 1em; /* Smaller font size for initials */
+  }
+
+  .navlink {
+    font-size: 1em; /* Smaller font size for nav links */
+  }
+
+  .navlinkholder {
+    gap: 20px; /* Reduce gap between links */
+  }
+}
+/* About Me Section */
+.about-me {
+  flex: 1;
+  max-width: 50%; /* Ensures the paragraph extends across half the page */
+  padding-right: 0; /* Removes extra padding on the right */
+  margin-right: 0; /* Ensures no margin on the right */
+  padding-left: 20px; /* Adds padding to align with the 'About Me' text */
+  text-align: left; /* Aligns text to the left */
+}
+
+/* Info Wrapper to align About Me, Education, and Experience */
+.info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+/* Heading and Paragraph Alignment */
+.info-section h2,
+.about-me h2 {
+  padding-left: 20px; /* Ensure the left padding matches for headings */
+}
+
+.about-me p,
+.info-content p {
+  padding-left: 20px; /* Align the left side of the paragraph with the heading */
+}
+/* Education and Experience Section */
+.education-experience {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 40%; /* Takes up a bit more width for proper alignment */
+  margin-right: 0; /* Aligns the sections closer to the right */
+  padding-left: 50px; /* Moves the Education and Experience sections more to the right */
+}
+
+/* Heading Alignment for Education and Experience */
+.education h2,
+.experience h2 {
+  padding-left: 0; /* Align headers to the left edge of the section */
+  margin-left: 0; /* Remove any left margin to ensure proper alignment */
+}
+
+/* Text Alignment for Education and Experience content */
+.education p,
+.experience p {
+  padding-left: 0; /* Ensure the text under the headers aligns perfectly with them */
+  margin-left: 0; /* Remove left margin to match the headers */
+}
+
+/* Move Experience section up by reducing the top margin */
+.experience {
+  margin-top: -70px; /* Move the Experience section closer to Education */
+}
+
+/* List items under Experience section */
+.experience ul {
+  padding-left: 0; /* Ensure list items align with the header */
+  margin-left: 0; /* Remove left margin */
+}
+
+.experience ul li {
+  padding-left: 0; /* Align each list item with the header */
+  margin-left: 0; /* Remove left margin for list items */
+}
+/* Centered Resume Link */
+.resume-link {
+  width: 100%; /* Full width of the page */
+  text-align: center; /* Centers the link in the middle of the page */
+  margin-top: 20px; /* Adds space between the sections and the link */
+}
+
+.resume-link a {
+  font-size: 3em; /* Same font size as 'Kai Solik' */
+  font-weight: 300; /* Not bold */
+  font-family: 'Rajdhani', sans-serif; /* Same font as the rest */
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.resume-link a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.resume-link a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.resume-link a:hover {
+  color: white; /* Ensures no color change on hover */
+}
+
+/* About Me Section */
+.about-me {
+  flex: 1;
+  max-width: 80%; /* Matches width to the rest of the page */
+  margin-right: auto; /* Aligns text to the left */
+  margin-left: auto; /* Centers content horizontally */
+  padding-left: 20px; /* Adds padding to align with the 'About Me' text */
+  text-align: left; /* Aligns text to the left */
+}
+
+/* Education and Experience Section */
+.education-experience {
+  flex: 1;
+  max-width: 100%; /* Matches width to the rest of the page */
+  margin-left: 0px;
+  margin-right: 0px; /* Centers content horizontally */
+  padding-left: px; /* Aligns content with the rest of the page */
+  text-align: left; /* Aligns text to the left */
+}
+
+/* Education and Experience Paragraphs and List Items */
+.education p, .experience p, .experience ul, .experience ul li {
+  max-width: 95%; /* Ensure full width alignment */
+  padding-left: 0; /* Aligns the text with the rest of the page */
+  text-align: left; /* Aligns text to the left */
+  margin-left: 0; /* Removes any unintended margins */
+  list-style-position: inside; /* Ensures bullets are aligned with text */
+}
+/* Case Studies Grid Styling for larger screens */
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
+  gap: 0; /* No space between the squares */
+  width: 100%; /* Full width of the page */
+}
+
+/* Ensures the case study boxes maintain their square aspect ratio */
+.case-study-box {
+  width: 100%;
+  padding-bottom: 100%; /* Keeps the square aspect ratio */
+  position: relative; /* Ensure image stays within box */
+  overflow: hidden; /* Prevents overflow of image */
+}
+
+/* Responsive Image Inside the Square */
+.case-study-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the square while keeping its aspect ratio */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Responsive Case Studies Grid for smaller screens (768px and below) */
+@media (max-width: 768px) {
+  .case-studies-grid {
+    grid-template-columns: 1fr; /* 1 column layout for smaller screens */
+    gap: 0; /* No space between the squares */
+  }
+
+  .case-study-box {
+    width: 100%; /* Full width of the grid */
+    padding-bottom: 100%; /* Square aspect ratio */
+  }
+}
+
+/* Further adjustment for very small screens (phone size, 430px and below) */
+@media (max-width: 430px) {
+  .case-studies-grid {
+    grid-template-columns: 1fr; /* 1 column layout for phone screens */
+    gap: 0; /* No space between the squares */
+  }
+
+  .case-study-box {
+    width: 100%; /* Full width */
+    padding-bottom: 100%; /* Square aspect ratio */
+  }
+/* Make images smaller specifically for phone screens */
+.case-study-box img {
+  width: 50%; /* Manually control the image width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the image scales properly */
+  margin-left: auto; /* Centers image horizontally */
+  margin-right: auto; /* Centers image horizontally */
+  position: absolute;
+  bottom: 10px; /* Positions the image near the bottom */
+  left: 50%; /* Aligns image to the horizontal center */
+  transform: translateX(-50%); /* Centers the image horizontally */
+}
+
+/* You can adjust these properties to control image size manually */
+@media (max-width: 430px) {
+  .case-study-box img {
+    width: 10%; /* Change this to control the image size */
+    bottom: 20px; /* Adjust bottom position as needed */
+  }
+}
+}
+/* For screens 768px and below */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center; /* Center sections horizontally */
+    width: 90%; /* Set width to 90% of the page */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 20px 0; /* Add top and bottom padding */
+  }
+
+  .about-me, .education-experience {
+    width: 100%; /* Ensure full width of the parent container */
+    max-width: 100%; /* No width limitations */
+    text-align: left; /* Keep text left-aligned */
+    margin-bottom: 20px; /* Add space between sections */
+  }
+
+  .about-me p, .education p, .experience p, .experience ul li {
+    font-size: 16px; /* Maintain readable font size */
+    line-height: 1.8; /* Set consistent line height */
+    word-wrap: break-word; /* Ensure text wraps properly */
+    width: 90%; /* Ensure the text takes the full width */
+    box-sizing: border-box; /* Ensure padding doesn't add to total width */
+  }
+
+  .education-experience ul {
+    padding-left: 20px; /* Indent bullet points slightly */
+    list-style-position: inside;
+  }
+
+  .education-experience ul li {
+    margin-bottom: 10px; /* Space between bullet points */
+  }
+}
+
+/* For smaller screens 430px and below */
+@media (max-width: 430px) {
+  .contact-content {
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center; /* Center sections horizontally */
+    width: 90%; /* Set width to 90% of the page */
+    margin: 0 auto;
+    padding: 10px 0; /* Add top and bottom padding */
+  }
+
+  .about-me, .education-experience {
+    width: 100%; /* Ensure full width of the parent container */
+    max-width: 100%; /* No width limitations */
+    text-align: left; /* Keep text left-aligned */
+    margin-bottom: 15px; /* Adjust spacing between sections */
+  }
+
+  .about-me p, .education p, .experience p, .experience ul li {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    line-height: 1.6; /* Adjust line height */
+    word-wrap: break-word; /* Ensure text wraps properly */
+    width: 90%; /* Ensure the text takes the full width */
+    box-sizing: border-box; /* Ensure padding doesn't add to total width */
+  }
+
+  .education-experience ul {
+    padding-left: 20px; /* Indent bullet points slightly */
+    list-style-position: inside;
+  }
+
+  .education-experience ul li {
+    margin-bottom: 10px; /* Space between bullet points */
+  }
+}
+/* Custom Cursor styling */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background-color: transparent; /* Make the background transparent */
+  border-radius: 50%; /* Makes the cursor circular */
+  position: fixed; /* Use fixed positioning */
+  pointer-events: none; /* Prevents the cursor from interfering with clicks */
+  z-index: 101; /* Ensure the custom cursor stays above other elements */
+  transform: translate(-50%, -50%); /* Keeps cursor centered around mouse pointer */
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    border-radius 0.2s ease,
+    transform 0.1s ease,
+    backdrop-filter 0.2s ease,
+    -webkit-backdrop-filter 0.2s ease; /* For Safari */
+}
+
+/* Enlarges cursor on hover over interactive elements */
+.cursor-hover {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(255, 255, 255, 1);
+
+  /* Apply blur effect and decrease opacity under the cursor */
+  backdrop-filter: blur(15px) opacity(80%);
+  -webkit-backdrop-filter: blur(15px) opacity(80%); /* For Safari */
+}
+
+/* Apply the opacity and blur to the small cursor as well */
+.custom-cursor:not(.cursor-hover):not(.cursor-text-hover) {
+  /* Apply a smaller blur and opacity reduction for the small cursor */
+  backdrop-filter: blur(10px) opacity(80%);
+  -webkit-backdrop-filter: blur(10px) opacity(80%);
+}
+
+/* Cursor changes to vertical lime green line when hovering over text */
+.cursor-text-hover {
+  width: 2px !important; /* Make the cursor a thin vertical line */
+  height: auto; /* Allow height to be set dynamically */
+  background-color: limegreen; /* Set the color to lime green */
+  border: none; /* Remove the border */
+  border-radius: 0; /* Remove the border radius to make it a straight line */
+  backdrop-filter: none; /* Remove blur and opacity effect */
+  -webkit-backdrop-filter: none;
+  transition: none; /* Remove transitions for immediate response */
+}
+
+/* Ensure the custom cursor stays above the navbar */
+.custom-cursor {
+  z-index: 101;
+}
+/* Case Study Link Styling */
+.case-study-link {
+  text-decoration: none;
+}
+
+/* Case Study Box Styling */
+.case-study-box {
+  transition: transform 0.5s ease, color 0.5s ease; /* Slower transition for transform and color */
+  transform-origin: center; /* Ensure it grows from the center */
+}
+
+.case-study-box img {
+  transition: transform 0.5s ease; /* Slower transition for the image scaling */
+}
+
+.case-study-box h2, 
+.case-study-box p {
+  transition: color 0.5s ease; /* Slower transition for text color */
+}
+
+/* Hover Effect for Case Study Box */
+.case-study-box:hover {
+  transform: scale(1.05); /* Slightly increase the size of the box */
+}
+
+.case-study-box:hover img {
+  transform: scale(1.1); /* Slightly increase the size of the image */
+}
+
+.case-study-box:hover h2,
+.case-study-box:hover p {
+  color: white; /* Change text color to white */
+}
+/* Case Study Box Styling */
+.case-study-box {
+  transition: background-color 0.8s ease, color 0.8s ease, transform 0.8s ease; /* Smooth, slower transition for box and text */
+  transform-origin: center; /* Ensures scaling originates from the center */
+}
+
+.case-study-box img {
+  transition: transform 0.8s ease; /* Smooth, slower transition for image scaling */
+}
+
+.case-study-box h2, 
+.case-study-box p {
+  transition: color 0.8s ease; /* Smooth, slower transition for text color */
+}
+
+/* Hover Effect for Case Study Box */
+.case-study-box:hover {
+  transform: scale(1.05); /* Slightly increase the size of the box */
+  background-color: #060606; /* Darker hover color */
+  color: white; /* Change text color to white */
+}
+
+.case-study-box:hover img {
+  transform: scale(1.1); /* Slightly increase the size of the image */
+}
+
+.case-study-box:hover h2,
+.case-study-box:hover p {
+  color: white; /* Change text color to white */
+}
+.case-study-2 img {
+  position: absolute;
+  top: calc(60% + 20px); /* Adjust the 20px value to move it further down */
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

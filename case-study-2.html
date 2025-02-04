@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Case Study 2 – Takomo Golf Online Golf Fitting</title>
+    <!-- Import the Rajdhani font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@100;300;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Your main stylesheet and fadeIn if needed -->
+    <link rel="stylesheet" href="case-study-2.css" />
+    <link rel="stylesheet" href="fadeIn.css" />
+  </head>
+  <body>
+    <div class="navbarholder">
+      <div class="navcontentholder">
+        <!-- Initials on the Left -->
+        <div class="navinitials">
+          <a href="index2.html#top" class="navlink">
+            <div class="navlinktext">KS</div>
+          </a>
+        </div>
+        <!-- Navigation Links -->
+        <div class="navlinkholder">
+          <a href="index2.html#case-studies-section" class="navlink">
+            <div class="navlinktext">Projects</div>
+          </a>
+          <a href="index2.html#info-section" class="navlink">
+            <div class="navlinktext">Info</div>
+          </a>
+          <a href="index2.html#contact-section" class="navlink">
+            <div class="navlinktext">Contact</div>
+          </a>
+          <a href="fun.html" class="navlink">
+            <div class="navlinktext">Fun</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Cursor Element -->
+    <div class="custom-cursor"></div>
+
+    <!-- Black Background Container (fixed height 800px) -->
+    <!-- Inline style with background-color: black -->
+    <div class="black-background" style="height: 800px; background-color: black; min-width: 1400px;">
+      <div class="cover-title">Takomo Golf Online Golf Fitting</div>
+      <img
+        src="Casestudy2introimg.png"
+        alt="Case Study Intro Image"
+        class="cover-image"
+      />
+    </div>
+
+    <!-- Grey Background Container (fixed height 4650px) -->
+    <!-- Inline style with background-color: #E9E9E9 to ensure grey is visible -->
+    <div class="grey-background" style="height: 4650px; background-color: #E9E9E9; min-width: 1400px; padding-top: 100px;">
+      <!-- Context Section -->
+      <div class="context-section">
+        <div class="context-title">Context</div>
+        <div class="context-text">
+          This project was completed as part of a half-semester assignment for
+          the Human-Computer Interaction course at the University of
+          Wisconsin-Madison. Over several weeks, the design process progressed
+          from initial UX research and contextual inquiry to usability testing
+          and the creation of a high-fidelity prototype. The final design,
+          developed in Figma, was crafted to align seamlessly with Takomo Golf's
+          existing brand identity and website template.
+        </div>
+      </div>
+      <!-- Design Process Section -->
+      <div class="design-process-section">
+        <div class="design-process-title">Behind the Design Process</div>
+        <div class="design-columns">
+          <div class="design-column">
+            <div class="design-column-title">What I did</div>
+            <div class="design-column-text">
+              Visual Design<br />
+              UI Design<br />
+              Prototyping<br />
+              Usability Testing<br />
+              Brand Integration
+            </div>
+          </div>
+          <div class="design-column">
+            <div class="design-column-title">What I used</div>
+            <div class="design-column-text">
+              Figma<br />
+              Adobe Illustrator<br />
+              Adobe Photoshop
+            </div>
+          </div>
+          <div class="design-column">
+            <div class="design-column-title">More</div>
+            <div class="design-column-text">
+              Type: Group Project<br />
+              Duration: 5 weeks<br />
+              Client: Takomo Golf<br />
+              Time: September - October 2024
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Introduction Section -->
+      <div class="intro-section">
+        <div class="section-title">Introduction</div>
+        <div class="section-text">
+          Takomo Golf, a new golf company founded in 2019, has started to gain
+          significant popularity in recent years for its high-quality equipment
+          and modern approach to the sport. However, their website still lacks
+          certain features compared to top competitors in the industry, such as
+          an online golf fitting tool. To address this gap, our team focused on
+          designing a personalized and accessible online fitting application. By
+          leveraging insights from user research and iterative design, we
+          developed a high-fidelity prototype that aligns seamlessly with Takomo
+          Golf’s brand identity.
+        </div>
+      </div>
+      <!-- Problem Section -->
+      <div class="problem-section">
+        <div class="section-title">Problem</div>
+        <div class="section-text">
+          The process of fitting golf clubs can be inaccessible for many golfers
+          due to the lack of convenient online tools. Existing tools often feel
+          impersonal, leaving users unsure about the recommendations they
+          receive. Takomo Golf’s website lacked this feature altogether,
+          limiting its ability to compete with larger brands offering these
+          services.
+        </div>
+      </div>
+      <!-- Goal Section -->
+      <div class="goal-section">
+        <div class="section-title">Goal</div>
+        <div class="section-text">
+          Design and prototype an online fitting application that seamlessly
+          integrates with Takomo Golf’s existing site (both visually and
+          functionally) and helps golfers of all skill levels select the best
+          clubs for their game.
+        </div>
+      </div>
+      <!-- Contextual Inquiry Section -->
+      <div class="contextual-inquiry-section">
+        <div class="contextual-inquiry-title">Contextual Inquiry</div>
+        <div class="contextual-inquiry-text">
+          We conducted a contextual inquiry with primary users (experienced
+          golfers) and secondary users (new golfers), excluding non-golfers.
+          After the interviews, we created models (flow, sequence, and cultural)
+          to map user interactions and uncover insights, ensuring the design met
+          the needs of active golfers.
+        </div>
+      </div>
+      <!-- User Types Section -->
+      <div class="user-types-section">
+        <!-- PRIMARY BOX -->
+        <div class="primary-box">
+          <div class="primary-bg"></div>
+          <!-- Wrapper for the white overlay & text -->
+          <div class="primary-overlay-container scroll-animate">
+            <div class="primary-overlay"></div>
+            <div class="primary-text">
+              <span class="user-header">Primary Users</span><br /><br />
+              <span class="user-subtitle">Experienced Golfers</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECONDARY BOX -->
+        <div class="secondary-box">
+          <div class="secondary-bg"></div>
+          <!-- Wrapper for the white overlay & text -->
+          <div class="secondary-overlay-container scroll-animate">
+            <div class="secondary-overlay"></div>
+            <div class="secondary-text">
+              <span class="user-header">Secondary Users</span><br /><br />
+              <span class="user-subtitle">New Golfers</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXCLUDED BOX -->
+        <div class="excluded-box">
+          <div class="excluded-bg"></div>
+          <!-- Wrapper for the white overlay & text -->
+          <div class="excluded-overlay-container scroll-animate">
+            <div class="excluded-overlay"></div>
+            <div class="excluded-text">
+              <span class="user-header">Excluded Users</span><br /><br />
+              <span class="user-subtitle">Non golfers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Maps Section -->
+      <div class="maps-section">
+        <div class="maps-inner">
+          <div class="maps-title">Maps</div>
+          <img
+            class="maps-img"
+            src="User Journey Map 1.png"
+            alt="User Journey Map 1"
+          />
+        </div>
+        <img class="maps-img-2" src="cs2userflow.png" alt="CS2 User Flow" />
+      </div>
+      <!-- Findings Section -->
+      <div class="findings-section">
+        <!-- Findings Text Block -->
+        <div class="findings-text-block">
+          <div class="findings-title">Findings</div>
+          <div class="findings-description">
+            Golfers want detailed recommendations to justify high-cost
+            purchases, but limited questions reduce confidence. A clean,
+            intuitive design is essential for usability, while trust in
+            recommendations prevents users from seeking validation elsewhere.
+            The tool’s flexibility for home use is convenient but can lead to
+            mistakes if the process isn’t clear.
+          </div>
+        </div>
+        <!-- Icons Block -->
+        <div class="findings-icons">
+          <div class="icon-box">
+            <div class="icon-emoji">🧐</div>
+            <div class="icon-label">Detailed recommendations</div>
+          </div>
+          <div class="icon-box">
+            <div class="icon-emoji">🫧</div>
+            <div class="icon-label">Clean design</div>
+          </div>
+          <div class="icon-box">
+            <div class="icon-emoji">🤝</div>
+            <div class="icon-label">Trust</div>
+          </div>
+          <div class="icon-box">
+            <div class="icon-emoji">🫥</div>
+            <div class="icon-label">Clear</div>
+          </div>
+        </div>
+      </div>
+      <!-- Takeaway Section -->
+      <div class="takeaway-section">
+        <div class="takeaway-title">Takeaway</div>
+        <div class="takeaway-text">
+          A key takeaway from our contextual inquiry, models, and findings was
+          the importance of creating a tool that combines detailed,
+          trust-building recommendations, a simple and intuitive interface, and
+          clear guidance throughout the process. Addressing these elements would
+          ensure the tool meets the diverse needs of both experienced and new
+          golfers while maintaining accessibility and usability in various
+          settings.
+        </div>
+      </div>
+      <!-- HMW Statement Section -->
+      <div class="hmw-statement-section">
+        <div class="hmw-statement-title">HMW Statment</div>
+        <div class="hmw-statement-text">
+          How might we create a trustworthy and user-friendly online golf
+          fitting tool that provides personalized recommendations?
+        </div>
+      </div>
+      <!-- Our Approach Section -->
+      <div class="our-approach-section">
+        <div class="our-approach-title">Our Approach</div>
+        <div class="our-approach-text">
+          A step-by-step web-based design was the best solution to address user
+          needs for an intuitive and trustworthy online golf fitting tool. This
+          format allowed users to navigate easily, track their progress, and
+          make informed decisions, all while maintaining consistency with Takomo
+          Golf’s brand identity.<br />
+          We incorporated user feedback and implemented features to enhance
+          clarity, trust, and usability throughout the tool.<br /><br />
+          Key Points:
+          <ul class="our-approach-bullets">
+            <li>
+              Clear step-by-step pages with progress indicators and back buttons
+              for easy navigation.
+            </li>
+            <li>
+              Detailed club recommendations with specs for options like IRON
+              101T and comparisons to alternatives like IRON 201.
+            </li>
+            <li>
+              A clean layout with a simple color palette, large buttons, and
+              labels to simplify the user journey.
+            </li>
+            <li>
+              Transparent explanations to build trust and confidence in the
+              recommendations.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Low-Fidelity Screens & Prototype Section -->
+      <div class="lowfi-prototype-section">
+        <div class="section-title">Low-Fidelity Screens & Prototype</div>
+        <div class="section-text">
+          The low-fidelity prototyping phase began with sketching wireframes to
+          outline the user journey and establish a clear structure for the
+          online fitting tool. These wireframes guided the creation of
+          interactive low-fi designs, focusing on simple layouts, intuitive
+          navigation, and essential input fields like sliders and dropdowns.
+          This stage allowed us to test the user flow and identify pain points
+          early, setting a solid foundation for refinement in the high-fidelity
+          phase.
+        </div>
+      </div>
+      <!-- Low-Fidelity Prototype Image Section -->
+      <div class="lowfi-proto-image-section">
+        <img
+          class="lowfi-proto-image"
+          src="lowfiproto 1.png"
+          alt="Low-Fidelity Prototype Image"
+        />
+      </div>
+      <!-- Final Screens & Prototype Section -->
+      <div class="final-section">
+        <div class="section-title">Final Screens & Prototype</div>
+        <div class="section-text">
+          Our final prototype reflects user insights and fully aligns with
+          Takomo Golf's brand identity. We streamlined the experience by
+          removing the AI swing analysis, refining question wording, and
+          applying a cohesive color scheme and typography from the Takomo style
+          guide. Each screen features a background image that immerses users in
+          a lush golf course, making it feel like a real professional iron
+          fitting. The result is a clean, user-friendly interface that delivers
+          personalized iron recommendations, bridging convenience and quality.
+        </div>
+      </div>
+      <!-- Get Started Page Section -->
+      <div class="getstarted-section">
+        <img
+          class="getstarted-img"
+          src="START PAGE 1.png"
+          alt="Get Started Page"
+        />
+        <div class="getstarted-text">Get Started Page</div>
+      </div>
+      <!-- Step 1: Age & Gender Section -->
+      <div class="step1-section">
+        <img class="step1-img" src="STEP1 1.png" alt="Step 1: Age & Gender" />
+        <div class="step1-text">
+          Step 1: Age & Gender  Understanding a golfer’s age and gender helps
+          determine physical strength, flexibility, and potential swing
+          tendencies. This information can influence shaft selection, club
+          weight, and forgiveness level, ensuring the recommended iron set is
+          suited to the player's general capabilities.
+        </div>
+      </div>
+      <!-- Step 2: Hand & Height Section -->
+      <div class="step2-section">
+        <img class="step2-img" src="STEP2 1.png" alt="Step 2: Hand & Height" />
+        <div class="step2-text">
+          Step 2: Hand & Height  Knowing the golfer’s dominant hand ensures the
+          correct club orientation, while height helps determine the proper club
+          length and lie angle. A golfer’s height relative to arm length affects
+          how they address the ball, making it essential for a comfortable and
+          efficient swing.
+        </div>
+      </div>
+      <!-- Step 3: Handicap or Typical Score Section -->
+      <div class="step3-section">
+        <img
+          class="step3-img"
+          src="STEP3 1.png"
+          alt="Step 3: Handicap or Typical Score"
+        />
+        <div class="step3-text">
+          Step 3: Handicap or Typical Score  A golfer’s handicap or average
+          score provides insight into their skill level. Higher-handicap players
+          may benefit from more forgiving irons with larger sweet spots, while
+          lower-handicap players may need more precision and workability in
+          their clubs.
+        </div>
+      </div>
+      <!-- Step 4: Longest Iron You Can Hit Section -->
+      <div class="step4-section">
+        <img
+          class="step4-img"
+          src="STEP4 1.png"
+          alt="Step 4: Longest Iron You Can Hit"
+        />
+        <div class="step4-text">
+          Step 4: Longest Iron You Can Hit  This question helps assess a
+          golfer’s ability to hit longer irons, which require more ball-striking
+          skill. Players who struggle with long irons may be better suited for
+          hybrids or higher-lofted irons, while better ball strikers may prefer
+          traditional long irons.
+        </div>
+      </div>
+      <!-- Step 5: Distance Your 7-Iron Carries Section -->
+      <div class="step5-section">
+        <img
+          class="step5-img"
+          src="STEP5 1.png"
+          alt="Step 5: Distance Your 7-Iron Carries"
+        />
+        <div class="step5-text">
+          Step 5: Distance Your 7-Iron Carries  The carry distance of a 7-iron
+          is a strong indicator of a golfer’s overall power and swing speed.
+          This data helps fitters determine loft gaps, shaft flex, and clubhead
+          design that will best optimize distance and control.
+        </div>
+      </div>
+      <!-- Steps 6-9 Section -->
+      <div class="step6-9-section">
+        <img
+          class="step6-img"
+          src="STEP6 1.png"
+          alt="Step 6: Top 3 Iron Characteristics"
+        />
+        <img class="step7-img" src="STEP7 1.png" alt="Step 7: Ball Flight" />
+        <img class="step8-img" src="STEP8 1.png" alt="Step 8: Shot Shape" />
+        <img class="step9-img" src="STEP9 1.png" alt="Step 9: Swing Speed" />
+
+        <div class="step6-text">
+          Step 6: Top 3 Iron Characteristics  By selecting their preferred
+          characteristics, such as forgiveness, feel, or workability, golfers
+          can prioritize what matters most to their game. This allows the
+          fitting to be customized to match their playing style and personal
+          preferences.
+        </div>
+
+        <div class="step8-text">
+          Step 8: Shot Shape  Shot shape helps fitters understand a golfer’s
+          natural ball movement (fade, draw, or straight). This information can
+          be used to recommend irons with weighting or offset that help correct
+          ball flight or enhance natural shot tendencies.
+        </div>
+
+        <div class="step7-text">
+          Step 7: Ball Flight  A golfer’s typical ball flight—whether high, low,
+          or mid—affects the recommended iron set. Players who hit the ball too
+          high may benefit from stronger-lofted clubs, while those who struggle
+          to get the ball in the air may need irons with a lower center of
+          gravity.
+        </div>
+
+        <div class="step9-text">
+          Step 9: Swing Speed  Swing speed directly influences shaft flex and
+          club selection. A faster swing speed often requires a stiffer shaft
+          for control, while a slower swing speed benefits from more flexible
+          shafts that help generate additional launch and distance.
+        </div>
+      </div>
+      <!-- Page 10: Iron Recommendations Section -->
+      <div class="iron-recs-section">
+        <div class="iron-recs-images">
+          <img
+            class="iron-recs-img"
+            src="STEP10 1.png"
+            alt="Iron Recommendation 1"
+          />
+          <img
+            class="iron-recs-img"
+            src="STEP11 1.png"
+            alt="Iron Recommendation 2"
+          />
+        </div>
+        <div class="iron-recs-text">
+          Page 10: Iron Recommendations  Based on all collected data, the final
+          page provides three tailored iron recommendations that best suit the
+          golfer’s physical attributes, skill level, and playing preferences.
+          These recommendations optimize performance, consistency, and overall
+          enjoyment of the game.
+        </div>
+      </div>
+      <!-- Style Guide Section -->
+      <div class="styleguide-section">
+        <img class="styleguide-img" src="styleguidecs.png" alt="Style Guide" />
+      </div>
+      <!-- Place this below the styleguide.png section -->
+      <div class="nextprojectwrapper">
+        <a href="case-study-3.html" class="nextprojectholder">
+          <div class="nextthumbnailholder">
+            <div class="nextthumbnailgradient"></div>
+          </div>
+          <div class="div-block-405">
+            <div class="nexttextholder">
+              <div class="text-block-105">View Next Project</div>
+              <div>
+                <div class="text-block-106">RICHIE'S Logo & Brand Design</div>
+              </div>
+            </div>
+            <div>
+              <img
+                src="https://cdn.prod.website-files.com/5df3776e014f2458a4afac9c/6292f41eddc7b2a2582f0862_arrow_AcidGrotesk.svg"
+                loading="lazy"
+                alt="Next Project Arrow"
+                class="image-145"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- FOOTER / CONTACT Section -->
+      <footer id="contact-section" class="footer-section">
+        <div class="footer-content">
+          <h2 class="footer-title">Contact</h2>
+          <ul class="footer-links">
+            <li>
+              <a href="mailto:solikkai41@gmail.com" class="contact-link">
+                Email: solikkai41@gmail.com
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/kai-solik/"
+                target="_blank"
+                class="contact-link"
+              >
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+        </div>
+        <hr class="footer-hr" />
+        <div class="footer-copyright">
+          © 2024 Kai Solik. All Rights Reserved.
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="case-study-cursor.js"></script>
+    <script src="fadeIn.js"></script>
+
+    <!-- Scroll Animation Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const scrollItems = document.querySelectorAll('.user-types-section .scroll-animate');
+        const section = document.querySelector('.user-types-section');
+
+        function animateOnScroll() {
+          if (!section) return;
+
+          // get boundingClientRect of the user-types-section
+          const rect = section.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          const sectionHeight = rect.height;
+
+          // define 'start' and 'end' so we can clamp the motion
+          //  - start: top edge just at bottom of viewport
+          //  - end:   bottom edge just at top of viewport
+          const start = windowHeight;
+          const end = -sectionHeight;
+
+          // 0 -> top of section enters
+          // 1 -> bottom fully leaves the viewport
+          let amount = (rect.top - start) / (end - start);
+
+          // clamp between 0 and 1
+          if (amount < 0) amount = 0;
+          if (amount > 1) amount = 1;
+
+          // Our initial offset is -40 (x & y), final offset is 0
+          const offsetX = -40 * (1 - amount);
+          const offsetY = -40 * (1 - amount);
+
+          // apply the transform to each .scroll-animate container
+          scrollItems.forEach(item => {
+            item.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+          });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        // run once on load
+        animateOnScroll();
+      });
+    </script>
+  </body>
+</html>

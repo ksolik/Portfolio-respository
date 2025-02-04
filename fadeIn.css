@@ -1,0 +1,39 @@
+/* fadeIn.css */
+
+/* Apply initial fade settings to all the targeted elements */
+.black-square,
+.cover-title,
+.context-section,
+.design-process-section,
+.intro-section,
+.problem-section,
+.goal-section,
+.contextual-inquiry-section,
+.user-types-section,
+.maps-section,
+.findings-section,
+.takeaway-section,
+.hmw-statement-section,
+.our-approach-section,
+.lowfi-prototype-section,
+.final-section,
+.getstarted-section,
+.step1-section,
+.step2-section,
+.step3-section,
+.step4-section,
+.step5-section,
+.step6-9-section,
+.iron-recs-section,
+.styleguide-section,
+.footer-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+/* When in view, fade in and move up into place */
+.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}

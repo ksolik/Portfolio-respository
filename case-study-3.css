@@ -1,0 +1,2422 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500&display=swap');
+
+:root {
+  --color--light: white;
+  --font--body-font: Montserrat, sans-serif;
+  --color--dark: #231e24;
+  --body--font-size: 16px;
+  --body--landscape-font-size: 16px;
+  --body--portrait-font-size: 16px;
+  --font--heading-font: Coopbl, Tahoma, sans-serif;
+  --h1--font-size: 70px;
+  --h1--tablet-font-size: 78px;
+  --h1--landscape-font-size: 68px;
+  --h1--portrait-font-size: 58px;
+  --h2--font-size: 52px;
+  --h2--tablet-font-size: 52px;
+  --h2--landscape-font-size: 42px;
+  --h2--portrait-font-size: 42px;
+  --h3--font-size: 44px;
+  --h3--tablet-font-size: 44px;
+  --h3--landscape-font-size: 34px;
+  --h3--portrait-font-size: 34px;
+  --h4--font-size: 38px;
+  --h4--tablet-font-size: 38px;
+  --h4--landscape-font-size: 28px;
+  --h4--portrait-font-size: 28px;
+  --h5--font-size: 34px;
+  --h5--tablet-font-size: 34px;
+  --h5--landscape-font-size: 24px;
+  --h5--portrait-font-size: 24px;
+  --h6--font-size: 16px;
+  --h6--tablet-font-size: 16px;
+  --h6--landscape-font-size: 16px;
+  --h6--portrait-font-size: 16px;
+  --display--font-size: 130px;
+  --display--tablet-font-size: 130px;
+  --display--landscape-font-size: 100px;
+  --display--portrait-font-size: 50px;
+  --color--primary: #ed1c24;
+  --color--secondary: #996ad1;
+  --container--max-width: 1280px;
+  --container--padding: 1rem;
+  --font--cooper: Coopbl, Tahoma, sans-serif;
+  --body--font-family: var(--font--body-font);
+  --body--tablet-font-size: 16px;
+  --display--font-family: var(--font--heading-font);
+  --h1--font-family: var(--font--heading-font);
+  --h2--font-family: var(--font--heading-font);
+  --h3--font-family: var(--font--heading-font);
+  --h4--font-family: var(--font--heading-font);
+  --h5--font-family: var(--font--heading-font);
+  --h6--font-family: var(--font--heading-font);
+  --uppercase: var(--body--portrait-font-size);
+}
+
+body {
+  background-color: var(--color--light);
+  font-family: var(--font--body-font);
+  color: var(--color--dark);
+  font-size: var(--body--font-size);
+  line-height: 20px;
+  margin: 0 !important;  
+  padding: 0 !important;
+}
+
+h1 {
+  font-family: var(--font--heading-font);
+  font-size: var(--h1--font-size);
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  line-height: 92px;
+}
+
+h2 {
+  font-family: var(--font--heading-font);
+  font-size: var(--h2--font-size);
+  
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  line-height: 58px;
+}
+
+h3 {
+  font-family: var(--font--heading-font);
+  font-size: var(--h3--font-size);
+  text-transform: lowercase;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  line-height: 52px;
+}
+
+h4 {
+  font-family: var(--font--heading-font);
+  font-size: var(--h4--font-size);
+  text-transform: lowercase;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  line-height: 44px;
+}
+
+h5 {
+  font-family: var(--font--heading-font);
+  font-size: var(--h5--font-size);
+  text-transform: lowercase;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  line-height: 44px;
+}
+
+h6 {
+  font-family: var(--font--heading-font);
+  font-size: var(--h6--font-size);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  line-height: 28px;
+}
+
+p {
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.title-section {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding: 1rem;
+  display: flex;
+  position: relative;
+}
+
+.title-wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+}
+
+.display-font {
+  font-family: var(--font--heading-font);
+  color: var(--color--dark);
+  font-size: var(--display--font-size);
+  text-transform: capitalize;
+  font-weight: 400;
+  line-height: 150px;
+}
+
+.seperator-line {
+  background-color: var(--color--dark);
+  height: 10px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.color-1-bg {
+  background-color: var(--color--primary);
+}
+
+.color-2-bg {
+  background-color: #b87dff;
+}
+
+.black-bg {
+  background-color: var(--color--dark);
+  color: var(--color--light);
+}
+
+.white-font {
+  color: var(--color--light);
+  text-transform: none;
+}
+
+.color-1_font {
+  color: var(--color--primary);
+  text-transform: uppercase;
+}
+
+.color-2-font {
+  color: var(--color--secondary);
+}
+
+.paragraph-bold {
+  font-weight: 700;
+}
+
+.section {
+  padding: 1rem;
+  position: relative;
+}
+
+.flex-box-hrz {
+  justify-content: flex-start;
+  display: flex;
+}
+
+.half-page {
+  width: 50%;
+}
+
+.logo-wrapper {
+  width: 60%;
+  margin-bottom: 1rem;
+}
+
+.split-sticky-section {
+  justify-content: center;
+  display: flex;
+  position: relative;
+}
+
+.half-container {
+  max-width: 34em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8rem 1rem;
+}
+
+.half-container.flex-box-hrz {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.half-container.flex-box-hrz.right-align {
+  margin-right: 0;
+}
+
+.sticky {
+  position: sticky;
+  top: 1rem;
+}
+
+.mycontain {
+  max-width: var(--container--max-width);
+  padding: var(--container--padding);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mycontain.flex-box-hrz {
+  margin-top: 0;
+}
+
+.mycontain.margin-4rem-top-bottom {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.mycontain.flex-align-center {
+  margin-top: auto;
+}
+
+.mycontain._3-column {
+  column-count: 3;
+  column-rule-width: 0px;
+  column-gap: 1rem;
+}
+
+.padding-4rem-top {
+  padding-top: 4rem;
+}
+
+.content-wrapper-padding {
+  padding: 1rem;
+}
+
+.nav-wrapper {
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: .5rem auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+}
+
+.nav-bar {
+  background-color: var(--color--light);
+  position: fixed;
+  inset: 0% 0% auto;
+}
+
+.logo-text {
+  font-family: Raleway, sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.nav-logo {
+  font-size: 20px;
+}
+
+.nav-link {
+  text-transform: lowercase;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding: 1rem .5rem .25rem;
+  font-family: Raleway, sans-serif;
+  font-weight: 900;
+}
+
+.nav-link.w--current {
+  border-bottom: 4px solid var(--color--primary);
+  color: #231e24;
+}
+
+.button {
+  background-color: var(--color--primary);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  padding: .7rem 2rem;
+  font-weight: 700;
+  transition: all .35s;
+}
+
+.button:hover {
+  transform: translate(0, -5px);
+  box-shadow: 0 7px 13px -6px #0000003b;
+}
+
+.button.black-bg {
+  background-color: var(--color--dark);
+}
+
+.button.color-2-bg {
+  background-color: var(--color--secondary);
+}
+
+.button-outline {
+  border: 3px solid var(--color--primary);
+  color: var(--color--primary);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background-color: #0000;
+  border-radius: 3px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  padding: .7rem 2rem;
+  font-weight: 700;
+}
+
+.swtach {
+  border-radius: 500px;
+  width: 100px;
+  min-width: 100px;
+  height: 100px;
+  min-height: 100px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+  box-shadow: -3px -2px 20px -11px #00000036, 6px 6px 20px -10px #00000061;
+}
+
+.swtach.color-2-bg {
+  background-color: #fff;
+}
+
+.margin-1rem-right {
+  margin-right: 1rem;
+}
+
+.label-font {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.font-2-style {
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+}
+
+.third-box {
+  width: 30vw;
+  max-width: 30vw;
+  margin: 1rem .5rem;
+}
+
+.flex-align-center {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+._100-vh {
+  height: 100vh;
+  position: relative;
+}
+
+._100-vh.bg-image-1 {
+  background-image: url('../images/jovaughn-stephens-mvYZlH4m-2Y-unsplash.jpg');
+  background-position: 50%;
+  background-size: cover;
+}
+
+._100-vh.bg-image-1.flex-align-center {
+  background-image: url('../images/jump_around-scaled.jpg');
+}
+
+._100-vh.bg-image-2 {
+  background-image: url('../images/Busynyc.webp');
+  background-position: 50%;
+  background-size: cover;
+}
+
+._100-vh.flex-align-center {
+  align-items: center;
+}
+
+._100-vh.bg-image-4 {
+  background-image: url('../images/ivan-bandura-eoz4mQ5BlDw-unsplash.jpg');
+  background-position: 50%;
+  background-size: cover;
+}
+
+._100-vh.bg-image-4.flex-align-center {
+  background-image: url('../images/capitaluwm.jpeg');
+}
+
+._100-vh.bg-image-5 {
+  background-image: url('../images/Breakfast-sand.jpeg');
+  background-position: 50%;
+  background-size: cover;
+}
+
+.padding-4rem-bottom {
+  padding-bottom: 4rem;
+}
+
+.mini-nav {
+  align-items: center;
+  display: flex;
+}
+
+.mini-nav-link {
+  color: var(--color--dark);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 1rem .5rem .25rem;
+  font-family: Raleway, sans-serif;
+  font-weight: 900;
+  text-decoration: none;
+  transition: all .32s;
+}
+
+.mini-nav-link:hover {
+  border-bottom: 4px solid var(--color--dark);
+  color: var(--color--primary);
+}
+
+.delete-me {
+  padding: 1rem;
+  position: relative;
+}
+
+.delete-me.color-1-bg {
+  background-color: var(--color--primary);
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.image-wrapper {
+  flex-direction: column;
+  padding-bottom: 1rem;
+  display: flex;
+  overflow: hidden;
+}
+
+.padding-4rem-top-bottom {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.hide {
+  display: none;
+}
+
+.card {
+  max-width: 34em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4rem 0;
+}
+
+.right-align {
+  margin-left: auto;
+  margin-right: 0;
+  padding-right: 2rem;
+}
+
+.left-align {
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 2rem;
+}
+
+.padding-1rem {
+  aspect-ratio: auto;
+  font-family: var(--font--body-font);
+  text-align: left;
+  letter-spacing: 1px;
+  white-space: normal;
+  word-break: normal;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1rem;
+  padding-left: 0;
+  font-weight: 400;
+  position: relative;
+  inset: 0% auto 0% 0%;
+}
+
+.color-adjustment {
+  filter: hue-rotate(337deg);
+}
+
+.logo-all-caps {
+  text-transform: uppercase;
+}
+
+.underline-font {
+  text-decoration: underline;
+}
+
+.frame-4 {
+  grid-column-gap: 10px;
+  flex: 0 auto;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper {
+  object-fit: cover;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-5 {
+  grid-row-gap: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 233px;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-2 {
+  object-fit: cover;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-6 {
+  grid-row-gap: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 233px;
+  text-decoration: none;
+  display: flex;
+}
+
+.text-span {
+  color: var(--color--primary);
+}
+
+.heading, .heading-2 {
+  text-transform: none;
+}
+
+.heading-3 {
+  color: var(--color--light);
+  text-transform: none;
+  position: relative;
+  top: 0;
+}
+
+.frame-7 {
+  grid-row-gap: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 657px;
+  height: 488px;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-3 {
+  object-fit: cover;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-101 {
+  grid-row-gap: 17px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 656.544px;
+  text-decoration: none;
+  display: flex;
+}
+
+.text {
+  font-family: var(--font--heading-font);
+  color: #ed1c24;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 90px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.text-2 {
+  font-family: var(--font--cooper);
+  color: #ed1c24;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 41px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.frame-102 {
+  grid-column-gap: 10px;
+  flex: 0 auto;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-4 {
+  object-fit: cover;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-103 {
+  grid-column-gap: 10px;
+  flex: 0 auto;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-5 {
+  object-fit: cover;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.macbook-pro-14---2 {
+  grid-row-gap: 50px;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  height: 982px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-104 {
+  grid-column-gap: 4.72727px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 432.073px;
+  text-decoration: none;
+  display: flex;
+}
+
+.logo-do-s-dont-s {
+  font-family: var(--font--heading-font);
+}
+
+.frame-105 {
+  grid-column-gap: 100px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1176px;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-6 {
+  object-fit: cover;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.logo-do-s-dont-s-0 {
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.logo-do-s-dont-s-1 {
+  color: #ed1c24;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.frame-106 {
+  grid-column-gap: 100px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1176px;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-7 {
+  object-fit: cover;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.logo-do-s-dont-s-2 {
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.logo-do-s-dont-s-3 {
+  color: #ed1c24;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.frame-107 {
+  grid-column-gap: 100px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1176px;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-8 {
+  object-fit: cover;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.logo-do-s-dont-s-4 {
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.logo-do-s-dont-s-5 {
+  color: #ed1c24;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.heading-4 {
+  text-transform: capitalize;
+}
+
+.macbook-pro-14---5 {
+  grid-row-gap: 50px;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  height: 577px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-108 {
+  grid-column-gap: 4.72727px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 432.073px;
+  text-decoration: none;
+  display: flex;
+}
+
+.text-3 {
+  font-family: var(--font--heading-font);
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.frame-114 {
+  grid-column-gap: 90px;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: flex-end;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-9 {
+  object-fit: cover;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.macbook-pro-14---6 {
+  grid-row-gap: 50px;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  height: 829px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-115 {
+  grid-column-gap: 4.72727px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 432.073px;
+  text-decoration: none;
+  display: flex;
+}
+
+.text-4 {
+  font-family: var(--font--heading-font);
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.frame-117 {
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-116 {
+  grid-column-gap: 10px;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-decoration: none;
+  display: flex;
+}
+
+.error-97f519b1-58f9-9630-6f0f-34ceddc95125 {
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 100px;
+  font-family: Montserrat, sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 40px;
+  text-decoration: none;
+}
+
+.text-span-2 {
+  color: var(--color--primary);
+}
+
+.macbook-pro-14---7 {
+  grid-column-gap: 100px;
+  background-color: #fff;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  height: 558px;
+  padding: 50px;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-118 {
+  grid-row-gap: 16.282px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 557.874px;
+  padding-top: 21.4237px;
+  padding-bottom: 21.4237px;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-10 {
+  object-fit: cover;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-11 {
+  object-fit: cover;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  height: 134.351px;
+  text-decoration: none;
+  display: flex;
+}
+
+.text-5 {
+  font-family: var(--font--heading-font);
+  text-align: center;
+}
+
+.new-york-taste-midwestern-heart-0 {
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.new-york-taste-midwestern-heart-1 {
+  color: #ed1c24;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.macbook-pro-14---8 {
+  grid-row-gap: 50px;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  height: 1077px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-119 {
+  grid-column-gap: 4.72727px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 432.073px;
+  text-decoration: none;
+  display: flex;
+}
+
+.text-6 {
+  font-family: var(--font--heading-font);
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.frame-120 {
+  grid-column-gap: 110.723px;
+  flex: 0 auto;
+  justify-content: flex-start;
+  align-items: flex-end;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-110 {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 318.949px;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-121 {
+  grid-row-gap: 9px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-12 {
+  object-fit: cover;
+  justify-content: center;
+  align-items: center;
+  width: 122.484px;
+  height: 134.781px;
+  text-decoration: none;
+  display: flex;
+}
+
+.text-7 {
+  font-family: var(--font--heading-font);
+  color: #ed1c24;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 66px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.text-8 {
+  font-family: var(--font--heading-font);
+  color: #ed1c24;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.frame-122 {
+  grid-column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-111 {
+  grid-row-gap: 35.6775px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 270.657px;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-13 {
+  object-fit: cover;
+  justify-content: center;
+  align-items: center;
+  width: 158.142px;
+  height: 174.018px;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-112 {
+  grid-row-gap: 66.4339px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 318.949px;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-109 {
+  grid-row-gap: 7.38154px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-123 {
+  grid-column-gap: 10px;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-decoration: none;
+  display: flex;
+}
+
+.error-22784ef8-968f-a5ba-ff7e-58ebb65f6dce {
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  text-decoration: none;
+}
+
+._1-primary-0 {
+  font-family: var(--font--heading-font);
+  color: #ed1c24;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+._1-primary-1 {
+  font-family: var(--font--heading-font);
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.macbook-pro-14---9 {
+  grid-column-gap: 100px;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  height: 718px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-124 {
+  grid-row-gap: 17px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 330.04px;
+  text-decoration: none;
+  display: flex;
+}
+
+.frame-125 {
+  grid-column-gap: 10.3808px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+}
+
+.vectors-wrapper-14 {
+  object-fit: cover;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  max-width: none;
+  margin-left: 50px;
+  text-decoration: none;
+  display: flex;
+}
+
+.text-10 {
+  font-family: var(--font--heading-font);
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 92px;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+.frame-126 {
+  grid-column-gap: 10px;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-decoration: none;
+  display: flex;
+}
+
+.text-11 {
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  text-decoration: none;
+}
+
+
+@font-face {
+  font-family: 'Coopbl';
+  src: url('../fonts/COOPBL.TTF') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* -------------- NEW NAV LINK CSS with Rajdhani and Black Text -------------- */
+
+/* Main navbar container */
+.navbarholder {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 600px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+  backdrop-filter: blur(5px);
+  border-radius: 50px;
+  border: 2px solid rgb(52, 51, 51);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  transition: all 0.3s ease;
+}
+
+/* Wrapper for everything inside the navbar (initials + links) */
+.navcontentholder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* "KS" initials on the left, now black text in Rajdhani */
+.navinitials {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: black; /* Black text instead of white */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Holds all the right-side nav links */
+.navlinkholder {
+  display: flex;
+  gap: 30px; /* spacing between the links */
+  justify-content: flex-end;
+}
+
+/* Each nav link style (Rajdhani font, black text) */
+.navlink {
+  text-decoration: none;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  color: black; /* Black text instead of white */
+  position: relative;
+}
+
+/* The text within the link, used for the underline hover effect */
+.navlinktext::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: black; /* Underline color is black */
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect: underline from left to right */
+.navlink:hover .navlinktext::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .navbarholder {
+    width: 80vw;
+    height: 40px;
+  }
+  .navinitials {
+    font-size: 1em;
+  }
+  .navlink {
+    font-size: 1em;
+  }
+  .navlinkholder {
+    gap: 20px;
+  }
+}
+/* Default circle cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(147, 147, 147, 0.7);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease,
+              height 0.2s ease,
+              border-color 0.2s ease,
+              transform 0.1s ease;
+}
+
+/* black vertical line for text hover */
+.cursor-text-hover {
+  /* We also override in JS, but as a fallback: */
+  width: 2px !important;
+  background-color: black !important;
+  border: none !important;
+  border-radius: 0 !important;
+  transition: none;
+}
+/* Force the default cursor to be hidden on all elements */
+* {
+  cursor: none !important;
+}
+.pinned-logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999; /* Ensures it's on top */
+  width: 50px;  /* Adjust size as you like */
+  height: 50px; /* Keep aspect ratio or pick a new dimension */
+}
+html, body {
+  cursor: none !important;
+}
+
+*, *::before, *::after {
+  cursor: none !important;
+}
+/* ---------------------- FOOTER STYLES (Same Look as index2) ---------------------- */
+
+/* The footer container */
+.footer-section {
+  padding: 50px 30px;
+  background: none; /* or #030303 if you want black, up to you */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  padding-left: 30px;
+}
+
+/* Title (Contact) */
+.footer-title {
+  font-size: 3em;
+  font-weight: 300;
+  margin-bottom: 20px;
+  padding-left: 17px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* The content wrapper for the footer (Contact & Links) */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The list that holds Email & LinkedIn links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+/* Each link line item */
+.footer-links li {
+  margin-bottom: 20px; /* space between email and LinkedIn */
+}
+
+/* The link styling for Email & LinkedIn */
+.contact-link {
+  font-size: 1.5em;
+  font-weight: 300;
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  padding-left: 17px;
+  transition: color 0.3s ease;
+}
+
+/* Underline effect for the link hover */
+.contact-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+.contact-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* The horizontal line under links */
+.footer-hr {
+  width: 80%;
+  border: 0;
+  border-top: 0.5px solid white;
+  margin: 10px auto;
+}
+
+/* Copyright text at the bottom */
+.footer-copyright {
+  font-size: 0.8em;
+  font-weight: 300;
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+  text-align: left;
+  margin-left: 145px;
+  margin-top: 10px;
+}
+.footer-section {
+  margin: 0;
+  padding: 0;          /* No extra padding or margin on sides or below */
+  width: 100%;         /* Full width */
+  background-color: #000;  /* Black background */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box; /* So widths/padding are calculated consistently */
+}
+.macbook-pro-14---2,
+.macbook-pro-14---5,
+.macbook-pro-14---6,
+.macbook-pro-14---7,
+.macbook-pro-14---8,
+.macbook-pro-14---9 {
+  height: auto !important;
+  min-height: 0 !important;
+}
+/* ===============================================
+   CSS for Spacing Between Logo Do’s Sections
+   =============================================== */
+/* Adds margin below each logo section except the last */
+#home.section > div:not(:last-child) {
+  margin-bottom: 50px; /* Adjust the value as needed */
+}
+
+/* Optional: Ensure text wraps nicely on smaller screens */
+@media screen and (max-width: 1200px) {
+  #home.section > div {
+    width: 90% !important; /* Allows sections to shrink on smaller screens */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #home.section > div {
+    width: 100% !important;
+    padding: 20px 10px !important;
+  }
+
+  #home.section img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  #home.section div > div {
+    width: 100% !important;
+  }
+}
+/* Fix page width */
+body {
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.main {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Specifically constrain the about section */
+.about-section {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Ensure all child elements stay within bounds */
+.about-section .mycontain {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px; /* Add breathing room on sides */
+}
+
+/* Fix horizontal overflow in text containers */
+.heading,
+.white-font,
+.heading-2 {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+/* -----------------------------------------------------
+   Responsive “Logo Break Down” Section Adjustments
+   Applies to all screen sizes
+----------------------------------------------------- */
+#logo > div {
+  /* This is the outer container for the entire Logo Breakdown section */
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 50px 20px !important;  /* 50px top/bottom; 20px left/right for breathing room */
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 50px !important;
+}
+
+/* Title container (first child of #logo > div) */
+#logo > div > div:first-child {
+  width: 100% !important;
+  max-width: 500px !important;  /* Limit the title container to a maximum width */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* The image – override its inline width so it scales responsively */
+.logo-breakdown-img {
+  width: 100% !important;
+  max-width: 1130px !important;  /* Do not let it exceed its natural size */
+  height: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* Paragraph container (third child of #logo > div) */
+#logo > div > div:nth-child(3) {
+  width: 100% !important;
+  max-width: 1000px !important;  /* Limit the paragraph block width */
+  padding: 10px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+}
+
+/* Inner paragraph wrapper – force its text to remain centered and constrained */
+#logo > div > div:nth-child(3) > div {
+  width: 100% !important;
+  max-width: 1000px !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+/* Ensure the html and body do not overflow horizontally */
+html, body {
+  overflow-x: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+/* -------------------------------------------------
+   Responsive adjustments for the "Logo Break Down" section
+   on phone screens (max-width: 480px)
+------------------------------------------------- */
+@media screen and (max-width: 480px) {
+  /* Outer container for the Logo Breakdown section (#logo > div) */
+  #logo > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 30px 10px !important;  /* Reduce padding on very small screens */
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 30px !important;  /* Slightly reduce gap if needed */
+  }
+  
+  /* Title container: let it shrink to the full available width */
+  #logo > div > div:first-child {
+    width: 100% !important;
+    max-width: 90% !important;  /* Constrain to 90% of the viewport */
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  
+  /* Logo breakdown image: make it fully fluid */
+  .logo-breakdown-img {
+    width: 100% !important;
+    max-width: 90% !important;  /* Constrain image so it never overflows */
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Paragraph container: allow it to shrink and center */
+  #logo > div > div:nth-child(3) {
+    width: 100% !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  
+  /* Inner paragraph wrapper */
+  #logo > div > div:nth-child(3) > div {
+    width: 100% !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+}
+/***************************************************
+  Tablet Screens (768px to 1366px)
+  Updated Responsive Adjustments for:
+  1. The "Logo Do’s & Dont’s / Specs & Offset" section (inside #home.section)
+  2. The "Brandmark" section (wrapped in .brandmark-section)
+***************************************************/
+
+@media screen and (min-width: 768px) and (max-width: 1366px) {
+
+  /* --- For the #home.section blocks (Logo Do’s, Logo Do’s & Dont’s, Specs & Offset) --- */
+  #home.section > div {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    padding: 40px 15px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 40px !important;
+  }
+  /* Title container for each block */
+  #home.section > div > div:first-child {
+    max-width: 450px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  /* Image override for first two blocks */
+  #home.section > div:nth-child(1) > img,
+  #home.section > div:nth-child(2) > img {
+    max-width: 800px !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  /* For the Specs & Offset block */
+  #home.section > div:nth-child(3) > div:nth-child(2) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: 900px !important;
+  }
+  #home.section > div:nth-child(3) > div:nth-child(2) > img {
+    max-width: 600px !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  #home.section > div:nth-child(3) > div:nth-child(2) > div {
+    max-width: 800px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* --- For the Brandmark Section --- */
+  .brandmark-section > section > div {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    padding: 40px 15px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 80px !important;
+  }
+  /* First column (logo image + title) */
+  .brandmark-section > section > div > div:first-child {
+    max-width: 350px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+  }
+  .brandmark-section > section > div > div:first-child > img {
+    max-width: 300px !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  .brandmark-section > section > div > div:first-child > div {
+    max-width: 350px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  /* Second column (paragraph) */
+  .brandmark-section > section > div > div:last-child {
+    max-width: 500px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+}
+/***************************************************
+  FORCE PHONE SCREENS (max-width: 767px) TO USE TABLET LAYOUT
+  (i.e. all sections use the same max-width, centering, and spacing as on tablets)
+***************************************************/
+
+@media screen and (max-width: 767px) {
+  /* Force the major containers to mimic tablet sizes */
+  .main,
+  .about-section,
+  .logo-section,
+  .section,
+  .font-section,
+  #Documents,
+  .brandmark-section,
+  .split-sticky-section {
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    padding: 50px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- For the #home.section blocks (Logo Do’s, Logo Do’s & Dont’s, Specs & Offset) --- */
+  #home.section > div {
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    padding: 50px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 50px !important;
+    box-sizing: border-box !important;
+  }
+  /* Title container for each block */
+  #home.section > div > div:first-child {
+    max-width: 500px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  /* Image override for first two blocks */
+  #home.section > div:nth-child(1) > img,
+  #home.section > div:nth-child(2) > img {
+    max-width: 1000px !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  /* For the Specs & Offset block (its inner container) */
+  #home.section > div:nth-child(3) > div:nth-child(2) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: 1100px !important;
+    box-sizing: border-box !important;
+  }
+  #home.section > div:nth-child(3) > div:nth-child(2) > img {
+    max-width: 654px !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  #home.section > div:nth-child(3) > div:nth-child(2) > div {
+    max-width: 1000px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- For the Brandmark Section --- */
+  .brandmark-section > section > div {
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    padding: 50px 20px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 100px !important;
+  }
+  /* First column (logo image + title) */
+  .brandmark-section > section > div > div:first-child {
+    max-width: 400px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 17px !important;
+  }
+  .brandmark-section > section > div > div:first-child > img {
+    max-width: 331px !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  .brandmark-section > section > div > div:first-child > div {
+    max-width: 400px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  /* Second column (paragraph) */
+  .brandmark-section > section > div > div:last-child {
+    max-width: 600px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Ensure no horizontal overflow */
+  html, body {
+    overflow-x: hidden !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .pinned-logo {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* Target the entire home/title section */
+  #home.title-section {
+    max-width: 90vw !important; /* Use 90% of the viewport width */
+    margin: 0 auto !important;
+    padding: 10px !important;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  /* Constrain the title wrapper so content doesn’t stretch edge-to-edge */
+  #home.title-section .title-wrapper {
+    max-width: 90% !important;
+    margin: 0 auto;
+  }
+  
+  /* Shrink the main heading text (RICHIE'S Brand guide) */
+  #home.title-section .display-font {
+    font-size: 40px !important; /* Adjust as needed (originally 70px) */
+    line-height: 1.1 !important;
+  }
+  
+  /* Shrink and center the separator line */
+  #home.title-section .seperator-line {
+    width: 100% !important;
+    margin: 10px auto !important;
+  }
+  
+  /* Shrink the "designed by: Kai Solik" text */
+  #home.title-section .content-wrapper-padding h6 {
+    font-size: 16px !important; /* Adjust as needed */
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* === ABOUT SECTION (Top part: "about" text and description) === */
+  #about.about-section {
+    max-width: 90vw !important; /* 90% of the viewport width */
+    margin: 0 auto !important;
+    padding: 10px !important;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  /* Constrain the inner container (.mycontain) within the about-bg */
+  #about.about-section #about-bg .mycontain {
+    max-width: 100% !important;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  /* Shrink the "about" heading (h3) */
+  #about.about-section h3.white-font {
+    font-size: 30px !important; /* adjust as needed */
+    line-height: 1.1 !important;
+    margin: 0 auto;
+  }
+  /* Shrink and center the separator line */
+  #about.about-section .seperator-line {
+    width: 100% !important;
+    margin: 10px auto !important;
+  }
+  /* Shrink the descriptive texts (the h1 elements) */
+  #about.about-section h1.heading,
+  #about.about-section h1.white-font,
+  #about.about-section h1.heading-2 {
+    font-size: 24px !important; /* adjust as needed */
+    line-height: 1.1 !important;
+    margin: 10px auto !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* -------- "Our Brand" Title Section -------- */
+  .title-section {
+    max-width: 90vw !important; /* Use 90% of the viewport width */
+    margin: 0 auto !important;
+    padding: 10px !important;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .title-section .title-wrapper {
+    max-width: 90% !important;
+    margin: 0 auto;
+  }
+  .title-section .display-font {
+    font-size: 40px !important; /* Reduced size (was 70px on desktop) */
+    line-height: 1.1 !important;
+  }
+  .title-section .seperator-line {
+    width: 100% !important; /* Match the heading’s width */
+    margin: 10px auto !important;
+  }
+  .title-section .content-wrapper-padding * {
+    font-size: 16px !important;
+    text-align: center;
+  }
+  
+  /* -------- Imagery (Split-Sticky) Section -------- */
+  /* Overall container uses full viewport width (no side padding) */
+  .split-sticky-section {
+    width: 100vw !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    display: flex !important;
+  }
+  
+  /* Left Column: remains shrunk but move "imagery" more to the left */
+  .split-sticky-section .half-page:first-child {
+    max-width: 90vw !important;
+    margin: 0 auto !important;
+    padding: 10px 0 !important;
+    /* Change text alignment to left */
+    text-align: left !important;
+  }
+  .split-sticky-section .half-page:first-child .half-container h2 {
+    font-size: 30px !important;
+    line-height: 1.1 !important;
+    /* Add negative left margin to shift further left */
+    margin: 10px auto 10px -20px !important;
+    text-align: left !important;
+  }
+  
+  /* Right Column: force full viewport width and flush right */
+  .split-sticky-section .half-page:last-child {
+    width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important; /* Remove any side padding */
+    text-align: right !important; /* Align content flush to the right edge */
+    box-sizing: border-box !important;
+  }
+  
+  /* For each image container inside the right column, 
+     force them to display as separate block-level elements (stacked vertically)
+     with no extra horizontal padding/margin, and ensure they are scaled down. */
+  .split-sticky-section .half-page:last-child > div {
+    width: 100% !important;
+    height: 25%;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    background-position: right center !important;
+    background-size: cover !important;
+    max-height: none !important;
+  }
+  
+  /* If images are added as <img> tags inside the right column, force them to be 100% width */
+  .split-sticky-section .half-page:last-child img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 50% !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+  
+  /* For the heading text inside the first image container (e.g. "Authentic Convenient Classic") */
+  /* First, force the container to use flex to center its content */
+  .split-sticky-section .half-page:last-child > div:first-child {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .split-sticky-section .half-page:last-child > div:first-child .heading-3 {
+    max-width: 80% !important;
+    /* Add negative left margin to shift the text left */
+    margin: 0 auto 10px -20px !important;
+    font-size: 24px !important;  /* Shrunk further from 30px */
+    line-height: 1.1 !important;
+    text-align: center !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* -------- Logo Section (Logo Break Down) -------- */
+  #logo.logo-section {
+    max-width: 90vw !important;  /* Use 90% of viewport width */
+    margin: 0 auto !important;
+    padding: 10px !important;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  /* Outer container inside #logo */
+  #logo.logo-section > div {
+    max-width: 90vw !important;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 50px !important;
+  }
+  
+  /* Title container (first child) */
+  #logo.logo-section > div > div:first-child {
+    max-width: 90% !important; /* shrink to 90% of container */
+    margin: 0 auto !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  /* Title text */
+  #logo.logo-section > div > div:first-child > div {
+    font-size: 40px !important; /* reduced from 45.38px */
+    line-height: 1.1 !important;
+    text-align: center !important;
+  }
+  
+  /* Logo Breakdown Image */
+  #logo.logo-section > div > img.logo-breakdown-img {
+    max-width: 90vw !important; /* Constrain image to 90% of viewport */
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Paragraph container */
+  #logo.logo-section > div > div:nth-child(3) {
+    max-width: 90vw !important;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  /* Paragraph text */
+  #logo.logo-section > div > div:nth-child(3) > div {
+    font-size: 16px !important; /* reduced from 20px */
+    line-height: 1.2 !important;
+    text-align: center !important;
+    max-width: 90vw !important;
+    margin: 0 auto !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* ---------- LOGO DO’S & DONT’S Section ---------- */
+  /* Each block inside #home.section is constrained to 90vw, centered, and with reduced padding */
+  #home.section > div {
+    max-width: 90vw !important;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    box-sizing: border-box;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 30px !important;
+    text-align: center;
+  }
+  
+  /* Add extra spacing between the second and third blocks (Logo Do’s & Dont’s and Specs & Offset) */
+  #home.section > div:nth-child(3) {
+    margin-top: 50px !important; /* Increase this value to add more spacing */
+  }
+  
+  /* ---------- Title Container in Each Block ---------- */
+  /* The inner title container now shrinks to 90% of its parent */
+  #home.section > div > div:first-child {
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Title Text (where it says "Logo Do’s" or "Logo Do’s & Dont’s") – reduce font size */
+  #home.section > div > div:first-child > div {
+    font-size: 40px !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+  }
+  
+  /* ---------- Image Overrides for the First Two Blocks ---------- */
+  /* For the "Logo Do’s" block (first block) and the "Logo Do’s & Dont’s" block (second block),
+     force the image to shrink to 90vw and be centered */
+  #home.section > div:nth-child(1) > img,
+  #home.section > div:nth-child(2) > img {
+    max-width: 90vw !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  
+  /* ---------- Specs & Offset Block (Third Block) ---------- */
+  /* Target its inner container that wraps the image and text */
+  #home.section > div:nth-child(3) > div:nth-child(2) {
+    max-width: 90vw !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    box-sizing: border-box !important;
+  }
+  /* Force the Specs image to shrink similarly */
+  #home.section > div:nth-child(3) > div:nth-child(2) > img {
+    max-width: 90vw !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  /* And the paragraph text in the Specs block */
+  #home.section > div:nth-child(3) > div:nth-child(2) > div {
+    max-width: 90vw !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    font-size: 16px !important;  /* Adjust if needed */
+    line-height: 1.2 !important;
+    box-sizing: border-box !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* ---------- BRANDMARK SECTION Container ---------- */
+  .brandmark-section {
+    max-width: 90vw !important;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  /* Outer container inside the brandmark section */
+  .brandmark-section > section > div {
+    max-width: 90vw !important;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;  /* Stack columns vertically on phones */
+    align-items: center !important;
+    gap: 50px !important;  /* Reduced gap (was originally 100px) */
+  }
+  
+  /* ---------- Left Column: Brandmark Image and Title ---------- */
+  .brandmark-section > section > div > div:first-child {
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  .brandmark-section > section > div > div:first-child > img {
+    max-width: 90vw !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  .brandmark-section > section > div > div:first-child > div {
+    font-size: 32px !important;  /* Reduced from 36.13px */
+    text-align: center !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+  }
+  
+  /* ---------- Right Column: Paragraph Text ---------- */
+  .brandmark-section > section > div > div:last-child {
+    max-width: 90vw !important;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    text-align: center !important;
+    font-size: 16px !important;  /* Matches the responsive paragraph text elsewhere */
+    line-height: 1.2 !important;
+    box-sizing: border-box !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* Hide ONLY the Brand Colors Section */
+  .split-sticky-section.brand-colors-section {
+    display: none !important;
+  }
+
+  /* Add a new container for the image */
+  .brand-colors-section-mobile {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 auto !important;
+    padding: 20px 10px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  /* Style the image to be responsive */
+  .brand-colors-section-mobile img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Hide the default browser cursor on all elements */
+body, * {
+  cursor: none !important;
+}
+@media screen and (max-width: 767px) {
+  /* Hide the normal typography section */
+  .font-section {
+    display: none !important;
+  }
+  /* Show the mobile typography image */
+  .font-section-mobile {
+    display: block !important;
+  }
+}
+.font-section-mobile img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+@media screen and (max-width: 767px) {
+  #Documents {
+    display: none !important;
+  }
+}

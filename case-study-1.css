@@ -1,0 +1,1946 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Black background for all content */
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    cursor: none; /* Hide the default cursor */
+}
+
+a, button, input, textarea, select {
+    cursor: none; /* Hide default cursor on interactive elements */
+}
+
+/* Navigation Bar Styles */
+.navbarholder {
+    position: fixed;
+    top: 20px; /* Place navbar 20px from the top */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 600px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    border: 2px solid rgb(52, 51, 51);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+}
+
+/* Nav Initials on the Left */
+.navinitials {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nav Content Holder */
+.navcontentholder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Navigation Links Holder */
+.navlinkholder {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+}
+
+/* Navigation Links */
+.navlink {
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2em;
+    font-weight: 300;
+    color: white;
+    position: relative;
+}
+
+.navlinktext::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.navlink:hover .navlinktext::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Responsiveness for the Navbar */
+@media (max-width: 768px) {
+    .navbarholder {
+        width: 80vw;
+        height: 40px;
+    }
+
+    .navinitials {
+        font-size: 1em;
+    }
+
+    .navlink {
+        font-size: 1em;
+    }
+
+    .navlinkholder {
+        gap: 20px;
+    }
+}
+
+/* Cover Image as a Header */
+.cover-image {
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: cover;
+    margin-top: 0;
+    position: relative;
+    top: 0;
+    z-index: -1;
+}
+
+/* Content Container */
+.content-container {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+    margin-top: 70px;
+}
+
+/* Section Styles */
+.section {
+    width: 100%;
+    max-width: 976px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.section h1 {
+    color: white;
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    margin: 0;
+}
+
+.section p {
+    color: white;
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    word-wrap: break-word;
+    margin-top: 20px;
+}
+
+/* Styling for Ordered Lists */
+.section ol {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding-left: 20px;
+    color: white;
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.section ol li {
+    margin-bottom: 10px;
+}
+
+/* Design Process Image */
+.design-process-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.design-process-image {
+    width: 100%;
+    max-width: 965.18px;
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .section h1 {
+        font-size: 36px;
+    }
+
+    .section p,
+    .section ol {
+        font-size: 22px;
+    }
+
+    .design-process-image {
+        max-width: 90%; /* Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .section h1 {
+        font-size: 32px;
+    }
+
+    .section p,
+    .section ol {
+        font-size: 20px;
+    }
+
+    .design-process-image {
+        max-width: 100%; /* Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .section h1 {
+        font-size: 28px;
+    }
+
+    .section p,
+    .section ol {
+        font-size: 18px;
+    }
+}
+
+/* Custom Cursor styling */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 101;
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.2s ease,
+        height 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        border-radius 0.2s ease,
+        transform 0.1s ease,
+        backdrop-filter 0.2s ease,
+        -webkit-backdrop-filter 0.2s ease;
+}
+
+/* Enlarges cursor on hover over interactive elements */
+.cursor-hover {
+    width: 60px !important;
+    height: 60px !important;
+    border-color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(15px) opacity(80%);
+    -webkit-backdrop-filter: blur(15px) opacity(80%);
+}
+
+/* Cursor changes to vertical lime green line when hovering over text */
+.cursor-text-hover {
+    width: 2px !important;
+    height: 24px; /* Adjust the height to match text line height */
+    background-color: limegreen;
+    border: none;
+    border-radius: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: none;
+}
+
+/* Ensure the custom cursor stays above other elements */
+.custom-cursor {
+    z-index: 101;
+}
+/* Personas Image Wrapper */
+.personas-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Matches the spacing of other sections */
+}
+
+/* Personas Image */
+.personas-image {
+    width: 100%; /* Responsive width */
+    max-width: 750px; /* Reduced from 956px */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 695px; /* Proportional reduction */
+    object-fit: contain; /* Scale image while preserving aspect ratio */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .personas-image {
+        max-width: 90%; /* Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .personas-image {
+        max-width: 100%; /* Adjust for even smaller screens */
+    }
+}
+/* User Journey Map Container */
+.user-journey-container {
+    width: 100%;
+    max-width: 976px; /* Matches other section widths */
+    position: relative;
+    margin-top: 30px; /* Consistent spacing with other sections */
+    color: white;
+}
+
+/* User Journey Map Title */
+.user-journey-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    margin-bottom: 20px; /* Spacing below the title */
+}
+
+/* User Journey Map Description */
+.user-journey-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    line-height: 1.6; /* Adjust for readability */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .user-journey-title {
+        font-size: 36px; /* Adjust for smaller screens */
+    }
+
+    .user-journey-description {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-journey-title {
+        font-size: 32px;
+    }
+
+    .user-journey-description {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-journey-title {
+        font-size: 28px;
+    }
+
+    .user-journey-description {
+        font-size: 18px;
+    }
+}
+/* User Journey Map Image Wrapper */
+.user-journey-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Consistent spacing with other sections */
+}
+
+/* User Journey Map Image */
+.user-journey-image {
+    width: 100%; /* Responsive width */
+    max-width: 750px; /* Reduced from 956px */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 681px; /* Proportional reduction */
+    object-fit: contain; /* Scale image while preserving aspect ratio */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .user-journey-image {
+        max-width: 90%; /* Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .user-journey-image {
+        max-width: 100%; /* Adjust for even smaller screens */
+    }
+}
+/* Competitor Analysis Container */
+.competitor-analysis-container {
+    width: 100%;
+    max-width: 976px; /* Matches other section widths */
+    position: relative;
+    margin-top: 30px; /* Consistent spacing with other sections */
+    color: white;
+}
+
+/* Competitor Analysis Title */
+.competitor-analysis-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    margin-bottom: 20px; /* Spacing below the title */
+}
+
+/* Competitor Analysis Description */
+.competitor-analysis-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    line-height: 1.6; /* Adjust for readability */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .competitor-analysis-title {
+        font-size: 36px; /* Adjust for smaller screens */
+    }
+
+    .competitor-analysis-description {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .competitor-analysis-title {
+        font-size: 32px;
+    }
+
+    .competitor-analysis-description {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .competitor-analysis-title {
+        font-size: 28px;
+    }
+
+    .competitor-analysis-description {
+        font-size: 18px;
+    }
+}
+/* Competitor Analysis Image Wrapper */
+.competitor-analysis-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Matches the spacing of other sections */
+}
+
+/* Competitor Analysis Image */
+.competitor-analysis-image {
+    width: 100%; /* Responsive width */
+    max-width: 750px; /* Reduced from 956px */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 431px; /* Proportional reduction */
+    object-fit: contain; /* Scale image while preserving aspect ratio */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .competitor-analysis-image {
+        max-width: 90%; /* Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .competitor-analysis-image {
+        max-width: 100%; /* Adjust for even smaller screens */
+    }
+}
+/* User Flow and Information Architecture Image Wrapper */
+.userflow-infoarch-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Matches spacing with other sections */
+}
+
+/* User Flow and Information Architecture Image */
+.userflow-infoarch-image {
+    width: 100%; /* Responsive width */
+    max-width: 1122px; /* Full-screen width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 2456px; /* Full-screen height */
+    object-fit: contain; /* Scale image while preserving aspect ratio */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .userflow-infoarch-image {
+        max-width: 90%; /* Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .userflow-infoarch-image {
+        max-width: 100%; /* Adjust for even smaller screens */
+    }
+}
+/* Paper Wireframes Container */
+.paper-wireframes-container {
+    width: 100%;
+    max-width: 976px; /* Matches other sections */
+    margin-top: 30px; /* Consistent spacing */
+    position: relative;
+    color: white;
+}
+
+/* Paper Wireframes Title */
+.paper-wireframes-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px; /* Spacing below the title */
+    word-wrap: break-word;
+}
+
+/* Paper Wireframes Description */
+.paper-wireframes-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    line-height: 1.6; /* Improves readability */
+}
+
+/* Paper Wireframes Image Wrapper */
+.paper-wire-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Matches spacing */
+}
+
+/* Paper Wireframes Image */
+.paper-wire-image {
+    width: 100%; /* Responsive width */
+    max-width: 400px; /* Reduced from 769px */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 800px; /* Proportional reduction */
+    object-fit: contain; /* Scale image while preserving aspect ratio */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .paper-wireframes-title {
+        font-size: 36px; /* Adjust for smaller screens */
+    }
+
+    .paper-wireframes-description {
+        font-size: 22px;
+    }
+
+    .paper-wire-image {
+        max-width: 90%; /* Adjust image size */
+    }
+}
+
+@media (max-width: 768px) {
+    .paper-wireframes-title {
+        font-size: 32px;
+    }
+
+    .paper-wireframes-description {
+        font-size: 20px;
+    }
+
+    .paper-wire-image {
+        max-width: 100%; /* Adjust for smaller screens */
+    }
+}
+/* Digital Wireframes Container */
+.digital-wireframes-container {
+    width: 100%;
+    max-width: 976px; /* Matches other sections */
+    margin-top: 30px; /* Consistent spacing */
+    position: relative;
+    color: white;
+}
+
+/* Digital Wireframes Title */
+.digital-wireframes-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px; /* Spacing below the title */
+    word-wrap: break-word;
+}
+
+/* Digital Wireframes Description */
+.digital-wireframes-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    line-height: 1.6; /* Improves readability */
+}
+
+/* Digital Wireframes Image Wrapper */
+.digital-wire-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Matches spacing */
+}
+
+/* Digital Wireframes Image */
+.digital-wire-image {
+    width: 100%; /* Responsive width */
+    max-width: 650px; /* Reduced from 956px */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 1045px; /* Proportional reduction */
+    object-fit: contain; /* Scale image while preserving aspect ratio */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .digital-wireframes-title {
+        font-size: 36px; /* Adjust for smaller screens */
+    }
+
+    .digital-wireframes-description {
+        font-size: 22px;
+    }
+
+    .digital-wire-image {
+        max-width: 90%; /* Adjust image size */
+    }
+}
+
+@media (max-width: 768px) {
+    .digital-wireframes-title {
+        font-size: 32px;
+    }
+
+    .digital-wireframes-description {
+        font-size: 20px;
+    }
+
+    .digital-wire-image {
+        max-width: 100%; /* Adjust for smaller screens */
+    }
+}
+/* Usability Testing Container */
+.usability-testing-container {
+    width: 100%;
+    max-width: 976px; /* Matches other sections */
+    margin-top: 30px; /* Consistent spacing */
+    color: white;
+}
+
+.usability-testing-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px; /* Spacing below the title */
+    word-wrap: break-word;
+}
+
+.usability-testing-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6; /* Improves readability */
+    word-wrap: break-word;
+}
+
+/* Refining the Design Container */
+.refining-design-container {
+    width: 100%;
+    max-width: 976px; /* Matches other sections */
+    margin-top: 30px; /* Consistent spacing */
+    color: white;
+}
+
+.refining-design-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px; /* Spacing below the title */
+    word-wrap: break-word;
+}
+
+.refining-design-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6; /* Improves readability */
+    word-wrap: break-word;
+}
+
+/* Usability Comparison Text */
+.usability-comparison-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px; /* Spacing above comparison section */
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.before-usability {
+    font-size: 40px;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.after-usability {
+    font-size: 40px;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .usability-testing-title,
+    .refining-design-title,
+    .before-usability,
+    .after-usability {
+        font-size: 36px; /* Adjust for smaller screens */
+    }
+
+    .usability-testing-description,
+    .refining-design-description {
+        font-size: 22px; /* Adjust text size */
+    }
+}
+
+@media (max-width: 768px) {
+    .usability-testing-title,
+    .refining-design-title,
+    .before-usability,
+    .after-usability {
+        font-size: 32px;
+    }
+
+    .usability-testing-description,
+    .refining-design-description {
+        font-size: 20px;
+    }
+}
+/* Before and After Usability Image Wrapper */
+.before-after-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Matches spacing with other sections */
+}
+
+/* Before and After Usability Image */
+.before-after-image {
+    width: 100%; /* Responsive width */
+    max-width: 956px; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 1340px; /* Adjust for appropriate scaling */
+    object-fit: contain; /* Scale image while preserving aspect ratio */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .before-after-image {
+        max-width: 90%; /* Adjust image size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .before-after-image {
+        max-width: 100%; /* Adjust for even smaller screens */
+    }
+}
+/* Usability Study Container */
+.usability-study-container {
+    width: 100%;
+    max-width: 976px; /* Matches other sections */
+    margin-top: 30px; /* Consistent spacing */
+    position: relative;
+    color: white;
+}
+
+/* Usability Study Description */
+.usability-study-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6; /* Improves readability */
+    word-wrap: break-word;
+    margin-bottom: 30px; /* Spacing below the description */
+}
+
+/* Usability Text Wrapper */
+.usability-study-text-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Before Usability Text */
+.before-usability {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    text-align: left;
+    flex: 1; /* Ensures proper alignment */
+}
+
+/* After Usability Text */
+.after-usability {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    text-align: right;
+    flex: 1; /* Ensures proper alignment */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .usability-study-description {
+        font-size: 22px;
+    }
+
+    .before-usability,
+    .after-usability {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .usability-study-description {
+        font-size: 20px;
+    }
+
+    .before-usability,
+    .after-usability {
+        font-size: 32px;
+    }
+}
+/* Second Before and After Usability Image Wrapper */
+.before-after-second-wrapper {
+    display: flex;
+    justify-content: center; /* Keeps the default centering */
+    align-items: center;
+    margin-top: 30px; /* Matches spacing with other sections */
+    text-align: center;
+    padding-left: var(--second-image-padding-left, 0px); /* Optional padding for left adjustment */
+}
+
+/* Second Before and After Usability Image Wrapper */
+.before-after-second-wrapper {
+    display: flex;
+    justify-content: center; /* Center the image like the first one */
+    align-items: center;
+    margin-top: 30px; /* Matches spacing with other sections */
+    text-align: center;
+}
+
+/* Second Before and After Usability Image */
+.before-after-second-image {
+    width: 100%; /* Default responsive width */
+    max-width: 956px; /* Matches the size of the first image */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 1340px; /* Matches the size of the first image */
+    object-fit: contain; /* Preserve aspect ratio */
+}
+
+/* Usability Testing Description */
+.usability-testing-description {
+    width: 100%;
+    max-width: 976px; /* Matches other sections */
+    margin-top: 20px; /* Space above description */
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6; /* Improve readability */
+    color: white;
+    word-wrap: break-word;
+    text-align: justify; /* Align text for better layout */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .before-after-second-image {
+        max-width: 90%; /* Adjust image size for smaller screens */
+    }
+
+    .usability-testing-description {
+        font-size: 22px; /* Adjust text size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .before-after-second-image {
+        max-width: 100%; /* Adjust image size for smaller screens */
+    }
+
+    .usability-testing-description {
+        font-size: 20px;
+    }
+}
+/* Hi-Fidelity Prototype Container */
+.hi-fidelity-container {
+    width: 100%;
+    max-width: 976px; /* Matches other sections */
+    margin-top: 30px; /* Spacing above the description */
+    position: relative;
+    color: white;
+}
+
+.hi-fidelity-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px; /* Space below the title */
+    word-wrap: break-word;
+}
+
+.hi-fidelity-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6; /* Improve readability */
+    word-wrap: break-word;
+    margin-bottom: 30px; /* Spacing below the description */
+}
+
+/* Hi-Fidelity Prototype Image Wrapper */
+.hi-fidelity-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Matches spacing with other sections */
+}
+
+/* Hi-Fidelity Prototype Image */
+.hi-fidelity-image {
+    width: 100%; /* Responsive width */
+    max-width: 800px; /* Matches the size of final2bf.png */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 1000px; /* Matches the size of final2bf.png */
+    object-fit: contain; /* Preserve aspect ratio */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .hi-fidelity-title {
+        font-size: 36px; /* Adjust title size for smaller screens */
+    }
+
+    .hi-fidelity-description {
+        font-size: 22px; /* Adjust description size */
+    }
+
+    .hi-fidelity-image {
+        max-width: 90%; /* Adjust image size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .hi-fidelity-title {
+        font-size: 32px;
+    }
+
+    .hi-fidelity-description {
+        font-size: 20px;
+    }
+
+    .hi-fidelity-image {
+        max-width: 100%; /* Full width for smaller screens */
+    }
+}
+/* Hi-Fi Designs Container */
+.hi-fi-designs-container {
+    width: 100%;
+    max-width: 976px; /* Matches other sections */
+    margin-top: 30px; /* Spacing above the description */
+    position: relative;
+    color: white;
+}
+
+.hi-fi-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px; /* Space below the title */
+    word-wrap: break-word;
+}
+
+.hi-fi-start-container {
+    margin-top: 20px; /* Space above this container */
+    position: relative;
+    width: 100%;
+    max-width: 956px; /* Align with other sections */
+}
+
+.hi-fi-start-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 10px; /* Space below the title */
+    word-wrap: break-word;
+}
+
+.hi-fi-start-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6; /* Improve readability */
+    word-wrap: break-word;
+    text-align: justify; /* Align text for better layout */
+}
+
+/* Getting Started Image Wrapper */
+.getting-started-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Consistent spacing with other sections */
+}
+
+/* Getting Started Image */
+.getting-started-image {
+    width: 100%; /* Responsive width */
+    max-width: 956px; /* Matches other sections */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 730px; /* Specific maximum height */
+    object-fit: contain; /* Preserve aspect ratio */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .hi-fi-title, .hi-fi-start-title {
+        font-size: 36px; /* Adjust title size for smaller screens */
+    }
+
+    .hi-fi-start-description {
+        font-size: 22px; /* Adjust description size */
+    }
+
+    .getting-started-image {
+        max-width: 90%; /* Adjust image size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .hi-fi-title, .hi-fi-start-title {
+        font-size: 32px;
+    }
+
+    .hi-fi-start-description {
+        font-size: 20px;
+    }
+
+    .getting-started-image {
+        max-width: 100%; /* Full width for smaller screens */
+    }
+}
+/* Home and Account Pages Container */
+.home-account-container {
+    width: 100%;
+    max-width: 976px; /* Matches other sections */
+    margin-top: 30px; /* Spacing above the description */
+    position: relative;
+    color: white;
+}
+
+/* Home and Account Pages Title */
+.home-account-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px; /* Space below the title */
+    word-wrap: break-word;
+}
+
+/* Home and Account Pages Description */
+.home-account-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6; /* Improve readability */
+    word-wrap: break-word;
+    text-align: justify; /* Align text for better layout */
+}
+
+/* Home and Account Pages Image Wrapper */
+.home-account-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Consistent spacing with other sections */
+}
+
+/* Home and Account Pages Image */
+.home-account-image {
+    width: 100%; /* Responsive width */
+    max-width: 677px; /* Specific width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 875px; /* Specific height */
+    object-fit: contain; /* Preserve aspect ratio */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .home-account-title {
+        font-size: 36px; /* Adjust title size for smaller screens */
+    }
+
+    .home-account-description {
+        font-size: 22px; /* Adjust description size */
+    }
+
+    .home-account-image {
+        max-width: 90%; /* Adjust image size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .home-account-title {
+        font-size: 32px;
+    }
+
+    .home-account-description {
+        font-size: 20px;
+    }
+
+    .home-account-image {
+        max-width: 100%; /* Full width for smaller screens */
+    }
+}
+/* Order Page Container */
+.order-page-container {
+    width: 100%;
+    max-width: 976px; /* Matches other sections */
+    margin-top: 30px; /* Spacing above the description */
+    position: relative;
+    color: white;
+}
+
+/* Order Page Title */
+.order-page-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px; /* Space below the title */
+    word-wrap: break-word;
+}
+
+/* Order Page Description */
+.order-page-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6; /* Improve readability */
+    word-wrap: break-word;
+    text-align: justify; /* Align text for better layout */
+}
+
+/* Order Page Image Wrapper */
+.order-page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Consistent spacing with other sections */
+}
+
+/* Order Page Image */
+.order-page-image {
+    width: 100%; /* Responsive width */
+    max-width: 315px; /* Specific width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 1180px; /* Specific height */
+    object-fit: contain; /* Preserve aspect ratio */
+}
+/* Customization Page Container */
+.customization-page-container {
+    width: 100%;
+    max-width: 976px;
+    margin-top: 30px;
+    position: relative;
+    color: white;
+}
+
+/* Customization Page Title */
+.customization-page-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+/* Customization Page Description */
+.customization-page-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+/* Customization Page Image Wrapper */
+.customization-page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Customization Page Image */
+.customization-page-image {
+    width: 100%;
+    max-width: 680px;
+    height: auto;
+    max-height: 688px;
+    object-fit: contain;
+}
+/* Cart and Checkout Container */
+.cart-checkout-container {
+    width: 100%;
+    max-width: 976px;
+    margin-top: 30px;
+    position: relative;
+    color: white;
+}
+
+/* Cart and Checkout Title */
+.cart-checkout-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+/* Cart and Checkout Description */
+.cart-checkout-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+/* Cart and Checkout Image Wrapper */
+.cart-checkout-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Cart and Checkout Image */
+.cart-checkout-image {
+    width: 100%;
+    max-width: 664px;
+    height: auto;
+    max-height: 688px;
+    object-fit: contain;
+}
+/* Order Completion and Tracker Container */
+.completion-tracker-container {
+    width: 100%;
+    max-width: 976px;
+    margin-top: 30px;
+    position: relative;
+    color: white;
+}
+
+/* Order Completion and Tracker Title */
+.completion-tracker-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+/* Order Completion and Tracker Description */
+.completion-tracker-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+/* Order Completion and Tracker Image Wrapper */
+.completion-tracker-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Order Completion and Tracker Image */
+.completion-tracker-image {
+    width: 100%;
+    max-width: 672px;
+    height: auto;
+    max-height: 685px;
+    object-fit: contain;
+}
+/* Table Reservation Container */
+.table-reservation-container {
+    width: 100%;
+    max-width: 976px;
+    margin-top: 30px;
+    position: relative;
+    color: white;
+}
+
+/* Table Reservation Title */
+.table-reservation-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+/* Table Reservation Description */
+.table-reservation-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+/* Table Reservation Image Wrapper */
+.table-reservation-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Table Reservation Image */
+.table-reservation-image {
+    width: 100%;
+    max-width: 678px;
+    height: auto;
+    max-height: 685px;
+    object-fit: contain;
+}
+@media (max-width: 1024px) {
+    .order-page-title,
+    .customization-page-title,
+    .cart-checkout-title,
+    .completion-tracker-title,
+    .table-reservation-title {
+        font-size: 36px;
+    }
+
+    .order-page-description,
+    .customization-page-description,
+    .cart-checkout-description,
+    .completion-tracker-description,
+    .table-reservation-description {
+        font-size: 22px;
+    }
+
+    .order-page-image,
+    .customization-page-image,
+    .cart-checkout-image,
+    .completion-tracker-image,
+    .table-reservation-image {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .order-page-title,
+    .customization-page-title,
+    .cart-checkout-title,
+    .completion-tracker-title,
+    .table-reservation-title {
+        font-size: 32px;
+    }
+
+    .order-page-description,
+    .customization-page-description,
+    .cart-checkout-description,
+    .completion-tracker-description,
+    .table-reservation-description {
+        font-size: 20px;
+    }
+
+    .order-page-image,
+    .customization-page-image,
+    .cart-checkout-image,
+    .completion-tracker-image,
+    .table-reservation-image {
+        max-width: 100%;
+    }
+}
+/* Style Guide Container */
+.style-guide-container {
+    width: 100%;
+    max-width: 976px; /* Matches other sections */
+    margin-top: 30px; /* Spacing above the description */
+    position: relative;
+    color: white;
+}
+
+/* Style Guide Title */
+.style-guide-title {
+    font-size: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    margin-bottom: 20px; /* Space below the title */
+    word-wrap: break-word;
+}
+
+/* Style Guide Description */
+.style-guide-description {
+    font-size: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    line-height: 1.6; /* Improve readability */
+    word-wrap: break-word;
+    text-align: justify; /* Align text for better layout */
+}
+/* Style Guide Image Wrapper */
+.style-guide-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Consistent spacing below the description */
+}
+
+/* Style Guide Image - Fixed Size */
+.style-guide-image-large {
+    width: 1316px; /* Fixed width to match desired size */
+    height: auto;   /* Maintain aspect ratio */
+    object-fit: contain; /* Preserve aspect ratio of the PNG */
+    margin: 0 auto; /* Center the image */
+}
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+    .style-guide-image-large {
+        max-width: 90%; /* Adjust image size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .style-guide-image-large {
+        max-width: 100%; /* Full width for smaller screens */
+    }
+}
+/* Scale down all content inside .content-container by 15% (to 85% size) */
+.content-container {
+    transform: scale(0.85);
+    transform-origin: top center;
+    margin: 0 auto;
+}
+
+/* Scale .style-guide-wrapper back up so its image appears full-size again */
+.style-guide-wrapper {
+    transform: scale(1.3333);
+    transform-origin: top center;
+}
+.style-guide-image-large {
+    transform: scale(0.85);
+    transform-origin: top center;
+}
+/* Ensure the page height ends right below the style guide */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Black background for all content */
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    cursor: none; /* Hide the default cursor */
+}
+
+/* Adjust the style guide wrapper to account for 30px spacing */
+.style-guide-wrapper {
+    margin-bottom: 30px; /* Add space below the image */
+}
+
+/* Prevent scrolling past the content */
+body {
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto;
+}
+/* ============================
+   Custom Cursor Styles
+   ============================ */
+
+/* Base styling for the custom cursor */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+    transition:
+      width 0.2s ease,
+      height 0.2s ease,
+      border-color 0.2s ease,
+      background-color 0.2s ease,
+      transform 0.1s ease;
+  }
+  
+  /* Style when hovering over interactive elements */
+  .cursor-hover {
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(255, 255, 255, 1);
+    background-color: transparent;
+    border-radius: 50%;
+  }
+  
+  /* Style when hovering over text elements */
+  .cursor-text-hover {
+    width: 2px;
+    height: auto;
+    background-color: limegreen;
+    border: none;
+    border-radius: 0;
+    transform: translate(-50%, -50%);
+  }
+ /* Hide the default pointer entirely */
+body, a, button, input, textarea, select {
+    cursor: none; /* Disable the default cursor */
+  }
+   /* General text hover effect */
+p, span, h1, h2, h3, h4, h5, h6, li {
+    cursor: none; /* Ensure default pointer is hidden for text elements */
+  }
+  /* Initial state for scroll animation (Text Only) */
+.section h1, .section p, 
+.user-journey-title, .user-journey-description,
+.competitor-analysis-title, .competitor-analysis-description,
+.paper-wireframes-title, .paper-wireframes-description,
+.digital-wireframes-title, .digital-wireframes-description,
+.hi-fidelity-title, .hi-fidelity-description,
+.hi-fi-title, .hi-fi-start-title, .hi-fi-start-description,
+.home-account-title, .home-account-description,
+.order-page-title, .order-page-description,
+.customization-page-title, .customization-page-description,
+.cart-checkout-title, .cart-checkout-description,
+.completion-tracker-title, .completion-tracker-description,
+.table-reservation-title, .table-reservation-description,
+.style-guide-title, .style-guide-description {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-in-out;
+}
+
+/* Active state for scroll animation */
+.section h1.in-view, .section p.in-view, 
+.user-journey-title.in-view, .user-journey-description.in-view,
+.competitor-analysis-title.in-view, .competitor-analysis-description.in-view,
+.paper-wireframes-title.in-view, .paper-wireframes-description.in-view,
+.digital-wireframes-title.in-view, .digital-wireframes-description.in-view,
+.hi-fidelity-title.in-view, .hi-fidelity-description.in-view,
+.hi-fi-title.in-view, .hi-fi-start-title.in-view, .hi-fi-start-description.in-view,
+.home-account-title.in-view, .home-account-description.in-view,
+.order-page-title.in-view, .order-page-description.in-view,
+.customization-page-title.in-view, .customization-page-description.in-view,
+.cart-checkout-title.in-view, .cart-checkout-description.in-view,
+.completion-tracker-title.in-view, .completion-tracker-description.in-view,
+.table-reservation-title.in-view, .table-reservation-description.in-view,
+.style-guide-title.in-view, .style-guide-description.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Initial state of the cover image (hidden) */
+.cover-image {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* Final state when the fade-in is triggered */
+.cover-image.fade-in {
+    opacity: 1;
+}
+img.cover-image:last-of-type {
+    display: none !important;
+}
+/* Wrapper to ensure the section spans the entire width and is properly positioned */
+.nextprojectwrapper {
+    margin-top: 200px; /* Adjusts spacing below styleguide.png */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Outer container for the clickable next project block */
+  .nextprojectholder {
+    display: flex;
+    flex-direction: row; /* Aligns arrow with text horizontally */
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Takes up the entire width of the page */
+    text-decoration: none;
+    color: inherit; /* Keeps the text color consistent */
+    padding: 40px 60px; /* Add generous padding for better spacing */
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent background */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+  }
+  
+  /* Hover effect for the block */
+  .nextprojectholder:hover {
+    background-color: rgba(0, 0, 0, 1);
+    transform: scale(1.02); /* Slight scaling on hover */
+  }
+  
+  /* Thumbnail holder styling */
+  .nextthumbnailholder {
+    position: relative;
+    width: 15%;
+    height: 120px; /* Adjust height as needed */
+    overflow: hidden;
+  }
+  
+  /* Gradient overlay for the thumbnail */
+  .nextthumbnailgradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+  }
+  
+  /* Text container */
+  .div-block-405 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+  }
+  
+  /* Main text for "View Next Project" */
+  .text-block-105 {
+    font-size: 40px; /* Large font size for visibility */
+    font-weight: 500;
+    font-family: 'Rajdhani', sans-serif;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  /* Subheading text for the project name */
+  .text-block-106 {
+    font-size: 36px; /* Large font size for the project name */
+    font-weight: 400;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+  }
+  
+  /* Arrow image styling */
+  .image-145 {
+    width: 80px; /* Increased size for emphasis */
+    height: auto;
+    margin-left: 30px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .nextprojectholder {
+      flex-direction: column; /* Stacks text and arrow vertically */
+      text-align: center;
+      padding: 30px; /* Adjust padding for smaller screens */
+    }
+  
+    .div-block-405 {
+      width: 100%; /* Full width on smaller screens */
+      justify-content: center;
+    }
+  
+    .image-145 {
+      margin-left: 0;
+      margin-top: 20px;
+      width: 60px; /* Adjusted size for smaller screens */
+    }
+  
+    .text-block-105 {
+      font-size: 32px; /* Slightly smaller for smaller screens */
+    }
+  
+    .text-block-106 {
+      font-size: 28px; /* Slightly smaller for smaller screens */
+    }
+  }
+  
+  @media (max-width: 430px) {
+    .text-block-105 {
+      font-size: 28px; /* Reduced font size for very small screens */
+    }
+  
+    .text-block-106 {
+      font-size: 24px;
+    }
+  
+    .image-145 {
+      width: 50px; /* Smaller arrow size for very small screens */
+    }
+  }
+  /* Contact Section */
+.contact-section {
+    padding: 50px 30px;
+    background: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 30px;
+  }
+  
+  .contact-section h2 {
+    font-size: 3em;
+    font-weight: 300;
+    margin-bottom: 20px;
+    padding-left: 17px;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: left;
+  }
+  
+  .contact-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .contact-section ul li {
+    margin-bottom: 20px;
+  }
+  
+  .contact-link {
+    font-size: 1.5em;
+    font-weight: 300;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-left: 17px;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-section {
+      align-items: center;
+      padding-left: 0;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .contact-section h2 {
+      font-size: 2.5em;
+      text-align: center;
+    }
+  
+    .contact-link {
+      font-size: 1.3em;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 430px) {
+    .contact-section h2 {
+      font-size: 2em;
+    }
+  
+    .contact-link {
+      font-size: 1em;
+    }
+  }
+  .contact-section {
+    transform: scale(1.17647);
+    transform-origin: top left; /* Ensures it scales from the top-left corner */
+}
+.contact-section {
+    margin-left: -350px !important; /* Adjust this value to move further left (-300px, etc.) */
+}
+/* Ensure Contact Section Resizes Properly and Text Aligns Left */
+.contact-section {
+    padding-left: 30px; /* Adjust padding for consistent alignment */
+    margin-left: auto; /* Automatically adjust margin for responsiveness */
+    margin-right: auto; /* Center section horizontally */
+    max-width: 1200px; /* Constrain the maximum width for better alignment */
+    box-sizing: border-box; /* Include padding in total width */
+    width: 100%; /* Ensure full width within the parent container */
+    text-align: left; /* Align text to the left */
+}
+
+/* Adjust Text Within Contact Section */
+.contact-section ul li a {
+    text-align: left; /* Ensure links are aligned to the left */
+    padding-left: 10px; /* Add slight padding for readability */
+    margin-left: 0; /* Remove any unwanted margins */
+}
+/* =========================
+   Unified Footer (Matches Case Study 2)
+   ========================= */
+
+/* Main footer container */
+.footer-section {
+    margin: 100px auto 0;        /* 100px top margin, auto left/right */
+    padding: 50px 30px;          /* 50px on top/bottom, 30px left/right */
+    width: 100%;                 /* Full width */
+    background-color: #000;      /* Black background */
+    color: white;                /* White text */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;      /* So width + padding is calculated consistently */
+    position: relative;          /* If you need absolutely positioned elements inside */
+    font-family: 'Rajdhani', sans-serif; /* Match font from Case Study 2 */
+  }
+  
+  /* Footer Title (e.g., 'Contact') */
+  .footer-title {
+    font-size: 3em;              /* Large size for heading */
+    font-weight: 300;
+    margin-bottom: 20px;
+    padding-left: 17px;          /* Small left padding inside heading */
+    font-family: 'Rajdhani', sans-serif;
+  }
+  
+  /* Footer Content Wrapper (Holds contact info, links, etc.) */
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Footer Links List */
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+  }
+  
+  /* Spacing between each footer link (Email, LinkedIn, etc.) */
+  .footer-links li {
+    margin-bottom: 20px;
+  }
+  
+  /* Link styling (Email, LinkedIn, etc.) */
+  .contact-link {
+    font-size: 1.5em;
+    font-weight: 300;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-left: 17px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Underline effect on hover (same as Case Study 2) */
+  .contact-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  .contact-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  /* Horizontal rule styling inside the footer */
+  .footer-hr {
+    width: 80%;
+    border: 0;
+    border-top: 0.5px solid white;
+    margin: 10px auto;
+  }
+  
+  /* Copyright text */
+  .footer-copyright {
+    font-size: 0.8em;
+    font-weight: 300;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    text-align: left;
+    margin-left: 145px;
+    margin-top: 10px;
+  }
+  
+  /* Responsive Tweaks (optional) */
+  @media (max-width: 768px) {
+    .footer-section {
+      padding: 0px 0px; /* Slightly smaller padding on mobile */
+    }
+    .footer-title {
+      font-size: 2.5em;
+    }
+    .contact-link {
+      font-size: 1.3em;
+    }
+  }
+  @media (max-width: 430px) {
+    .footer-title {
+      font-size: 2em;
+    }
+    .contact-link {
+      font-size: 1em;
+    }
+  }
+  
