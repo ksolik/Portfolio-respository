@@ -1943,4 +1943,12 @@ img.cover-image:last-of-type {
       font-size: 1em;
     }
   }
+   @media (pointer: coarse) {
+    .custom-cursor {
+      display: none !important;
+    }
+    body, * {
+      cursor: default !important;
+    }
+  }
   
