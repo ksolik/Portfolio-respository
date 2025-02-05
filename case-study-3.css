@@ -2466,4 +2466,31 @@ body, * {
       cursor: default !important;
     }
   }
-  
+  /* Background image using a high‑resolution WebP image of a city scene */
+.bg-image-1 {
+  background-image: url('images/Busynyc-p-1080.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Background image using an isometric view – ideal for creative or graphic sections */
+.bg-image-2 {
+  background-image: url('images/image_Isometric-p-1080.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Background image using a mockup photo – good for showcasing design work */
+.bg-image-4 {
+  background-image: url('images/Mockup-p-1080.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Background image using a high‑resolution photo for a dynamic look */
+.bg-image-5 {
+  background-image: url('images/capitaluwm-p-1080.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
