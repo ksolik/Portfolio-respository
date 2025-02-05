@@ -2458,4 +2458,12 @@ body, * {
   align-items: center;
   justify-content: center;
 }
-
+ @media (pointer: coarse) {
+    .custom-cursor {
+      display: none !important;
+    }
+    body, * {
+      cursor: default !important;
+    }
+  }
+  
