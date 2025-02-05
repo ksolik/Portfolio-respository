@@ -956,3 +956,12 @@ transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease; /* Smooth
   left: 50%;
   transform: translate(-50%, -50%);
 }
+ @media (pointer: coarse) {
+    .custom-cursor {
+      display: none !important;
+    }
+    body, * {
+      cursor: default !important;
+    }
+  }
+  
