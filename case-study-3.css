@@ -2420,3 +2420,9 @@ body, * {
     display: none !important;
   }
 }
+@font-face {
+  font-family: "Cooper Black";
+  src: url("fonts/COOPBL.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
