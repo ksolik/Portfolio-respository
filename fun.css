@@ -167,3 +167,13 @@
 .home-section header h2 {
   font-weight: 100;
 }
+
+ @media (pointer: coarse) {
+    .custom-cursor {
+      display: none !important;
+    }
+    body, * {
+      cursor: default !important;
+    }
+  }
+  
