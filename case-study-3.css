@@ -408,17 +408,17 @@ p {
 }
 
 ._100-vh.bg-image-1 {
-  background-image: url('../images/jovaughn-stephens-mvYZlH4m-2Y-unsplash.jpg');
+  background-image: url('images/jovaughn-stephens-mvYZlH4m-2Y-unsplash.jpg');
   background-position: 50%;
   background-size: cover;
 }
 
 ._100-vh.bg-image-1.flex-align-center {
-  background-image: url('../images/jump_around-scaled.jpg');
+  background-image: url('images/jump_around-scaled.jpg');
 }
 
 ._100-vh.bg-image-2 {
-  background-image: url('../images/Busynyc.webp');
+  background-image: url('images/Busynyc.webp');
   background-position: 50%;
   background-size: cover;
 }
@@ -428,17 +428,17 @@ p {
 }
 
 ._100-vh.bg-image-4 {
-  background-image: url('../images/ivan-bandura-eoz4mQ5BlDw-unsplash.jpg');
+  background-image: url('images/ivan-bandura-eoz4mQ5BlDw-unsplash.jpg');
   background-position: 50%;
   background-size: cover;
 }
 
 ._100-vh.bg-image-4.flex-align-center {
-  background-image: url('../images/capitaluwm.jpeg');
+  background-image: url('images/capitaluwm.jpeg');
 }
 
 ._100-vh.bg-image-5 {
-  background-image: url('../images/Breakfast-sand.jpeg');
+  background-image: url('images/Breakfast-sand.jpeg');
   background-position: 50%;
   background-size: cover;
 }
