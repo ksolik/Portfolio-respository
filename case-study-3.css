@@ -7,7 +7,7 @@
   --body--font-size: 16px;
   --body--landscape-font-size: 16px;
   --body--portrait-font-size: 16px;
-  --font--heading-font: Coopbl, Tahoma, sans-serif;
+  --font--heading-font: 'Cooper Black, Tahoma, sans-serif;
   --h1--font-size: 70px;
   --h1--tablet-font-size: 78px;
   --h1--landscape-font-size: 68px;
@@ -40,7 +40,7 @@
   --color--secondary: #996ad1;
   --container--max-width: 1280px;
   --container--padding: 1rem;
-  --font--cooper: Coopbl, Tahoma, sans-serif;
+  --font--cooper: 'Cooper Black', Tahoma, sans-serif;
   --body--font-family: var(--font--body-font);
   --body--tablet-font-size: 16px;
   --display--font-family: var(--font--heading-font);
@@ -1337,7 +1337,7 @@ p {
 
 @font-face {
   font-family: 'Coopbl';
-  src: url('COOPBL.TTF') format('truetype');
+  src: url('fonts/COOPBL.TTF') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -2419,12 +2419,6 @@ body, * {
   #Documents {
     display: none !important;
   }
-}
-@font-face {
-  font-family: "Cooper Black";
-  src: url("fonts/COOPBL.TTF") format("truetype");
-  font-weight: normal;
-  font-style: normal;
 }
 ._100-vh {
   height: 100vh;
