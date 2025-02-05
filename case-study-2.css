@@ -1427,4 +1427,12 @@ body, * {
        but that will force horizontal scroll on smaller devices. 
        So you might NOT want that. */
   }
+   @media (pointer: coarse) {
+    .custom-cursor {
+      display: none !important;
+    }
+    body, * {
+      cursor: default !important;
+    }
+  }
   
