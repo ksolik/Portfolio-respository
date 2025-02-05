@@ -2426,3 +2426,36 @@ body, * {
   font-weight: normal;
   font-style: normal;
 }
+._100-vh {
+  height: 100vh;
+  width: 100%;
+}
+
+/* Ensure these background image rules match your desired images */
+.bg-image-1 {
+  background: url("images/Breakfast-sand.jpeg") no-repeat center center;
+  background-size: cover;
+}
+
+.bg-image-2 {
+  background: url("images/Busynyc.webp") no-repeat center center;
+  background-size: cover;
+}
+
+.bg-image-4 {
+  background: url("images/Mockup.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.bg-image-5 {
+  background: url("images/capitaluwm.jpeg") no-repeat center center;
+  background-size: cover;
+}
+
+/* You might have additional classes like flex-align-center defined already */
+.flex-align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
