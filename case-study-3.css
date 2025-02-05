@@ -1337,7 +1337,7 @@ p {
 
 @font-face {
   font-family: 'Coopbl';
-  src: url('../fonts/COOPBL.TTF') format('truetype');
+  src: url('COOPBL.TTF') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
