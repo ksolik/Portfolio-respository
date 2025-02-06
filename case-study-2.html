@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Standard viewport meta tag so responsive media queries work -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Case Study 2 – Takomo Golf Online Golf Fitting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Import the Rajdhani font -->
@@ -9,10 +11,26 @@
       href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@100;300;500;600&display=swap"
       rel="stylesheet"
     />
-
     <!-- Your main stylesheet and fadeIn if needed -->
     <link rel="stylesheet" href="case-study-2.css" />
     <link rel="stylesheet" href="fadeIn.css" />
+
+    <!-- Additional style to force a zoomed-out view on phone screens -->
+    <style>
+      /* For demonstration purposes, here’s a simple style */
+      body, html {
+        margin: 0;
+        padding: 0;
+      }
+      /* This media query applies only on screens 480px wide or less */
+      @media only screen and (max-width: 480px) {
+        /* The zoom property scales the entire page.
+           Adjust the value (here 0.27) to match the scale you want. */
+        html {
+          zoom: 0.27;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Loader Overlay -->
