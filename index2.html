@@ -572,23 +572,19 @@
     </div>
 
     <!-- Scripts -->
+        <script src="loader.js"></script>
     <script>
       window.addEventListener("load", function () {
-        // Select the loader overlay and page content elements
+        // Hide the loader overlay once the page is fully loaded
         const loaderOverlay = document.getElementById("loader-overlay");
-        const pageContent = document.getElementById("page-content");
-
-        // Hide the loader overlay immediately once the page is fully loaded
         if (loaderOverlay) {
-          loaderOverlay.style.display = "none";
+          loaderOverlay.style.display = "none"; // Hides the loader without removing it
         }
 
-        // Unhide the main content (if you have an element with id "page-content")
-        if (pageContent) {
-          pageContent.classList.remove("hidden");
-        }
+        // Trigger the fade-in effect by adding the "loaded" class to the body
+        document.body.classList.add("loaded");
 
-        // Trigger the fade-in effect on elements with the class "fade-in"
+        // Optionally, trigger fade-in effects on other elements with class "fade-in"
         const fadeElements = document.querySelectorAll(".fade-in");
         fadeElements.forEach(function (el) {
           el.classList.add("active");
