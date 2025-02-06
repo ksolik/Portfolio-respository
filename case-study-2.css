@@ -1,4 +1,16 @@
 @import url(https://fonts.googleapis.com/css2?family=Rajdhani:wght@100;300;500;600&display=swap);
+
+/* Optionally, add the CSS @viewport rule for extra support */
+@-ms-viewport {
+  width: device-width;
+}
+@viewport {
+  width: device-width;
+  initial-scale: 1;
+}
+
+
+
 /* Reset default margins, paddings, and set box-sizing */
 * {
     margin: 0;
@@ -1924,5 +1936,16 @@ body.loaded {
   .footer-copyright {
     font-size: 60px;
     margin-top: 10px;
+  }
+}
+/* When the screen is 480px or narrower, scale the entire page out */
+@media only screen and (max-width: 480px) {
+  /* Adjust these numbers as needed based on your design width */
+  #wrapper {
+    transform: scale(.3);
+    transform-origin: top left;
+    /* Set the width of the container to match your design width.
+       This prevents the wrapper from shrinking further. */
+    width: 1400px;
   }
 }
