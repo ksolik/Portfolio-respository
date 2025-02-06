@@ -994,3 +994,13 @@ transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease; /* Smooth
   0% { transform: scale(0.8); opacity: 1; }
   100% { transform: scale(1.5); opacity: 0; }
 }
+/* Initially hide the body */
+body {
+  opacity: 0;
+  transition: opacity 1.5s ease-in;
+}
+
+/* When the 'loaded' class is added, fade to fully visible */
+body.loaded {
+  opacity: 1;
+}
