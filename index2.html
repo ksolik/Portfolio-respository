@@ -12,6 +12,12 @@
     <link rel="stylesheet" type="text/css" href="style2.css" />
   </head>
   <body>
+    <!-- Loader Overlay -->
+    <div id="loader-overlay">
+      <div class="loader-container">
+        <div class="ripple"></div>
+      </div>
+    </div>
     <!-- Navigation Bar -->
     <div class="navbarholder">
       <div class="navcontentholder">
@@ -566,6 +572,29 @@
     </div>
 
     <!-- Scripts -->
+    <script>
+      window.addEventListener("load", function () {
+        // Select the loader overlay and page content elements
+        const loaderOverlay = document.getElementById("loader-overlay");
+        const pageContent = document.getElementById("page-content");
+
+        // Hide the loader overlay immediately once the page is fully loaded
+        if (loaderOverlay) {
+          loaderOverlay.style.display = "none";
+        }
+
+        // Unhide the main content (if you have an element with id "page-content")
+        if (pageContent) {
+          pageContent.classList.remove("hidden");
+        }
+
+        // Trigger the fade-in effect on elements with the class "fade-in"
+        const fadeElements = document.querySelectorAll(".fade-in");
+        fadeElements.forEach(function (el) {
+          el.classList.add("active");
+        });
+      });
+    </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const fadeInElements = document.querySelectorAll(".fade-in");
