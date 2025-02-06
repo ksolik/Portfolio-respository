@@ -1427,7 +1427,7 @@ body, * {
        but that will force horizontal scroll on smaller devices. 
        So you might NOT want that. */
   }
-   @media (pointer: coarse) {
+  @media (pointer: coarse) {
     .custom-cursor {
       display: none !important;
     }
@@ -1435,7 +1435,7 @@ body, * {
       cursor: default !important;
     }
   }
-    /* Hide the page content initially */
+  /* Hide the page content initially */
 .hidden {
   display: none;
 }
@@ -1506,4 +1506,421 @@ body {
 }
 body.loaded {
   opacity: 1;
+}
+/* Responsive adjustments for phone screens */
+@media (max-width: 480px) {
+  /* Adjust the black square to let content flow naturally */
+  .black-square {
+    height: auto;
+    padding: 0px 0;
+  }
+  
+  /* Smaller cover title: reduced top margin and font size */
+  .cover-title {
+    margin-top: 250px;
+    font-size: 64px;
+    padding: 0 20px;
+  }
+  /* Scale down the cover image: use percentage width and auto height */
+  .cover-image {
+    width: 80%;
+    height: auto;
+    padding-top: 300px;
+    margin: 50px auto 0;
+  }
+  /* For sections that were fixed width, use a percentage width and auto height */
+  .context-section,
+  .design-process-section,
+  .intro-section,
+  .problem-section,
+  .goal-section,
+  .contextual-inquiry-section,
+  .user-types-section,
+  .maps-section,
+  .findings-section,
+  .takeaway-section,
+  .hmw-statement-section,
+  .our-approach-section,
+  .lowfi-prototype-section,
+  .lowfi-proto-image-section,
+  .final-section,
+  .getstarted-section,
+  .step1-section,
+  .step2-section,
+  .step3-section,
+  .step4-section,
+  .step5-section,
+  .step6-9-section,
+  .iron-recs-section,
+  .styleguide-section {
+    width: 90%;
+    margin: 20px auto;
+    height: auto;
+  }
+  /* Change design columns to stack vertically */
+  .design-columns {
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 0;
+  }
+  /* Navigation bar adjustments */
+  .navbarholder {
+    width: 1300px;
+    height: 150px;
+    border-radius: 200px;
+  }
+  .navinitials {
+    width: 40px;
+    height: 40px;
+    font-size: 60px;
+    padding-left: 100px;
+  }
+  .navlink {
+    font-size: 60px;
+  }
+  .navlinkholder {
+    gap: 90px;
+    padding-right: 60px;
+  }
+}
+@media (max-width: 480px) {
+  /* Make context through contextual inquiry sections responsive */
+  .context-section,
+  .design-process-section,
+  .intro-section,
+  .problem-section,
+  .goal-section,
+  .contextual-inquiry-section {
+    height: 80%;
+    width: 80%;
+    margin: 60px auto;
+    height: auto;
+    padding: 10px; /* optional extra spacing within sections */
+  }
+  
+  /* Adjust typography for headings and body text in these sections */
+  .context-title,
+  .section-title,
+  .design-process-title,
+  .contextual-inquiry-title {
+    font-size: 70px; /* reduce heading size for small screens */
+    padding: 0 10px; /* ensure some horizontal padding */
+  }
+  .section-text
+  .context-text,
+  .contextual-inquiry-text {
+    font-size: 50px; /* reduce body text size */
+    padding: 0 10px;
+  }
+  .context-text {
+    font-size: 50px;
+  }
+  .section-text {
+    font-size: 50px;
+  }
+  .design-column-title {
+    font-size: 60px; /* reduce column title size */
+    padding: 0 10px; /* ensure some horizontal padding */
+  }
+  .design-column-text {
+    font-size: 50px; /* reduce column text size */
+    padding: 0 10px; /* ensure some horizontal padding */
+  }
+  
+}
+@media (max-width: 480px) {
+  .grey-background {
+    height: 13000px !important;
+  }
+}
+@media (max-width: 480px) {
+  .user-types-section {
+    gap: 200px;
+  }
+  /* Increase sizes of the boxes */
+  .primary-overlay {
+    width: 300px;    /* Increased from 200px */
+    height: 300px;
+  }
+  .secondary-overlay {
+    width: 300px;    /* Increased from 200px */
+    height: 300px;
+  }
+  .excluded-overlay {
+    width: 300px;    /* Increased from approx. 253px */
+    height: 300px;   /* Increased from approx. 256px */
+  }
+  .primary-bg {
+    width: 300px;    /* Increased from 200px */
+    height: 300px;
+  }
+  
+  .secondary-bg {
+    width: 300px;    /* Increased from approx. 253px */
+    height: 300px;   /* Increased from approx. 231px */
+  }
+  
+  .excluded-bg {
+    width: 300px;    /* Increased from approx. 253px */
+    height: 300px;   /* Increased from approx. 256px */
+  }
+  
+  .user-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.8em; /* Adjust as needed */
+    padding-left: 90px;
+    padding-bottom: 10px;
+  }
+  
+  .user-subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4em;
+    padding-left: 90px;
+    padding-bottom: 30px; /* Adjust as needed */
+    margin-top: -30px; /* Moves the subtitle upward; adjust this value as needed */
+  }
+  
+  .maps-title {
+    padding-top: 150px;
+    font-size: 70px;
+    width: 100%;
+    text-align: center;
+  }
+.maps-img{
+  width: 60%;    /* Increase the width to make images larger */
+  height: auto;   /* Maintain the aspect ratio */
+  padding-top: 200px;
+}
+.maps-img-2 {
+  padding-top: 450px;
+  width: 50%;    /* Increase the width to make images larger */
+  height: auto;   /* Maintain the aspect ratio */
+  padding-top: 220px; 
+  padding-left: 80px;/* Keeps your top padding as specified */
+}
+}
+/* Responsive adjustment for smaller screens */
+@media (max-width: 480px) {
+  .findings-section {
+    padding-top: 950px; /* Adjust as needed */
+    overflow-x: auto;   /* Allow horizontal scrolling if needed */
+  }
+  .findings-title {
+    font-size: 70px;
+  }
+  .findings-description {
+    width: 1000px;
+    font-size: 50px;
+    margin: 20px -160px;
+  }
+}
+@media (max-width: 480px) {
+  /* Ensure the icons container is a flex container with centered items */
+  .findings-icons {
+    justify-content: center;
+    gap: 70px; /* Adjust gap between icon boxes as needed */
+  }
+  
+  /* Style each icon box to stack its content vertically and center them */
+  .findings-icons .icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Increase the emoji size and add spacing below */
+  .findings-icons .icon-emoji {
+    font-size: 200px;  /* Adjust as needed */
+    margin-bottom: 10px;  /* Space between emoji and label */
+  }
+  
+  /* Increase the label size and center the text */
+  .findings-icons .icon-label {
+    font-size: 50px;  /* Adjust as needed */
+    text-align: center;
+  }
+}
+/* Responsive adjustment for smaller screens */
+@media (max-width: 480px) {
+  .takeaway-section {
+    padding-top: 100px; /* Adjust as needed */
+  }
+  .takeaway-title {
+    font-size: 70px;
+  }
+  .takeaway-text {
+    font-size: 50px;
+    padding: 0 10px;
+
+  }
+}
+/* Responsive adjustment for smaller screens */
+@media (max-width: 480px) {
+  .hmw-statement-section {
+    padding-top: 50px; /* Adjust as needed */
+  }
+  .hmw-statement-title {
+    font-size: 70px;
+  }
+  .hmw-statement-text {
+    font-size: 50px;
+    padding: 0 200px;
+
+  }
+}
+/* Responsive adjustment for smaller screens */
+@media (max-width: 480px) {
+  .our-approach-section {
+    padding-top: 50px; /* Adjust as needed */
+  }
+  .our-approach-title {
+    font-size: 70px;
+  }
+  .our-approach-text {
+    font-size: 50px;
+    padding: 0 200px;
+
+  }
+  .our-approach-bullets li {
+    font-size: 50px;
+  }
+}
+/* Responsive adjustment for smaller screens */
+@media (max-width: 480px) {
+  .lowfi-prototype-section{
+    font-size: 70px;
+    padding-top: 50px; /* Adjust as needed */
+  }
+  .lowfi-prototype-section .section-title {
+    font-size: 70px;
+  }
+  .lowfi-prototype-section .section-text{
+    font-size: 50px;
+  }
+  .lowfi-proto-image {
+    width: 100%;
+    height: auto;
+    padding-top: 50px;
+  }
+}
+/* Responsive adjustment for smaller screens */
+@media (max-width: 480px) {
+  .final-section {
+    padding-top: 50px; /* Adjust as needed */
+  }
+  .final-section .section-title{
+    font-size: 70px;
+  }
+  .final-section .section-text{
+    font-size: 50px;
+  }
+}
+@media (max-width: 480px) {
+  /* Hide original multi-section layout */
+  .original-sections {
+    display: none !important;
+  }
+  
+  /* Show the phone-only alternative layout */
+  .phone-alt-layout {
+    display: block !important;
+    margin-top: 200px !important;  /* Extra top spacing */
+  }
+  
+  /* Center the image and reduce its size */
+  .phone-alt-layout img {
+    display: block !important;
+    margin: 0 auto !important;
+    width: 80% !important;        /* Force a smaller image width */
+    height: auto !important;       /* Force a smaller image height */
+  }
+  .styleguide-section {
+    padding-top: 100px !important;
+  }
+}
+@media (max-width: 480px) {
+  .nextprojectwrapper {
+    width: 90%;
+    margin: 50px auto; /* Centers the wrapper and adds vertical spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Adjust gap as needed */
+  }
+  
+  .nextprojectholder {
+    width: 100%;
+    display: flex;
+    flex-direction: row;  /* Arrange text and arrow side by side */
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Container for the text blocks and arrow */
+  .div-block-405 {
+    display: flex;
+    flex-direction: row;   /* Place text and arrow on the same line */
+    align-items: center;
+    margin-top: 40px;
+    gap: 20px;             /* Adjust gap between text and arrow */
+    width: auto;           /* Let the container size based on its content */
+  }
+  
+  .text-block-105 {
+    font-size: 70px;  /* Adjust heading size for smaller screens */
+  }
+  
+  .text-block-106 {
+    font-size: 60px;  /* Adjust subheading size for smaller screens */
+  }
+  
+  .image-145 {
+    width: 80px;      /* Adjust arrow image size */
+    height: auto;
+    margin-left: 20px; /* Space between text and arrow */
+  }
+}
+@media (max-width: 480px) {
+  .footer-section {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .footer-content {
+    gap: 15px;
+  }
+  
+  .footer-title {
+    font-size: 150px;      /* Adjust the heading size for small screens */
+  }
+  
+  .footer-links {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 60px;
+  }
+  
+  .contact-link {
+    font-size: 90px;    /* Adjust the font size for better readability */
+  }
+  
+  .footer-hr {
+    width: 100%;
+    border-top: 5px solid white; /* Increase the border thickness */
+  }
+  
+  .footer-copyright {
+    font-size: 60px;
+    margin-top: 10px;
+  }
 }
