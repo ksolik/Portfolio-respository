@@ -427,11 +427,6 @@ p {
   align-items: center;
 }
 
-._100-vh.bg-image-4 {
-  background-image: url('images/ivan-bandura-eoz4mQ5BlDw-unsplash.jpg');
-  background-position: 50%;
-  background-size: cover;
-}
 
 ._100-vh.bg-image-4.flex-align-center {
   background-image: url('images/capitaluwm.jpeg');
