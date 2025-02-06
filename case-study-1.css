@@ -1951,4 +1951,75 @@ img.cover-image:last-of-type {
       cursor: default !important;
     }
   }
+  /* Hide the page content initially */
+.hidden {
+    display: none;
+  }
   
+  /* Full-screen overlay for the loader */
+  #loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #121212; /* dark background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  /* Loader container (centers the ripple) */
+  .loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* Ripple effect (from your provided code, updated to white colors) */
+  .ripple {
+    position: relative;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .ripple::before, .ripple::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid #fff;  /* white border */
+    opacity: 0;
+    animation: ripple 1s infinite;
+  }
+  
+  .ripple::after {
+    border: 4px solid #eee;  /* subtle off-white */
+    animation-delay: 1.5s;
+  }
+  
+  @keyframes ripple {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+  
+  /* Fade-in effect for the page */
+  body {
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+  }
+  body.loaded {
+    opacity: 1;
+  }
