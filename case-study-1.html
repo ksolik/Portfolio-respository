@@ -642,6 +642,25 @@
     </div>
     <!-- Custom Cursor -->
     <div class="custom-cursor"></div>
+    <script>
+      window.addEventListener("load", function () {
+        // Hide the loader overlay once the page is fully loaded
+        const loaderOverlay = document.getElementById("loader-overlay");
+        if (loaderOverlay) {
+          loaderOverlay.style.display = "none"; // Hides the loader without removing it
+        }
+
+        // Trigger the fade-in effect by adding the "loaded" class to the body
+        document.body.classList.add("loaded");
+
+        // Optionally, trigger fade-in effects on other elements with class "fade-in"
+        const fadeElements = document.querySelectorAll(".fade-in");
+        fadeElements.forEach(function (el) {
+          el.classList.add("active");
+        });
+      });
+    </script>
+    <script src="loader.js"></script>
 
     <!-- Include the Custom Cursor JavaScript -->
     <script src="case-study-cursor.js"></script>
