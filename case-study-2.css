@@ -1695,7 +1695,7 @@ body.loaded {
     font-size: 2.4em;
     padding-left: 90px;
     padding-bottom: 30px; /* Adjust as needed */
-    margin-top: -30px; /* Moves the subtitle upward; adjust this value as needed */
+    margin-top: -20px; /* Moves the subtitle upward; adjust this value as needed */
   }
   
   .maps-title {
