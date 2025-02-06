@@ -1563,8 +1563,10 @@ body.loaded {
     gap: 20px;
     padding-left: 0;
   }
+
   /* Navigation bar adjustments */
   .navbarholder {
+    top: 50px;
     width: 1300px;
     height: 150px;
     border-radius: 200px;
