@@ -1011,6 +1011,45 @@ body.loaded {
   margin: 0;
   transition: color 0.3s ease;
 }
+/* Full screen (non‑phone) adjustments for individual case study boxes */
+@media screen and (min-width: 431px) {
+  /* CASE STUDY 1 */
+  .case-study-box.case-study-1 > div {
+    /* Adjust the text container for case study 1 */
+    left: 45% !important;           /* Modify this value to shift horizontally */
+    transform: translateX(-50%) !important; /* Must match the left offset */
+  }
+  .case-study-box.case-study-1 img {
+    /* Adjust the image for case study 1 */
+    left: 45% !important;           /* Modify as needed */
+    transform: translate(-50%, -50%) !important; /* Horizontal offset must match */
+  }
+
+  /* CASE STUDY 2 */
+  .case-study-box.case-study-2 > div {
+    /* Adjust the text container for case study 2 */
+    left: 45% !important;           /* Change this value to move the text left/right */
+    transform: translateX(-47%) !important;
+  }
+  .case-study-box.case-study-2 img {
+    /* Adjust the image for case study 2 */
+    padding-bottom: 40px;
+    left: 40% !important;           /* Change as needed */
+    transform: translate(-47%, -50%) !important;
+  }
+
+  /* CASE STUDY 3 */
+  .case-study-box.case-study-3 > div {
+    /* Adjust the text container for case study 3 */
+    left: 47% !important;           /* Change this value to shift the text */
+    transform: translateX(-53%) !important;
+  }
+  .case-study-box.case-study-3 img {
+    /* Adjust the image for case study 3 */
+    left: 50% !important;           /* Change as needed */
+    transform: translate(-53%, -50%) !important;
+  }
+}
 @media screen and (max-width: 430px) {
   /* Shift the text container slightly to the left */
   .case-study-box > div {
