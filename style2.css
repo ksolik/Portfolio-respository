@@ -1011,4 +1011,18 @@ body.loaded {
   margin: 0;
   transition: color 0.3s ease;
 }
+@media screen and (max-width: 430px) {
+  /* Shift the text container slightly to the left */
+  .case-study-box > div {
+    left: 45% !important; 
+    transform: translateX(-45%) !important;
+  }
+  
+  /* Shift the image slightly to the left */
+  .case-study-box img {
+    left: 42% !important;
+    /* For images, preserve the vertical centering by keeping -50% on Y */
+    transform: translate(-45%, -50%) !important;
+  }
+}
 
