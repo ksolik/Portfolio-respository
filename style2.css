@@ -1004,3 +1004,10 @@ body {
 body.loaded {
   opacity: 1;
 }
+.case-study-box h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 300; /* or 400, or 500 */
+  font-size: 1em;
+  margin: 0;
+  transition: color 0.3s ease;
+}
