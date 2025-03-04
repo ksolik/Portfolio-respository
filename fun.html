@@ -3,16 +3,94 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fun</title>
-    
+    <title>Other - Masonry Packed</title>
     <!-- Include Rajdhani Font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="style2.css" />
-    <link rel="stylesheet" type="text/css" href="fun.css" />
+    <link rel="stylesheet" href="style2.css" />
+    <link rel="stylesheet" href="fun.css" />
+
+    <style>
+      /* Container for the masonry layout (desktop) */
+      #masonry-container {
+        position: relative;
+        width: 95%;
+        margin: 0 auto;
+        background-color: #000;
+      }
+
+      .masonry-item {
+        position: absolute;
+        /* no gap, images “touch” each other if columns align */
+        overflow: hidden; /* so blur doesn't overflow box */
+      }
+
+      /* The image itself */
+      .masonry-item img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: filter 0.3s ease;
+      }
+
+      /* Hover blur effect (70% equivalent to something like blur(5px)) */
+      .masonry-item:hover img {
+        filter: blur(5px);
+      }
+
+      /* White text in the center of the image on hover */
+      .hover-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 1.5rem;
+        font-family: 'Rajdhani', sans-serif;
+        text-align: center;
+        opacity: 0;
+        pointer-events: none; /* so hover is not blocked by text */
+        transition: opacity 0.3s ease;
+      }
+
+      .masonry-item:hover .hover-text {
+        opacity: 1;
+      }
+
+      /* Single column on phone screens (<=768px) */
+      @media (max-width: 768px) {
+        #masonry-container {
+          position: static !important;
+          display: flex !important;
+          flex-direction: column;
+          align-items: center;
+          height: auto !important;
+        }
+        .masonry-item {
+          position: static !important;
+          width: auto !important;
+          height: auto !important;
+        }
+        .masonry-item img {
+          width: auto !important;
+          max-width: 100% !important;
+          height: auto !important;
+        }
+        .hover-text {
+          /* still center text on phone, but item no longer absolute */
+          position: static;
+          transform: none;
+          opacity: 0; /* remain hidden until hover */
+        }
+        .masonry-item:hover .hover-text {
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
+
   <body>
     <!-- Navigation Bar -->
     <div class="navbarholder">
@@ -35,7 +113,7 @@
             <div class="navlinktext">Contact</div>
           </a>
           <a href="fun.html" class="navlink">
-            <div class="navlinktext">Fun</div>
+            <div class="navlinktext">Other</div>
           </a>
         </div>
       </div>
@@ -52,20 +130,21 @@
     <section class="home-section">
       <div class="overlay scroll-fade">
         <header>
-          <h1>Fun</h1>
-          <h2>A look into my creative side</h2>
+          <h1>Other</h1>
+          <h2>
+            Smaller projects I've done for <br />
+            my coursework, clients, or just for fun.
+          </h2>
         </header>
       </div>
     </section>
 
-    <section class="fun-images-section">
-      <img src="fun1.jpeg" alt="Fun Image 1" class="fun-img fun1 fade-in" />
-      <img src="Fun2.jpeg" alt="Fun Image 2" class="fun-img fun2 fade-in" />
-      <img src="fun3.jpeg" alt="Fun Image 3" class="fun-img fun3 fade-in" />
-    </section>
+    <!-- MASONRY CONTAINER (Images) -->
+    <section id="masonry-container"></section>
 
     <!-- Spacer between images and footer -->
     <div style="height: 200px"></div>
+
     <!-- FOOTER / CONTACT Section -->
     <footer id="contact-section" class="footer-section">
       <div class="footer-content">
@@ -88,22 +167,20 @@
         </ul>
       </div>
       <hr class="footer-hr" />
-      <div class="footer-copyright">© 2024 Kai Solik. All Rights Reserved.</div>
+      <div class="footer-copyright">
+        © 2024 Kai Solik. All Rights Reserved.
+      </div>
     </footer>
-    <!-- Scripts -->
+
+    <!-- Scripts (unchanged) -->
     <script src="loader.js"></script>
     <script>
       window.addEventListener("load", function () {
-        // Hide the loader overlay once the page is fully loaded
         const loaderOverlay = document.getElementById("loader-overlay");
         if (loaderOverlay) {
-          loaderOverlay.style.display = "none"; // Hides the loader without removing it
+          loaderOverlay.style.display = "none";
         }
-
-        // Trigger the fade-in effect by adding the "loaded" class to the body
         document.body.classList.add("loaded");
-
-        // Optionally, trigger fade-in effects on other elements with class "fade-in"
         const fadeElements = document.querySelectorAll(".fade-in");
         fadeElements.forEach(function (el) {
           el.classList.add("active");
@@ -111,70 +188,47 @@
       });
     </script>
     <script>
+      // Fade-in logic on scroll
       document.addEventListener("DOMContentLoaded", function () {
         const fadeInElements = document.querySelectorAll(".fade-in");
-
         const handleScroll = () => {
           fadeInElements.forEach((element) => {
             const elementTop = element.getBoundingClientRect().top;
             const elementBottom = element.getBoundingClientRect().bottom;
             const windowHeight = window.innerHeight;
-
-            // Add 'active' class when the element is in the viewport
             if (elementTop < windowHeight - 100 && elementBottom > 100) {
               element.classList.add("active");
             } else {
-              // Remove 'active' class when the element is out of the viewport
               element.classList.remove("active");
             }
           });
         };
-
         window.addEventListener("scroll", handleScroll);
-
-        // Initial check to fade in elements already in the viewport
         handleScroll();
       });
-    </script>
-    <script>
+
+      // Smooth scroll for nav links
       document.querySelectorAll(".navlink").forEach((link) => {
         link.addEventListener("click", function (e) {
-          const targetHref = this.getAttribute("href"); // Get the href from the link
-
+          const targetHref = this.getAttribute("href");
           if (targetHref.startsWith("#")) {
-            e.preventDefault(); // Prevent default anchor behavior
-
-            // Scroll to top if the link is "KS" (top of the page)
+            e.preventDefault();
             if (targetHref === "#top") {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
+              window.scrollTo({ top: 0, behavior: "smooth" });
             } else {
-              const targetElement = document.querySelector(targetHref); // Find the target section
-
+              const targetElement = document.querySelector(targetHref);
               if (targetElement) {
-                // Calculate the position to scroll the target section to the middle of the viewport
                 const targetPosition =
                   targetElement.getBoundingClientRect().top +
                   window.pageYOffset -
                   (window.innerHeight / 2 - targetElement.offsetHeight / 2);
-
-                // Smooth scroll to the calculated position
-                window.scrollTo({
-                  top: targetPosition,
-                  behavior: "smooth",
-                });
+                window.scrollTo({ top: targetPosition, behavior: "smooth" });
               }
             }
-          } else {
-            // For external links, do not prevent default behavior
-            // The browser will navigate to the external link (e.g., fun.html)
           }
         });
       });
     </script>
-    <!-- Additional Scripts -->
     <script src="tools.js"></script>
     <script src="snoise4d.js"></script>
     <script src="snoise4DImage.js"></script>
@@ -182,24 +236,226 @@
     <script src="shaderSource.js"></script>
     <script src="mySketch.js"></script>
     <script src="cursor.js"></script>
-    <!-- JavaScript for custom cursor behavior -->
     <script src="textFlip.js"></script>
-    <!-- JavaScript for text-flip animation -->
     <script src="scrollEffect.js"></script>
-    <!-- JavaScript for scroll fade effect -->
-    <!-- JavaScript to Prevent Horizontal Scroll and Maintain Layout -->
     <script>
-      // Prevent horizontal scrolling while keeping vertical animations intact
+      // Prevent horizontal scrolling
       window.addEventListener("scroll", function () {
         if (window.scrollX !== 0) {
           window.scrollTo(0, window.scrollY);
         }
       });
-
-      // Adjust page elements if needed to ensure bottom content is positioned properly
       window.addEventListener("resize", function () {
         document.body.style.overflowX = "hidden";
       });
     </script>
+
+    <!-- MASONRY SCRIPT: 3 columns, no gaps, random ordering, no empty space. -->
+    <script>
+      /* 
+        We define a 'hoverText' property per image to show on hover
+        You can change these strings to anything you want
+      */
+      const images = [
+        {
+          src: "Website Other page/Mon.jpeg",
+          alt: "Mountain – Mon_edited",
+          hoverText: "Illustration",
+        },
+        {
+          src: "Website Other page/Artboard 1@3x.png",
+          alt: "Artboard 1@3x",
+          hoverText: "Poster Design",
+        },
+        {
+          src: "Website Other page/Webdesign.png",
+          alt: "Webdesign",
+          hoverText: "Webdesign",
+        },
+        {
+          src: "Website Other page/Gladbag.png",
+          alt: "Gladbag",
+          hoverText: "Glad Logo Redesign",
+        },
+        {
+          src: "Website Other page/Clouds.jpg",
+          alt: "Dune Info",
+          hoverText: "Cover Design",
+        },
+        {
+          src: "Fun2.jpeg",
+          alt: "Fun2",
+          hoverText: "Illustration",
+        },
+        {
+          src: "Website Other page/DuneInfo.jpeg",
+          alt: "Fun1",
+          hoverText: "Dune Family Tree Info Graphic",
+        },
+        {
+          src: "fun3.jpeg",
+          alt: "Clouds",
+          hoverText: "Illustration",
+        },
+        {
+          src: "fun1.jpeg",
+          alt: "VR Info",
+          hoverText: "Illustration",
+        },
+        {
+          src: "Website Other page/VRInfo.jpeg",
+          alt: "Fun3",
+          hoverText: "VR Timeline Info Graphic",
+        },
+        {
+          src: "Website Other page/WIsconsinInfo.png",
+          alt: "Artboard 1 3x Alt",
+          hoverText: "Wisconsin Gold Medalist Info Graphic",
+        },
+      ];
+
+      // Shuffle images so each user sees them in random order
+      images.sort(() => Math.random() - 0.5);
+
+      const container = document.getElementById("masonry-container");
+
+      const COL_COUNT = 3; // 3 columns
+
+      function doMasonryLayout() {
+        // ensure container is relative
+        container.style.position = "relative";
+        container.style.width = "100%";
+        container.style.margin = "0 auto";
+        container.style.padding = "0";
+        const columnHeights = new Array(COL_COUNT).fill(0);
+
+        // each column's width
+        const containerWidth = container.clientWidth;
+        const colWidth = containerWidth / COL_COUNT;
+
+        let loadedCount = 0;
+
+        images.forEach((imgData) => {
+          const item = document.createElement("div");
+          item.className = "masonry-item";
+          const img = document.createElement("img");
+          img.src = imgData.src;
+          img.alt = imgData.alt;
+
+          // create an overlay text div
+          const hoverText = document.createElement("div");
+          hoverText.className = "hover-text";
+          hoverText.textContent = imgData.hoverText; // <-- use the custom text
+
+          item.appendChild(img);
+          item.appendChild(hoverText);
+          container.appendChild(item);
+
+          if (img.complete) {
+            placeItem(item, img, columnHeights, colWidth);
+            loadedCount++;
+            if (loadedCount === images.length) {
+              container.style.height = `${Math.max(...columnHeights)}px`;
+            }
+          } else {
+            img.addEventListener("load", () => {
+              placeItem(item, img, columnHeights, colWidth);
+              loadedCount++;
+              if (loadedCount === images.length) {
+                container.style.height = `${Math.max(...columnHeights)}px`;
+              }
+            });
+          }
+        });
+      }
+
+      function placeItem(item, img, columnHeights, colWidth) {
+        const naturalWidth = img.naturalWidth;
+        const naturalHeight = img.naturalHeight;
+        // keep aspect ratio
+        const ratio = naturalHeight / naturalWidth;
+        const finalWidth = colWidth;
+        const finalHeight = finalWidth * ratio;
+
+        // shortest column
+        const colIndex = columnHeights.indexOf(Math.min(...columnHeights));
+        const x = colIndex * colWidth;
+        const y = columnHeights[colIndex];
+
+        item.style.position = "absolute";
+        item.style.left = `${x}px`;
+        item.style.top = `${y}px`;
+        item.style.width = `${finalWidth}px`;
+        item.style.height = `${finalHeight}px`;
+
+        img.style.width = "100%";
+        img.style.height = "100%";
+
+        columnHeights[colIndex] += finalHeight;
+      }
+
+      document.addEventListener("DOMContentLoaded", doMasonryLayout);
+      window.addEventListener("resize", () => {
+        container.innerHTML = "";
+        doMasonryLayout();
+      });
+    </script>
+
+    <!-- A separate style block for phone screens => single column. -->
+    <style>
+      /* White text overlay in center on hover */
+      .hover-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 1.5rem;
+        font-family: 'Rajdhani', sans-serif;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        text-align: center;
+      }
+
+      .masonry-item:hover img {
+        opacity: 50%;
+        filter: blur(5px); /* ~70% blur effect */
+        transition: filter 0.3s ease;
+      }
+      .masonry-item:hover .hover-text {
+        opacity: 1;
+      }
+
+      /* On phone screens, override the absolute masonry => single column stacked */
+      @media (max-width: 768px) {
+        #masonry-container {
+          position: static !important;
+          display: flex !important;
+          flex-direction: column;
+          align-items: center;
+          height: auto !important;
+        }
+        .masonry-item {
+          position: static !important;
+          width: auto !important;
+          height: auto !important;
+          margin-bottom: 0;
+        }
+        .masonry-item img {
+          width: auto !important;
+          max-width: 100% !important;
+          height: auto !important;
+        }
+        .hover-text {
+          position: static;
+          transform: none;
+          opacity: 0;
+        }
+        .masonry-item:hover .hover-text {
+          opacity: 1;
+        }
+      }
+    </style>
   </body>
 </html>
