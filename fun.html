@@ -35,7 +35,7 @@
         transition: filter 0.3s ease;
       }
 
-      /* Hover blur effect (70% equivalent to something like blur(5px)) */
+      /* Hover blur effect (about 70% eq. to blur(5px)) */
       .masonry-item:hover img {
         filter: blur(5px);
       }
@@ -48,10 +48,10 @@
         transform: translate(-50%, -50%);
         color: #fff;
         font-size: 1.5rem;
-        font-family: 'Rajdhani', sans-serif;
+        font-family: "Rajdhani", sans-serif;
         text-align: center;
         opacity: 0;
-        pointer-events: none; /* so hover is not blocked by text */
+        pointer-events: none; /* so hover/tap goes “through” text */
         transition: opacity 0.3s ease;
       }
 
@@ -59,7 +59,7 @@
         opacity: 1;
       }
 
-      /* Single column on phone screens (<=768px) */
+      /* Single column on phone screens (<=768px) => keep text absolutely centered */
       @media (max-width: 768px) {
         #masonry-container {
           position: static !important;
@@ -69,19 +69,23 @@
           height: auto !important;
         }
         .masonry-item {
-          position: static !important;
+          /* use 'relative' here so .hover-text can absolutely position inside it */
+          position: relative !important;
           width: auto !important;
           height: auto !important;
+          margin-bottom: 0;
         }
         .masonry-item img {
           width: auto !important;
           max-width: 100% !important;
           height: auto !important;
         }
+        /* Keep .hover-text absolute so it stays centered over each stacked image */
         .hover-text {
-          /* still center text on phone, but item no longer absolute */
-          position: static;
-          transform: none;
+          position: absolute !important;
+          top: 50% !important;
+          left: 50% !important;
+          transform: translate(-50%, -50%) !important;
           opacity: 0; /* remain hidden until hover */
         }
         .masonry-item:hover .hover-text {
@@ -312,24 +316,26 @@
           alt: "Artboard 1 3x Alt",
           hoverText: "Wisconsin Gold Medalist Info Graphic",
         },
+        {
+          src: "Robo.jpeg",
+          alt: "Artboard 1 3x Alt",
+          hoverText: "Illustration",
+        },
       ];
 
       // Shuffle images so each user sees them in random order
       images.sort(() => Math.random() - 0.5);
 
       const container = document.getElementById("masonry-container");
-
       const COL_COUNT = 3; // 3 columns
 
       function doMasonryLayout() {
-        // ensure container is relative
         container.style.position = "relative";
         container.style.width = "100%";
         container.style.margin = "0 auto";
         container.style.padding = "0";
-        const columnHeights = new Array(COL_COUNT).fill(0);
 
-        // each column's width
+        const columnHeights = new Array(COL_COUNT).fill(0);
         const containerWidth = container.clientWidth;
         const colWidth = containerWidth / COL_COUNT;
 
@@ -338,17 +344,17 @@
         images.forEach((imgData) => {
           const item = document.createElement("div");
           item.className = "masonry-item";
+
           const img = document.createElement("img");
           img.src = imgData.src;
           img.alt = imgData.alt;
 
-          // create an overlay text div
-          const hoverText = document.createElement("div");
-          hoverText.className = "hover-text";
-          hoverText.textContent = imgData.hoverText; // <-- use the custom text
+          const hoverTextDiv = document.createElement("div");
+          hoverTextDiv.className = "hover-text";
+          hoverTextDiv.textContent = imgData.hoverText;
 
           item.appendChild(img);
-          item.appendChild(hoverText);
+          item.appendChild(hoverTextDiv);
           container.appendChild(item);
 
           if (img.complete) {
@@ -372,12 +378,10 @@
       function placeItem(item, img, columnHeights, colWidth) {
         const naturalWidth = img.naturalWidth;
         const naturalHeight = img.naturalHeight;
-        // keep aspect ratio
         const ratio = naturalHeight / naturalWidth;
         const finalWidth = colWidth;
         const finalHeight = finalWidth * ratio;
 
-        // shortest column
         const colIndex = columnHeights.indexOf(Math.min(...columnHeights));
         const x = colIndex * colWidth;
         const y = columnHeights[colIndex];
@@ -411,7 +415,7 @@
         transform: translate(-50%, -50%);
         color: #fff;
         font-size: 1.5rem;
-        font-family: 'Rajdhani', sans-serif;
+        font-family: "Rajdhani", sans-serif;
         pointer-events: none;
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -437,7 +441,7 @@
           height: auto !important;
         }
         .masonry-item {
-          position: static !important;
+          position: relative !important;
           width: auto !important;
           height: auto !important;
           margin-bottom: 0;
@@ -448,12 +452,14 @@
           height: auto !important;
         }
         .hover-text {
-          position: static;
-          transform: none;
-          opacity: 0;
+          position: absolute !important;
+          top: 50% !important;
+          left: 50% !important;
+          transform: translate(-50%, -50%) !important;
+          opacity: 0 !important;
         }
         .masonry-item:hover .hover-text {
-          opacity: 1;
+          opacity: 1 !important;
         }
       }
     </style>
