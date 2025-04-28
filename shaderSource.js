@@ -26,9 +26,9 @@ const vert = `#version 300 es
     vTexCoord = aTexCoord;
     vec2 pos = aPosition;
     float circle = smoothstep(1., .0, length(0.-aPosition));
-    vec2 n = noise(pos, 2., 5., .5, 1., vec4(vec2(0.), vec2(cos(uTime*.5), sin(uTime*.5))+uRandomVec2)).rg*circle;
-    vec2 dpos = displace(pos, n, .5, .2*circle);
-    vCol = n.rg*noise(pos*1000., 1., 1., .5, 1., vec4(0.)).r;
+    vec2 n = noise(pos, 2., 5., .5, 1., vec4(vec2(0.), vec2(cos(uTime*.5), sin(uTime*.5))+uRandomVec2)).rg * circle;
+    vec2 dpos = displace(pos, n, .5, .2 * circle);
+    vCol = n.rg * noise(pos * 1000., 1., 1., .5, 1., vec4(0.)).r;
     gl_Position = vec4(dpos, 0., 1.);
     gl_PointSize = 1.;
   }

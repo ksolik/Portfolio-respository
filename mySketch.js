@@ -46,7 +46,7 @@ const main = async () => {
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.uniform1f(timeLoc, time);
     gl.drawArrays(gl.POINTS, 0, cols * rows);
-    time += 0.02;
+    time += 0.01;
     drawImage(canvasWebGL2, canvas2D);
     window.requestAnimationFrame(draw);
   };

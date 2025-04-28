@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4D Canvas Image</title>
+    <style>
+      /* Ensure the page is full screen and no scrollbars appear */
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background: #000000;
+      }
+      /* Position canvases so they fill the window */
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Include both canvases, as expected by your scripts -->
+    <canvas id="canvas2D"></canvas>
+    <canvas id="canvasWebGL2"></canvas>
+
+    <!-- Required JavaScript files -->
+    <script src="tools.js"></script>
+    <script src="snoise4d.js"></script>
+    <script src="snoise4DImage.js"></script>
+    <script src="displace.js"></script>
+    <script src="shaderSource.js"></script>
+    <script src="mySketch.js"></script>
+  </body>
+</html>

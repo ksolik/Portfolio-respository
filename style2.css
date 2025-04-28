@@ -130,7 +130,13 @@ header h1 {
   transition: transform 0.6s ease, opacity 0.6s ease; /* Smooth animation */
   text-align: center; /* Centers the text horizontally */
 }
+.under {
+  font-weight: 300;
+  font-size: 1.8em;
+  margin-top: -70px; 
+  left: 2px;/* Ensures text stays horizontally centered */
 
+}
 /* Oval-shaped border around the animated text */
 .text-flip-wrapper::before {
   content: '';
@@ -210,7 +216,6 @@ nav ul li a:hover::after {
   padding-left: 17px;
   position: relative;
 }
-
 /* Case Studies content */
 .case-studies-content {
   max-width: 600px;
@@ -1087,6 +1092,7 @@ body.loaded {
     margin-right: auto !important;
     padding-left: 15px !important;  /* Side padding within each section */
     padding-right: 10px !important;
+    font-size: 12px;
     box-sizing: border-box;       /* Ensures padding is included in the width */
   }
   
@@ -1098,3 +1104,13 @@ body.loaded {
   }
 }
 
+.under {
+  position: relative;
+  height: 200px;
+  margin-bottom: 20px;
+}
+.R {
+margin-top: 120px;
+font-size: 1.2em;
+font-weight: 100;
+}

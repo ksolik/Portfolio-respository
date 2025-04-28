@@ -80,10 +80,10 @@
             </div>
             <h2 class="display-medium homepage">designer</h2>
           </div>
+          <p class="under">I coded this website btw :)</p>
         </header>
       </div>
     </section>
-
     <!-- Scrollable Section for Case Studies -->
     <section id="case-studies-section" class="case-studies">
       <div class="case-studies-grid">
@@ -270,6 +270,92 @@
         </a>
       </div>
     </section>
+    <!-- Other Projects Page Text with Underline Hover, Link, and Enlarging Arrow -->
+    <a
+      href="fun.html"
+      class="other-projects"
+      onmouseover="this.querySelector('.underline').style.transform='scaleX(1)'; this.querySelector('.image-145').style.transform='scale(1.2) translateY(-2px)';"
+      onmouseout="this.querySelector('.underline').style.transform='scaleX(0)'; this.querySelector('.image-145').style.transform='scale(1) translateY(-2px)';"
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 10;
+        color: white;
+        margin: 40px 0;
+        font-size: 1.4em;
+        gap: 1rem;
+        text-decoration: none;
+      "
+    >
+      <span style="position: relative">
+        Smaller projects I have done
+        <span
+          class="underline"
+          style="
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+          "
+        ></span>
+      </span>
+      <img
+        src="https://cdn.prod.website-files.com/5df3776e014f2458a4afac9c/6292f41eddc7b2a2582f0862_arrow_AcidGrotesk.svg"
+        loading="lazy"
+        alt="Next Project Arrow"
+        class="image-145"
+        style="
+          position: relative;
+          top: 2px;
+          transition: transform 0.3s ease;
+          transform: scale(1) translateY(-2px);
+        "
+      />
+    </a>
+
+    <!-- View Resume Link -->
+    <section class="R">
+      <div
+        class="fade-in resume-link"
+        style="width: 100%; text-align: center; margin-top: 20px"
+      >
+        <a
+          href="2025Resume.pdf#zoom=page-width"
+          target="_blank"
+          style="
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 300;
+            position: relative;
+          "
+        >
+          View Resume
+
+          <span
+            style="
+              position: absolute;
+              width: 100%;
+              height: 2px;
+              background-color: white;
+              bottom: -5px;
+              left: 0;
+              transform: scaleX(0);
+              transform-origin: right;
+              transition: transform 0.3s ease;
+            "
+          ></span>
+        </a>
+      </div>
+    </section>
 
     <!-- About Me, Education, and Experience Section -->
     <section id="info-section" class="contact-section">
@@ -303,11 +389,9 @@
               text-align: left;
             "
           >
-            I'm a UX/UI designer on a creative adventure—currently pursuing a
-            Graphic Design degree with a side of Computer Science at the
-            University of Wisconsin-Madison. My love for art and tech sparked my
-            passion for crafting digital experiences that are not only visually
-            stunning but also incredibly intuitive.
+            Hello! My name is Kai Solik. If you're reading this, I assume you're
+            either considering hiring me or just curious to check out some of my
+            design work. Whatever the reason — thanks for making it this far!
           </p>
 
           <!-- Second paragraph -->
@@ -320,13 +404,13 @@
               text-align: left;
             "
           >
-            I dove into Graphic Design to unleash my creativity, and my Computer
-            Science studies taught me how to actually build those ideas into
-            reality. One unforgettable class blended coding with design, and
-            that’s when it all clicked for me: why choose between art and
-            technology when you can have the best of both worlds? I got hooked
-            into the word of UX and UI, and now I’m all about designing user
-            interfaces that look amazing and work flawlessly.
+            I'm a graduating senior at the University of Wisconsin–Madison,
+            earning a B.A. in Art: Graphic Design and a certificate in Computer
+            Science. While I’m still young and technically a student, I’ve spent
+            my entire undergrad career focused on one goal: becoming a UX
+            Designer. Over the past few years, I’ve been working hard to sharpen
+            my skills — always excited and eager to learn whatever it takes to
+            become the best at what I do.
           </p>
 
           <!-- Third paragraph -->
@@ -339,12 +423,28 @@
               text-align: left;
             "
           >
-            This portfolio isn’t just a collection of projects—it’s a playground
-            where creativity meets code. Every animation, every responsive
-            layout is a little piece of my heart, meticulously crafted by me. I
-            approach design as a delightful mix of artistic flair and technical
-            know-how, always aiming to create engaging and accessible digital
-            experiences that truly connect with people.
+            Beyond my coursework, I’ve worked independently as a freelance
+            designer to gain real-world experience. I’ve also taken online
+            courses to strengthen not just my design skills, but my coding
+            abilities as well.
+          </p>
+          <!-- 4 paragraph -->
+          <p
+            style="
+              font-size: 1.2em;
+              font-weight: 300;
+              font-family: 'Rajdhani', sans-serif;
+              line-height: 1.8;
+              text-align: left;
+            "
+          >
+            Since I was a kid, I’ve always had two passions — and one obvious
+            talent. My love and talent for drawing gave me a creative mindset
+            early on, while my passion for technology gave me the tools to bring
+            that creativity into the digital world. I designed this portfolio to
+            reflect both sides of my brain — the artist and the tech nerd — so
+            you can get a sense of the kind of designer I am. Thanks again for
+            being here, and I hope you enjoy exploring my work.
           </p>
         </div>
         <!-- Education and Experience Section -->
@@ -432,23 +532,6 @@
         </div>
       </div>
     </section>
-
-    <!-- View Resume Link -->
-    <div
-      class="fade-in resume-link"
-      style="width: 100%; text-align: center; margin-top: 20px"
-    >
-      <a
-  href="2025Resume.pdf#zoom=page-width"
-  target="_blank"
-  style="color: white; text-decoration: none; font-size: 1.5em; font-family: 'Rajdhani', sans-serif; font-weight: 300; position: relative;"
->
-  View Resume
-  <span style="position: absolute; width: 100%; height: 2px; background-color: white; bottom: -5px; left: 0; transform: scaleX(0); transform-origin: right; transition: transform 0.3s ease;"></span>
-</a>
-
-    </div>
-
     <!-- Contact Section -->
     <section id="contact-section" class="contact-section">
       <div class="contact-content">
@@ -554,7 +637,7 @@
     </div>
 
     <!-- Scripts -->
-        <script src="loader.js"></script>
+    <script src="loader.js"></script>
     <script>
       window.addEventListener("load", function () {
         // Hide the loader overlay once the page is fully loaded
@@ -617,13 +700,29 @@
               const targetElement = document.querySelector(targetHref); // Find the target section
 
               if (targetElement) {
-                // Calculate the position to scroll the target section to the middle of the viewport
-                const targetPosition =
-                  targetElement.getBoundingClientRect().top +
-                  window.pageYOffset -
-                  (window.innerHeight / 2 - targetElement.offsetHeight / 2);
-
-                // Smooth scroll to the calculated position
+                let targetPosition;
+                // For the projects section, center it in the viewport
+                if (targetHref === "#case-studies-section") {
+                  targetPosition =
+                    targetElement.getBoundingClientRect().top +
+                    window.pageYOffset -
+                    (window.innerHeight / 2 - targetElement.offsetHeight / 2);
+                } else if (targetHref === "#info-section") {
+                  // Instead of scrolling to the info-section,
+                  // scroll to the view resume section (element with class "R")
+                  const resumeElement = document.querySelector(".R");
+                  if (resumeElement) {
+                    targetPosition =
+                      resumeElement.getBoundingClientRect().top +
+                      window.pageYOffset -
+                      100;
+                  }
+                } else {
+                  // For other sections, scroll so that the top of the section is at the top of the viewport
+                  targetPosition =
+                    targetElement.getBoundingClientRect().top +
+                    window.pageYOffset;
+                }
                 window.scrollTo({
                   top: targetPosition,
                   behavior: "smooth",
