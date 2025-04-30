@@ -1092,7 +1092,7 @@ body.loaded {
     margin-right: auto !important;
     padding-left: 15px !important;  /* Side padding within each section */
     padding-right: 10px !important;
-    font-size: 12px;
+    font-size: 14px;
     box-sizing: border-box;       /* Ensures padding is included in the width */
   }
   
