@@ -7,7 +7,7 @@ html, body {
     height: 100%;
     font-family: 'Rajdhani', sans-serif; 
     cursor: none; 
-    background-color: #030303;
+    background-color: #000000;
     scroll-behavior: smooth;
   }
   
@@ -1113,4 +1113,89 @@ body.loaded {
 margin-top: 120px;
 font-size: 1.2em;
 font-weight: 100;
+}
+@media (max-width: 430px) {
+  /* 1) Main header “Kai Solik” */
+  .home-section header h1 {
+    font-size: 3em;        
+    /* 👈 change this to resize “Kai Solik” (e.g. 1.8em or 2.2em) */
+    line-height: 2;      
+    /* 👈 change this to adjust vertical spacing within the <h1> */
+    margin: 0 0 10px 0;    
+    /* 👈 bottom margin between <h1> and next element */
+  }
+
+  /* 2) The “I’m a” and “designer” <h2> tags */
+  .h2-designer-block h2.display-medium.homepage {
+    font-size: 2em;      
+    /* 👈 change this to resize “I’m a” or “designer” (e.g. 1em or 1.4em) */
+    line-height: 1.2;      
+    /* 👈 change to tighten/loosen vertical spacing within each <h2> */
+    margin: 0;             
+    /* 👈 remove default margins; add custom margins below if needed */
+  }
+
+  /* 3) Entire “I’m a … designer” container positioning */
+  .h2-designer-block {
+    margin-top: 20px;      
+    /* 👈 change this to move the block lower or higher (e.g. 10px or 30px) */
+    position: relative;    
+    /* ensure top/left work */
+    top: -30px;            
+    /* 👈 negative moves whole block upward; try -20px or -40px */
+    left: -0px;           
+    /* 👈 negative moves left, positive moves right; adjust as needed */
+  }
+
+  /* 4) Animated “role” words (UX/UI, graphic, web, product, brand) */
+  .h2-designer-block .role {
+    font-size: 2em;      
+    /* 👈 change this to resize the rotating word (e.g. 1em or 1.4em) */
+    top: -18px;            
+    /* 👈 change this to move the word up/down inside its circle */
+    left: -40px;            
+    /* 👈 adjust horizontal centering (e.g. -15%, -20%) */
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    /* 👈 keep animation timing; no need to change */
+  }
+
+  /* 6) Spacing adjustments between “I’m a” → circle → “designer” */
+  .h2-designer-block h2.display-medium.homepage + .text-flip-wrapper {
+    margin-left: 10px;      
+    /* 👈 change this to increase/decrease gap between “I’m a” and the circle */
+  }
+  .h2-designer-block .text-flip-wrapper + .display-medium.homepage {
+    margin-left: 90px;     
+    /* 👈 change this to increase/decrease gap between circle and “designer” */
+  }
+
+  .text-flip-wrapper {
+    width: 100px;        /* 👈 change this to make the circle wider/narrower */
+    position: relative;  /* must remain relative for ::before to position */
+  }
+
+  /* 2) The actual border‐oval around the text */
+  .text-flip-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 125px;        /* 👈 match this to the wrapper’s width */
+    height: 40px;        /* 👈 change this to make the circle taller/shorter */
+    top: -20px;          /* 👈 move the circle up/down relative to the wrapper */
+    left: 0;             /* 👈 shift left/right if needed */
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50px; /* keeps the shape an oval (half of height or more) */
+    pointer-events: none;/* so it doesn’t block clicks */
+  }
+
+  /* 7) “I coded this website btw :)” paragraph */
+  .home-section .under {
+    font-size: 2em;      
+    /* 👈 change this to resize the “I coded…” line (e.g. 0.8em or 1em) */
+    margin-top: -10px;      
+    /* 👈 change this to move “under” line closer/further from the “designer” text */
+    line-height: 1.2;      
+    /* 👈 change to adjust vertical spacing of multi‐line text if it wraps */
+    margin-bottom: 15px;   
+    /* 👈 change this to control space below the “I coded…” line */
+  }
 }
