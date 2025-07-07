@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── INSERT rob1.png (z-index: 2) ───────────────────────────────
   const img = document.createElement('img');
   img.id = 'hero-img';
-  img.src = 'Images/rob1.png';
+  img.src = 'Images/rob1.PNG';
   img.alt = 'rob image';
   img.style.zIndex = '2'; // Above Layers 1 & 2, below Layer 3 & text
   header.appendChild(img);
