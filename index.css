@@ -1,0 +1,1305 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Enable smooth scrolling for anchor links
+   ───────────────────────────────────────────────────────────────────────────── */
+   html {
+    scroll-behavior: smooth;
+  }
+  /* ────────────────────────────────────────────────────────────────────────────
+   FADE-IN PAGE ON LOAD
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* Start with page invisible */
+body {
+  opacity: 0;
+  transition: opacity 3s ease;
+}
+
+/* When the body has the “page-visible” class, fade to full opacity */
+body.page-visible {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 1024px) {
+  /* Caption below “View More Work” */
+.work-caption {
+  font-family: 'SF Pro', sans-serif;
+  font-weight: 200;            /* Thin for most text */
+  font-size: 1rem;             /* Adjust as needed */
+  line-height: 1.5;            /* Comfortable reading */
+  color: #000;                 /* Black so it’s visible on light bg */
+  text-align: center;          /* Center under the button */
+  margin: 2rem auto;           /* Space above/below and center block */
+  max-width: 600px;            /* Prevents it getting too wide */
+  padding: 0 1rem;             /* Small side padding on narrow viewports */
+  margin-top: 400px;
+}
+
+/* Semi-bold highlight for Figma & VS Code */
+.work-caption .semi-bold {
+  font-weight: 600;
+}
+
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+   NAV BAR (fixed above header, not fading)
+   ───────────────────────────────────────────────────────────────────────────── */
+#navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 750px;   /* same as background shape width */
+  height: 55px;
+  z-index: 10;    /* above header content */
+}
+
+#navbar .logo {
+  position: absolute;
+  z-index: 11;
+  margin-top: 6px;
+  /* left/top remain inline in HTML */
+  padding-bottom: 2px; /* lower the underline slightly */
+  transition: transform 0.3s ease-in-out;
+  transform-origin: center center;
+}
+
+#navbar .logo:hover {
+  transform: scale(1.1);
+}
+
+.navbar-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;      /* fill #navbar */
+  height: 100%;
+  background: rgba(240, 149, 63, 0.10);
+  border-radius: 27.59px;
+  border: 1px solid black;
+  backdrop-filter: blur(5.21px);
+}
+
+.nav-item {
+  position: absolute;
+  color: black;
+  font-size: 24px;
+  font-family:
+    "SF Pro Text",
+    "SF Pro Display",
+    -apple-system,
+    system-ui,
+    sans-serif;
+  font-weight: 100;
+  word-wrap: break-word;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+  padding-bottom: 2px; /* lower the underline slightly */
+}
+
+.nav-item:hover {
+  border-bottom-color: black;
+}
+.nav-item {
+  position: absolute;
+  /* …all your existing properties… */
+  /* remove the old border-bottom/transition: */
+  border-bottom: none !important;
+  padding-bottom: 2px; /* keep your vertical spacing */
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;                     /* match your desired underline thickness */
+  width: 0;
+  background-color: black;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     INTRO TEXT (absolute in page, scrolls away)
+     ───────────────────────────────────────────────────────────────────────────── */
+  .intro-text {
+    position: absolute;
+    top: 30%;             /* around middle of viewport when page loads */
+    left: 5%;
+    color: black;
+    font-size: 64px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 100;
+    word-wrap: break-word;
+    text-align: left;
+    z-index: 9;            /* above grass (1 & 3) and rob.png (3) but below navbar */
+  }
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     VIEW PROJECTS STYLES (positioned on right, opposite intro text)
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Container inside header (fills header area) */
+  .view-projects-container {
+    position: absolute;
+    top: 35%;
+    left: 67%;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;  /* remove default underline/color */
+    cursor: pointer;
+  }
+  
+  /* The “VIEW PROJECTS” text */
+  .view-projects-text {
+    position: absolute;
+    left: 159.29px;
+    top: 42.67px;
+    color: black;
+    font-size: 34.13px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 100;
+    word-wrap: break-word;
+  }
+  
+  /* The circular outline behind the text (with arrow centered) */
+  .view-projects-circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 128px;
+    height: 128px;
+    border-radius: 9999px;
+    border: 1.42px solid black;
+    display: flex;            /* center the arrow inside */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Center the Arrow.png inside the circle at 30×30px */
+  .view-projects-arrow {
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     HEADER/HERO SECTION (unchanged)
+     ───────────────────────────────────────────────────────────────────────────── */
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 200vh;
+    overflow-x: hidden;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    background: #ffe5b4;
+  }
+  
+  #header {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffe5b4;
+    border-radius: 0px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: opacity 0.5s ease;
+  }
+  
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .grass {
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  
+  .grass__blade {
+    position: absolute;
+  }
+  
+  .grass__blade--1 {
+    border-right: 1vmin solid currentColor;
+    border-top-right-radius: 50%;
+    width: 100%;
+    height: 80%;
+    bottom: -60%;
+    left: -50%;
+    animation: move-blade-1 10s infinite ease-in-out;
+  }
+  @keyframes move-blade-1 {
+    0%, 30%, 50%, 55%, 82%, 97%, 100% {
+      border-top-right-radius: 50%;
+    }
+    20% {
+      border-top-right-radius: 30%;
+    }
+    40% {
+      border-top-right-radius: 20%;
+    }
+    70% {
+      border-top-right-radius: 25%;
+    }
+    90% {
+      border-top-right-radius: 35%;
+    }
+  }
+  
+  .grass__blade--2 {
+    border-right: 1vmin solid currentColor;
+    border-top-right-radius: 20%;
+    width: 200%;
+    height: 150%;
+    bottom: -120%;
+    left: -150%;
+    animation: move-blade-2 10s infinite ease-in-out;
+  }
+  @keyframes move-blade-2 {
+    0%, 30%, 50%, 55%, 82%, 97%, 100% {
+      border-top-right-radius: 20%;
+    }
+    20% {
+      border-top-right-radius: 15%;
+    }
+    40% {
+      border-top-right-radius: 10%;
+    }
+    70% {
+      border-top-right-radius: 10.5%;
+    }
+    90% {
+      border-top-right-radius: 12.5%;
+    }
+  }
+  
+  .grass__blade--3 {
+    border-left: 1vmin solid currentColor;
+    border-top-left-radius: 15%;
+    width: 200%;
+    height: 180%;
+    bottom: -150%;
+    left: 50%;
+    animation: move-blade-3 10s infinite ease-in-out;
+  }
+  @keyframes move-blade-3 {
+    0%, 30%, 50%, 55%, 82%, 97%, 100% {
+      border-top-left-radius: 15%;
+    }
+    20% {
+      border-top-left-radius: 22%;
+    }
+    40% {
+      border-top-left-radius: 17.5%;
+    }
+    70% {
+      border-top-left-radius: 18.5%;
+    }
+    90% {
+      border-top-left-radius: 21%;
+    }
+  }
+  
+  #hero-img {
+    position: absolute;
+    z-index: 3;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 90vmin;
+    height: auto;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+  }
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     BELOW‐THE‐FOLD: position `.content`
+     ───────────────────────────────────────────────────────────────────────────── */
+  .content {
+    position: absolute;
+    top: calc(100vh + 40px);
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    color: #333;
+    line-height: 1.3;
+  }
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     VIEW PROJECTS HOVER EFFECT
+     ───────────────────────────────────────────────────────────────────────────── */
+  /* Ensure circle, text, and arrow smoothly transition */
+  .view-projects-circle,
+  .view-projects-text,
+  .view-projects-arrow {
+    transition: transform 0.3s ease;
+  }
+  
+  /* Scale up both circle and text when hovering anywhere in the container */
+  .view-projects-container:hover .view-projects-circle {
+    transform: scale(1.05);
+  }
+  
+  .view-projects-container:hover .view-projects-text {
+    transform: scale(1.05);
+  }
+  
+  /* Rotate the arrow 45° to the left on hover */
+  .view-projects-container:hover .view-projects-arrow {
+    transform: rotate(45deg);
+  }
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     LEOPOLDS SECTION
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Container for everything in this “LEOPOLDS” card */
+  .leopolds-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    margin-left: 25px;
+  }
+  
+  /* “LEOPOLDS” title */
+  .leopolds-title {
+    position: absolute;
+    left: 861px;
+    top: 94px;
+    color: black;
+    font-size: 48px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 100;
+    word-wrap: break-word;
+  }
+  
+  /* Subtitle: “An mobile app that helps users order their favorite coffee online” */
+  .leopolds-subtitle {
+    position: absolute;
+    width: 414px;
+    left: 861px;
+    top: 185px;
+    color: black;
+    font-size: 32px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 100;
+    word-wrap: break-word;
+  }
+  
+  /* Tagline: “Case Study + UX/UI Design” */
+  .leopolds-tagline {
+    position: absolute;
+    width: 393px;
+    left: 861px;
+    top: 294px;
+    color: black;
+    font-size: 32px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 100;
+    word-wrap: break-word;
+    margin-top: 35px;
+  }
+  
+  /* Semi-transparent orange background + border square */
+  .leopolds-image-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 686.71px;
+    height: 446px;
+    background: rgba(240, 149, 63, 0.50);
+    overflow: hidden;
+    border-radius: 25px;
+    outline: 1px solid black;
+    outline-offset: -1px;
+  }
+  
+  /* Inner placeholder image */
+  .leopolds-image {
+    position: absolute;
+    left: 41px;
+    top: -7px;
+    width: 603.33px;
+    height: 452.5px;
+  }
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     TAKOMO SECTION
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Container splits into two equal columns */
+  .takomo-container {
+    display: flex;
+    width: 100%;
+    height: auto;                 /* height determined by content */
+    border-radius: 25px;          /* if you want a rounded outer shape */
+    overflow: hidden;             /* in case children exceed bounds */
+    margin-top: 600px;            /* ← exactly 600px below Leopolds */
+    margin-left: 75px;           /* ← shift entire section to the right */
+  }
+  
+  /* Left column: holds text, centered vertically */
+  .takomo-text-col {
+    flex: 1;
+    display: flex;
+    justify-content: center;      /* vertical centering */
+    align-items: center;          /* vertical centering */
+    padding: 1rem;
+    max-width: 415px;
+  }
+  
+  /* Wraps the three text lines vertically (left-aligned) */
+  .takomo-text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;      /* left-align each line */
+    gap: 1rem;                    /* space between title/subtitle/tagline */
+    text-align: left;             /* ensure multi-line text is left-aligned */
+  }
+  
+  /* Title: “TAKOMO” */
+  .takomo-title {
+    color: black;
+    font-size: 48px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 100;
+    word-wrap: break-word;
+    margin: 0;
+  }
+  
+  /* Subtitle: “A website application that allows user to be fitted golf clubs online” */
+  .takomo-subtitle {
+    color: black;
+    font-size: 32px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 100;
+    word-wrap: break-word;
+    margin: 0;
+  }
+  
+  /* Tagline: “Case Study + UX/UI Design” */
+  .takomo-tagline {
+    color: black;
+    font-size: 32px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 100;
+    word-wrap: break-word;
+    margin: 0;
+  }
+  
+  /* Right column: holds colored box + image, centered */
+  .takomo-image-col {
+    flex: 1;
+    display: flex;
+    justify-content: center;      /* center box horizontally */
+    align-items: center;          /* center box vertically */
+    padding: 1rem;
+  }
+  
+  /* Semi-transparent orange background + border */
+  .takomo-image-wrapper {
+    position: relative;           /* so the inner image can be absolutely placed */
+    width: 686.71px;
+    height: 446px;
+    background: rgba(240, 149, 63, 0.50);
+    border-radius: 25px;
+    outline: 1px solid black;
+    outline-offset: -1px;
+    overflow: hidden;
+  }
+  
+  /* Placeholder image inside that box */
+  .takomo-image {
+    position: absolute;
+    left: 41px;
+    top: -7px;
+    width: 603.33px;
+    height: 452.5px;
+  }
+  
+  #leopolds-section {
+    scroll-margin-top: 100px;  /* ← increase or decrease this value to move
+                                  the final scroll position up/down */
+  }
+/* ─────────────────────────────────────────────────────────────────────────────
+   FIXED BOTTOM-LEFT CIRCLE + ARROW (moved further left)
+   ───────────────────────────────────────────────────────────────────────────── */
+   .bottom-left-btn {
+    position: fixed;
+    bottom: 20px;    /* adjust spacing from bottom */
+    left: 95%;      /* moved closer to the left edge */
+    z-index: 9999;   /* ensure it sits above other content */
+    display: flex;   
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Override the default absolute positioning on the circle when it’s inside .bottom-left-btn */
+  .bottom-left-btn .view-projects-circle {
+    position: relative;
+  }
+  
+  /* (Optional) Adjust circle size if needed */
+  .bottom-left-btn .bottom-left-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 9999px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Ensure the arrow remains centered inside the circle */
+  .bottom-left-btn .bottom-left-arrow {
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* Shrink and rotate the bottom-left arrow */
+  .bottom-left-arrow {
+    max-width: 20px;
+    max-height: 20px; /* adjust to preferred smaller size */
+    transform: rotate(-135deg);
+    transform-origin: center;
+  }
+  .bottom-left-btn:hover {
+    transform: scale(1.1);
+  }
+  .bottom-left-btn {
+    /* smoothly animate any transform changes */
+    transition: transform 0.3s ease;
+  }
+  /* ─────────────────────────────────────────────────────────────────────────────
+   VIEW MORE WORK (below the TAKOMO section)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Container for the “VIEW MORE WORK” circle+text */
+.view-more-work-container {
+  position: absolute;
+  /* Adjust `top` so this sits below your TAKOMO section.
+     You may need to tweak this value until it appears in the right spot. */
+  top: 1250px;
+  left: 35%;
+  width: 100%;
+  height: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* The “VIEW MORE WORK” text */
+.view-more-work-text {
+  position: absolute;
+  /* Tweak these so the text sits to the right of the circle */
+  left: 150px;
+  top: 50px;
+  color: black;
+  font-size: 34px;
+  font-family:
+    "SF Pro Text",
+    "SF Pro Display",
+    -apple-system,
+    system-ui,
+    sans-serif;
+  font-weight: 100;
+  word-wrap: break-word;
+}
+
+/* The circular outline behind the arrow */
+.view-more-work-circle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 128px;
+  height: 128px;
+  border-radius: 9999px;
+  border: 1.42px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center the arrow inside the circle at 30×30px */
+.view-more-work-arrow {
+  width: 30px;
+  height: 30px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Hover transitions for circle, text, and arrow
+   ───────────────────────────────────────────────────────────────────────────── */
+.view-more-work-circle,
+.view-more-work-text,
+.view-more-work-arrow {
+  transition: transform 0.3s ease;
+}
+
+.view-more-work-container:hover .view-more-work-circle {
+  transform: scale(1.05);
+}
+
+.view-more-work-container:hover .view-more-work-text {
+  transform: scale(1.05);
+}
+
+.view-more-work-container:hover .view-more-work-arrow {
+  transform: rotate(-45deg);
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   FOOTER (text aligned left, logo on the same line, longer line, more spacing)
+   ───────────────────────────────────────────────────────────────────────────── */
+   footer {
+    position: absolute;
+    top: 2500px;             /* adjust so footer sits below VIEW MORE WORK */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;              /* footer spans 90% of viewport width */
+    padding: 30px 0 10px;    /* top padding so line is farther down */
+  }
+  
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 10px;               /* position the horizontal line 10px from top of footer */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: black;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between; /* push logo to the right */
+    align-items: center;              /* space between line and content */
+    text-align: left;       
+    margin-top: 20px;    
+    margin-bottom: 20px;      /* ensure text is left-aligned */
+  }
+  
+  .footer-content p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 100;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    color: black;
+  }
+  
+  .footer-content a {
+    color: black;            /* make email link text black */
+    text-decoration: none;   /* remove default underline */
+  }
+  
+  .footer-content a:hover {
+    text-decoration: underline; /* optional: underline on hover */
+  }
+  
+  .footer-logo {
+    width: 32px;   /* adjust as needed */
+    height: auto;
+  }
+ /* ─────────────────────────────────────────────────────────────────────────────
+   LEOPOLDS IMAGE BOX HOVER (only the image wrapper enlarges)
+   ───────────────────────────────────────────────────────────────────────────── */
+   .leopolds-image-wrapper {
+    background: rgba(240, 149, 63, 0.50);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform-origin: center;
+  }
+  
+  .leopolds-image-wrapper:hover {
+    transform: scale(1.02);
+    background-color: rgba(240, 149, 63, 1);
+  }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   LEOPOLDS TITLE HOVER (smooth underline)
+   ───────────────────────────────────────────────────────────────────────────── */
+.leopolds-title {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.leopolds-title:hover {
+  border-bottom-color: black;
+}
+/* ─────────────────────────────────────────────────────────────────────────────
+   TAKOMO IMAGE BOX HOVER (scale + background opacity transition)
+   ───────────────────────────────────────────────────────────────────────────── */
+   .takomo-image-wrapper {
+    background: rgba(240, 149, 63, 0.50);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform-origin: center;
+  }
+  
+  .takomo-image-wrapper:hover {
+    transform: scale(1.02);
+    background-color: rgba(240, 149, 63, 1);
+  }
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     TAKOMO TITLE HOVER (smooth underline)
+     ───────────────────────────────────────────────────────────────────────────── */
+  .takomo-title {
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  
+  .takomo-title:hover {
+    border-bottom-color: black;
+  }
+  /* ────────────────────────────────────────────────────────────────────────────
+   CUSTOM CURSOR & BASE STYLING
+   ──────────────────────────────────────────────────────────────────────────── */
+   html, body {
+    cursor: none !important;
+  }
+  
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background-color: #F0953F;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition:
+      width 0.2s ease,
+      height 0.2s ease,
+      background-color 0.2s ease,
+      border-radius 0.2s ease;
+    z-index: 9999;
+  }
+  
+  .custom-cursor.cursor-hover {
+    width: 50px !important;
+    height: 50px !important;
+    background-color: rgba(240, 149, 63, 0.5) !important; /* 50% opacity on hover */
+    border-radius: 50% !important;
+  }
+  
+  .custom-cursor.cursor-text-hover {
+    width: 2px !important;
+    background-color: rgba(240, 149, 63,) !important; /* vertical line at 50% opacity */
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  /* remove the browser’s default outline when landing on an in-page anchor */
+#leopolds-section:target {
+  outline: none;
+}
+/* Remove default link styling from the Takomo section */
+.takomo-link {
+  display: block;          /* ensure it wraps the whole container */
+  text-decoration: none;   /* no underline */
+  color: inherit;          /* inherit your black text */
+}
+
+/* Also cover hover/visited/active states */
+.takomo-link:hover,
+.takomo-link:visited,
+.takomo-link:active {
+  text-decoration: none;
+  color: inherit;
+}
+/* Hide image on all screens by default */
+.robphone-image {
+  display: none;
+}
+}
+@media only screen and (max-width: 1024px) {
+  /* Global font and safe background color application */
+  html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    background-color: #FBE6BA !important; /* moved here to avoid affecting other elements */
+  }
+
+  * {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  }
+/* Hide all grass clumps and blades */
+.grass,
+.grass__blade,
+#hero-img {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+  /* Caption below “View More Work” */
+  .work-caption {
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 200;            /* Thin for most text */
+    font-size: 1rem;             /* Adjust as needed */
+    line-height: 1.5;            /* Comfortable reading */
+    color: #000;                 /* Black so it’s visible on light bg */
+    text-align: center;          /* Center under the button */
+    margin: 2rem auto;           /* Space above/below and center block */
+    max-width: 600px;            /* Prevents it getting too wide */
+    padding: 0 1rem;             /* Small side padding on narrow viewports */
+    margin-top: 100px;
+  }
+  
+  /* Semi-bold highlight for Figma & VS Code */
+  .work-caption .semi-bold {
+    font-weight: 600;
+  }
+  
+  /* 2) NAVBAR */
+  #navbar {
+    position: fixed !important;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 340px !important;
+    height: 55px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    backdrop-filter: blur(5px) !important;
+    border-radius: 27px !important;
+    background: rgba(240, 149, 63, 0.10) !important;
+    border: 1px solid black !important;
+    z-index: 1000 !important;
+  }
+
+  #navbar > div {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    width: 100% !important;
+    padding: 0 10px !important;
+  }
+
+  #navbar .logo {
+    position: relative !important;
+    width: 32px !important;
+    height: 22px !important;
+    top: 0.05em !important;
+    left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  #navbar .nav-item {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+    font-weight: 300 !important;
+  }
+  /* ─────────────────────────────────────────────────────────────────────────────
+     INTRO TEXT (absolute in page, scrolls away)
+     ───────────────────────────────────────────────────────────────────────────── */
+     .intro-text {
+      position: absolute;
+      top: 15%;             /* around middle of viewport when page loads */
+      left: 5%;
+      color: black;
+      font-size: 48px;
+      font-family:
+        "SF Pro Text",
+        "SF Pro Display",
+        -apple-system,
+        system-ui,
+        sans-serif;
+      font-weight: 100;
+      word-wrap: break-word;
+      text-align: left;
+    }
+
+    .robphone-image {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(10%);
+      width: 100vw;
+      max-width: none;
+      height: auto;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.5s ease; /* smooth fade */
+    }
+    
+  
+
+  .view-projects-container {
+    position: relative;
+    width: fit-content;
+    margin-top: 250px;
+    padding: 0 5px;
+    display: flex;
+    flex-direction: row-reverse; /* this flips the order: text on right, circle on left */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    text-decoration: none; /* remove underline from link */
+  }
+  
+  .view-projects-text {
+    font-size: 24px;
+    color: black;
+    margin: 0;
+    text-decoration: none;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 100;
+  }
+  
+  .view-projects-circle {
+    width: 75px;
+    height: 75px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .view-projects-arrow {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+  
+
+  .bottom-left-btn {
+    display: none !important;
+  }
+  .leopolds-container {
+    margin: 350px 0px 0px 0px;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  .leopolds-image-wrapper {
+    width: 350px;
+    height: 250px;
+    background: rgba(240, 149, 63, 0.5);
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .leopolds-image-wrapper:hover {
+    background: rgba(240, 149, 63, 1.0);
+    transform: scale(0.97);
+  }
+
+  .leopolds-image {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .leopolds-title,
+.leopolds-subtitle,
+.leopolds-tagline {
+  font-size: 20px;
+  font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 110;
+  color: black;
+  margin-top: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+  .leopolds-title {
+    font-size: 24px;
+    font-weight: 200;
+  }
+  a.leopolds-link {
+    text-decoration: none !important;
+    color: black !important;
+  }
+  
+  a.leopolds-link:visited,
+  a.leopolds-link:active,
+  a.leopolds-link:hover {
+    text-decoration: none !important;
+    color: black !important;
+  }
+  .takomo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  .takomo-text-col,
+  .takomo-image-col {
+    order: 2; /* default to 2 to place below unless overridden */
+    width: 100%;
+    max-width: 100%;
+  }
+  .takomo-text-col {
+    max-width: 300px;
+  }
+
+  .takomo-image-col {
+    order: 1; /* move the image above the text */
+  }
+  
+  .takomo-image-wrapper {
+    width: 350px;
+    height: 250px;
+    background: rgba(240, 149, 63, 0.5);
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .takomo-image-wrapper:hover {
+    background: rgba(240, 149, 63, 1.0);
+    transform: scale(0.97);
+  }
+  
+  .takomo-image {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  
+  .takomo-title,
+  .takomo-subtitle,
+  .takomo-tagline {
+    font-size: 20px;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 110;
+    color: black;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .takomo-title {
+    font-size: 24px;
+    font-weight: 200;
+  }
+  
+  a.takomo-link {
+    text-decoration: none !important;
+    color: black !important;
+  }
+  
+  a.takomo-link:visited,
+  a.takomo-link:active,
+  a.takomo-link:hover {
+    text-decoration: none !important;
+    color: black !important;
+  }
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .view-more-work-container {
+    position: relative;
+    width: 350px;
+    margin: 100px auto 0 auto; /* center horizontally */
+    transform: translateX(-40px); /* nudge left */
+    display: flex;
+    flex-direction: row-reverse; /* text on right, circle on left */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    text-decoration: none; /* remove underline from link */
+  }
+  
+  
+
+.view-more-work-text {
+  font-size: 24px;
+  color: black;
+  margin: 0;
+  text-decoration: none;
+  font-family:
+    "SF Pro Text",
+    "SF Pro Display",
+    -apple-system,
+    system-ui,
+    sans-serif;
+  font-weight: 100;
+}
+
+.view-more-work-circle {
+  width: 75px;
+  height: 75px;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-more-work-arrow {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+   FOOTER (text aligned left, logo on the same line, longer line, more spacing)
+   ───────────────────────────────────────────────────────────────────────────── */
+   footer {
+    position: absolute;
+margin-top: 100px;    
+left: 50%;
+    transform: translateX(-50%);
+    width: 80%;              /* footer spans 90% of viewport width */
+    padding: 30px 0 10px;    /* top padding so line is farther down */
+  }
+  
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 10px;               /* position the horizontal line 10px from top of footer */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: black;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between; /* push logo to the right */
+    align-items: center;              /* space between line and content */
+    text-align: left;       
+    margin-top: 20px;    
+    margin-bottom: 20px;      /* ensure text is left-aligned */
+  }
+  
+  .footer-content p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 100;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    color: black;
+  }
+  
+  .footer-content a {
+    color: black;            /* make email link text black */
+    text-decoration: none;   /* remove default underline */
+  }
+  
+  .footer-content a:hover {
+    text-decoration: underline; /* optional: underline on hover */
+  }
+  
+  .footer-logo {
+    width: 32px;   /* adjust as needed */
+    height: auto;
+  }
+}
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+/* Smooth enlarge on hover for the LinkedIn logo in the footer */
+.footer-logo {
+  width: 32px;               /* your existing size */
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+  transform-origin: center;
+}
+
+.footer-logo:hover {
+  transform: scale(1.2);     /* adjust scale factor as desired */
+}

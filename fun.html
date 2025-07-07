@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graphic Design &amp; Illustration</title>
+    <link rel="stylesheet" href="fun.css" />
+    <link rel="icon" href="Images/favi.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <!-- ==============================
+     NAV BAR
+     ============================== -->
+    <div id="navbar">
+      <div style="width: 100%; height: 100%; position: relative">
+        <a href="index.html#top" id="logo-link">
+          <img
+            src="Images/kailogo2.png"
+            alt="Kai Logo"
+            class="logo"
+            style="
+              left: 40px;
+              top: 8px;
+              width: 38px;
+              height: 27px;
+              position: absolute;
+              z-index: 11;
+            "
+          />
+        </a>
+        <div class="navbar-background"></div>
+
+        <div class="nav-item" style="left: 235px; top: 13px">
+          <a
+            href="index.html#leopolds-section"
+            style="color: inherit; text-decoration: none"
+          >
+            Projects
+          </a>
+        </div>
+
+        <div class="nav-item" style="left: 378px; top: 13px">
+          <a href="about.html" style="color: inherit; text-decoration: none">
+            About Me
+          </a>
+        </div>
+
+        <div class="nav-item" style="left: 538px; top: 14px">
+          <a
+            href="mailto:solikkai41@gmail.com"
+            style="color: inherit; text-decoration: none"
+          >
+            Contact
+          </a>
+        </div>
+
+        <div class="nav-item" style="left: 680px; top: 14px">
+          <a href="fun.html" style="color: inherit; text-decoration: none">
+            Fun
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Graphic Design -->
+      <div id="graphic-design" class="dropdown">
+        <h1 class="dropdown-toggle">Graphic Design</h1>
+        <div id="graphic-content" class="dropdown-content">
+          <div class="masonry-item">
+            <img src="Images/ImagineFX.png" alt="ImagineFX" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/Artboard 1@3x.png" alt="Artboard 1@3x" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/Clouds.jpg" alt="Clouds" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/DuneInfo.jpeg" alt="DuneInfo.jpeg" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/Gladbag.png" alt="Gladbag" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/Loc.png" alt="Loc" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/Nintendo.png" alt="Nintendo" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/playstation.png" alt="PlayStation" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/VRInfo.jpeg" alt="VRInfo.jpeg" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/Webdesign.png" alt="Webdesign" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/WIsconsinInfo.png" alt="WisconsinInfo" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/Xbox.png" alt="Xbox" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Illustration -->
+      <div id="illustration" class="dropdown">
+        <h1 class="dropdown-toggle">Illustration</h1>
+        <div id="illustration-content" class="dropdown-content">
+          <div class="masonry-item">
+            <img src="Images/Mon.jpeg" alt="Mon" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/Fire.jpeg" alt="Fire" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/fun1.jpeg" alt="fun1.jpeg" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/Robo.jpeg" alt="Robo.jpeg" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/Fun2.jpeg" alt="Fun2.jpeg" />
+          </div>
+          <div class="masonry-item">
+            <img src="Images/fun3.jpeg" alt="fun3.jpeg" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==============================
+         FOOTER (at the very bottom)
+         ============================== -->
+    <footer>
+      <div class="footer-content">
+        <p>
+          © 2025 Kai Solik | Get In Touch
+          <a href="mailto:solikkai41@gmail.com">solikkai41@gmail.com</a>
+        </p>
+        <a
+          href="https://www.linkedin.com/in/kai-solik/"
+          target="_blank"
+          rel="noopener"
+        >
+          <img src="Images/L.png" alt="LinkedIn Logo" class="footer-logo" />
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      // Utility to detect mobile
+      function isMobile() {
+        return window.innerWidth <= 600;
+      }
+
+      // Masonry layout function (unchanged)
+      function layoutMasonry(container, cols) {
+        const items = Array.from(container.querySelectorAll(".masonry-item"));
+        const heights = Array(cols).fill(0);
+        const colW = container.clientWidth / cols;
+        items.forEach((item) => {
+          const img = item.querySelector("img");
+          const h = (colW * img.naturalHeight) / img.naturalWidth;
+          const col = heights.indexOf(Math.min(...heights));
+          Object.assign(item.style, {
+            position: "absolute",
+            width: colW + "px",
+            height: h + "px",
+            left: col * colW + "px",
+            top: heights[col] + "px",
+          });
+          heights[col] += h;
+        });
+        container.style.height = Math.max(...heights) + "px";
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".dropdown-toggle").forEach((toggle) => {
+          const content = toggle.nextElementSibling;
+          toggle.addEventListener("click", () => {
+            const isOpen = content.classList.toggle("open");
+            // toggle active for arrow rotation on mobile
+            toggle.classList.toggle("active", isOpen);
+
+            if (isMobile()) {
+              // smooth mobile expand/collapse
+              content.style.maxHeight = isOpen
+                ? content.scrollHeight + "px"
+                : "0";
+              return;
+            }
+
+            // desktop behavior
+            if (isOpen) {
+              content.style.maxHeight = content.scrollHeight + "px";
+              layoutMasonry(content, 3);
+            } else {
+              content.style.maxHeight = "0";
+            }
+          });
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        document
+          .querySelectorAll(".dropdown-content.open")
+          .forEach((content) => {
+            if (!isMobile()) {
+              content.style.maxHeight = content.scrollHeight + "px";
+              layoutMasonry(content, 3);
+            }
+          });
+      });
+    </script>
+    <script src="cursor.js"></script>
+  </body>
+</html>

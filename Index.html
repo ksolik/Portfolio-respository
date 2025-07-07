@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kai Solik</title>
+    <link rel="stylesheet" href="index.css" />
+    <!-- favicon (32×32 PNG) -->
+    <link rel="icon" href="Images/favi.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <!-- ==============================
+         NAV BAR (fixed above header, not fading)
+         ============================== -->
+    <div id="navbar">
+      <div style="width: 100%; height: 100%; position: relative">
+        <!-- Logo: clicking smoothly scrolls to top of this page -->
+        <a href="#" id="logo-link">
+          <img
+            src="Images/kailogo2.png"
+            alt="Kai Logo"
+            class="logo"
+            style="
+              left: 40px;
+              top: 8px;
+              width: 38px;
+              height: 27px;
+              position: absolute;
+              z-index: 11;
+            "
+          />
+        </a>
+
+        <!-- Semi-transparent rounded background -->
+        <div class="navbar-background"></div>
+
+        <!-- Nav‐item text -->
+        <div class="nav-item" style="left: 235px; top: 13px">
+          <a href="#leopolds-section" style="color: inherit; text-decoration: none">
+            Projects
+          </a>
+        </div>
+        <div class="nav-item" style="left: 378px; top: 13px">
+          <a href="about.html" style="color: inherit; text-decoration: none">
+            About Me
+          </a>
+        </div>
+        <div class="nav-item" style="left: 538px; top: 14px">
+          <a href="mailto:solikkai41@gmail.com" style="color: inherit; text-decoration: none">
+            Contact
+          </a>
+        </div>
+        <div class="nav-item" style="left: 680px; top: 14px">
+          <a href="fun.html" style="color: inherit; text-decoration: none">
+            Fun
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==============================
+         HEADER now acts as the “hero” container, with grass & rob.png injected via main.js.
+         The fade‐out on scroll is applied to #header only; #navbar sits above it.
+    -->
+    <header id="header" class="page-header">
+      <!-- Everything else (grass + image) is injected via main.js -->
+    </header>
+
+    <!-- ==============================
+         INTRO TEXT (absolute in page, scrolls away)
+         ============================== -->
+    <div class="intro-text">
+      I am Kai<br />
+      UX/UI Designer
+    </div>
+    <!-- Mobile-only Robphone image -->
+    <img src="Images/Robphone.png" alt="Robphone" class="robphone-image" />
+
+    <!-- ==============================
+         VIEW PROJECTS (absolute in page, scrolls away)
+         ============================== -->
+    <a href="#leopolds-section" class="view-projects-container">
+      <div class="view-projects-text">VIEW PROJECTS</div>
+      <div class="view-projects-circle">
+        <img src="Images/Arow.png" alt="Arrow" class="view-projects-arrow" />
+      </div>
+    </a>
+
+    <!-- ==============================
+     BOTTOM-LEFT CIRCLE + ARROW (now scrolls to top instead of jumping)
+     ============================== -->
+    <a href="#" class="bottom-left-btn" id="bottom-left-btn">
+      <div class="view-projects-circle bottom-left-circle">
+        <img
+          src="Images/Arow.png"
+          alt="Arrow"
+          class="view-projects-arrow bottom-left-arrow"
+        />
+      </div>
+    </a>
+
+    <!-- ==============================
+         BELOW‐THE‐FOLD CONTENT (to allow scrolling)
+         ============================== -->
+    <div class="content">
+      <!-- ─────────────────────────────────────────────────────────────────────
+           LEOPOLDS SECTION (only title & image link to leopolds.html)
+           ───────────────────────────────────────────────────────────────────── -->
+      <div id="leopolds-section" class="leopolds-container fade-in">
+        <a href="leopolds.html" class="leopolds-link">
+          <div class="leopolds-image-wrapper">
+            <img
+              class="leopolds-image"
+              src="Images/Leopold.png"
+              alt="Leopolds Placeholder"
+            />
+          </div>
+        </a>
+
+        <a href="leopolds.html" class="leopolds-link">
+          <div class="leopolds-title">LEOPOLDS</div>
+        </a>
+
+        <div class="leopolds-subtitle">
+          A mobile app that helps users order their favorite coffee online
+        </div>
+        <div class="leopolds-tagline">Case Study + UX/UI Design</div>
+      </div>
+
+      <div class="takomo-container fade-in">
+        <!-- Left column: text -->
+        <div class="takomo-text-col">
+          <div class="takomo-text-group">
+            <!-- Only the title is a link -->
+            <a href="takomo.html" class="takomo-link">
+              <div class="takomo-title">TAKOMO</div>
+            </a>
+            <div class="takomo-subtitle">
+              A website application that allows users to be fitted golf clubs
+              online
+            </div>
+            <div class="takomo-tagline">Case Study + UX/UI Design</div>
+          </div>
+        </div>
+
+        <!-- Right column: colored box + placeholder image -->
+        <div class="takomo-image-col">
+          <!-- Only the colored box/image is a link -->
+          <a href="takomo.html" class="takomo-link">
+            <div class="takomo-image-wrapper">
+              <img
+                class="takomo-image"
+                src="Images/MacBook Air (2022).png"
+                alt="Takomo Placeholder"
+              />
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────────────────────────────
+             NEW “VIEW MORE WORK” BUTTON (below TAKOMO)
+           ──────────────────────────────────────────────────────────────────── -->
+      <a href="fun.html" class="view-more-work-container">
+        <div class="view-more-work-text">VIEW MORE WORK</div>
+        <div class="view-more-work-circle">
+          <img src="Images/Arow.png" alt="Arrow" class="view-more-work-arrow" />
+        </div>
+      </a>
+
+      <!-- Caption under "View More Work" -->
+      <p class="work-caption">
+        Kind of sketched it in <span class="semi-bold">Figma</span>, kind of built
+        it in <span class="semi-bold">Visual Studio Code</span> — by yours truly.
+      </p>
+
+      <!-- (Optional) Empty anchor target for smooth scroll -->
+      <div id="more-work-section"></div>
+    </div>
+
+    <!-- ==============================
+         FOOTER (at the very bottom)
+         ============================== -->
+    <footer>
+      <div class="footer-content">
+        <p>
+          © 2025 Kai Solik | Get In Touch
+          <a href="mailto:solikkai41@gmail.com">solikkai41@gmail.com</a>
+        </p>
+        <a
+          href="https://www.linkedin.com/in/kai-solik/"
+          target="_blank"
+          rel="noopener"
+        >
+          <img src="Images/L.png" alt="LinkedIn Logo" class="footer-logo" />
+        </a>
+      </div>
+    </footer>
+
+    <!-- ==============================
+         SCRIPTS
+         ============================== -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fade-in effect on page load
+        document.body.classList.add("page-visible");
+
+        // Scroll to top on logo click
+        const logoLink = document.getElementById("logo-link");
+        logoLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Scroll to top on bottom-left arrow click
+        const bottomBtn = document.getElementById("bottom-left-btn");
+        bottomBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("scroll", () => {
+        const robphone = document.querySelector(".robphone-image");
+        const scrollY = window.scrollY;
+        const fadeSpan = window.innerHeight * 0.3; // fade within top 30% of screen
+        let opacity = 1 - scrollY / fadeSpan;
+        opacity = Math.max(0, Math.min(1, opacity)); // clamp between 0–1
+        robphone.style.opacity = opacity;
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const faders = document.querySelectorAll(".fade-in");
+
+        const appearOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const appearOnScroll = new IntersectionObserver(function (
+          entries,
+          observer
+        ) {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        appearOptions);
+
+        faders.forEach((fader) => {
+          appearOnScroll.observe(fader);
+        });
+      });
+    </script>
+    <script>
+      window.addEventListener("load", function () {
+        const viewProjectsLink = document.querySelector(
+          ".view-projects-container"
+        );
+        viewProjectsLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.getElementById("leopolds-section");
+          if (target) {
+            const offset =
+              target.getBoundingClientRect().top + window.pageYOffset - 80; // tweak as needed
+            window.scrollTo({
+              top: offset,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+
+    <script src="main.js"></script>
+    <script src="cursor.js"></script>
+  </body>
+</html>

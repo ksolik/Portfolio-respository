@@ -1,0 +1,993 @@
+/* about.css */
+
+/* ────────────────────────────────────────────────────────────────────────────
+   FADE-IN PAGE ON LOAD (3s)
+   ──────────────────────────────────────────────────────────────────────────── */
+   body {
+    margin: 0;
+    padding: 0;
+    background: #ffe5b4;
+    opacity: 0;
+    transition: opacity 3s ease;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    color: #333;
+  }
+  
+  body.page-visible {
+    opacity: 1;
+  }
+  
+  /* ────────────────────────────────────────────────────────────────────────────
+     NAV BAR (identical to index.css)
+     ──────────────────────────────────────────────────────────────────────────── */
+     #navbar {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 750px;   /* same as background shape width */
+      height: 55px;
+      z-index: 10;    /* above header content */
+    }
+    
+    #navbar .logo {
+      position: absolute;
+      z-index: 11;
+      margin-top: 6px;
+      /* left/top remain inline in HTML */
+      padding-bottom: 2px; /* lower the underline slightly */
+      transition: transform 0.3s ease-in-out;
+      transform-origin: center center;
+    }
+    
+    #navbar .logo:hover {
+      transform: scale(1.1);
+    }
+    
+    .navbar-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;      /* fill #navbar */
+      height: 100%;
+      background: rgba(240, 149, 63, 0.10);
+      border-radius: 27.59px;
+      border: 1px solid black;
+      backdrop-filter: blur(5.21px);
+    }
+    
+    .nav-item {
+      position: absolute;
+      color: black;
+      font-size: 24px;
+      font-family:
+        "SF Pro Text",
+        "SF Pro Display",
+        -apple-system,
+        system-ui,
+        sans-serif;
+      font-weight: 100;
+      word-wrap: break-word;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+      padding-bottom: 2px; /* lower the underline slightly */
+    }
+    
+    .nav-item:hover {
+      border-bottom-color: black;
+    }
+    .nav-item {
+      position: absolute;
+      /* …all your existing properties… */
+      /* remove the old border-bottom/transition: */
+      border-bottom: none !important;
+      padding-bottom: 2px; /* keep your vertical spacing */
+    }
+    
+    .nav-item::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;                     /* match your desired underline thickness */
+      width: 0;
+      background-color: black;
+      transition: width 0.3s ease-in-out;
+    }
+    
+    .nav-item:hover::after {
+      width: 100%;
+    }
+    
+  
+  /* ────────────────────────────────────────────────────────────────────────────
+     ABOUT MAIN SECTION (image + text)
+     ──────────────────────────────────────────────────────────────────────────── */
+  .about-main {
+    display: flex;
+    align-items: center;     /* vertical centering of text alongside image */
+    justify-content: center; /* center both horizontally */
+    gap: 150px;               /* 150px space between image and text */
+    min-height: calc(100vh - 100px); /* full viewport minus navbar height */
+    margin-top: 100px;        /* push below navbar */
+    padding: 0 1rem;          /* horizontal padding */
+    box-sizing: border-box;
+  }
+  
+  .about-image {
+    width: 515.2px;
+    height: 460px;
+    object-fit: cover;
+    border-radius: 50px;
+    flex-shrink: 0;           /* prevent shrinking */
+  }
+  
+  .about-text {
+    max-width: 474px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* vertically center title & description */
+  }
+  
+  .about-title {
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-size: 48px;
+    font-weight: 110;
+    color: black;
+    margin-bottom: 35px;      /* place “ABOUT ME” 35px above description */
+  }
+  
+  .about-description {
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-size: 32px;
+    font-weight: 110;
+    color: black;
+    line-height: 1.2;
+  }
+  
+  /* Highlighted words: color F0953F, regular weight */
+  .text-highlight {
+    color: #F0953F;
+    font-weight: 400;
+  }
+  
+  /* ────────────────────────────────────────────────────────────────────────────
+     CUSTOM CURSOR & BASE STYLING
+     ──────────────────────────────────────────────────────────────────────────── */
+  html,
+  body {
+    cursor: none !important;
+  }
+  
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background-color: #F0953F;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition:
+      width 0.2s ease,
+      height 0.2s ease,
+      background-color 0.2s ease,
+      border-radius 0.2s ease;
+    z-index: 9999;
+  }
+  
+  .custom-cursor.cursor-hover {
+    width: 50px !important;
+    height: 50px !important;
+    background-color: rgba(240, 149, 63, 0.5) !important;
+    border-radius: 50% !important;
+  }
+  
+  .custom-cursor.cursor-text-hover {
+    width: 2px !important;
+    background-color: rgba(240, 149, 63, 0.5) !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  
+  /* ────────────────────────────────────────────────────────────────────────────
+     ENABLE SMOOTH SCROLLING ON LINKED SECTIONS
+     ──────────────────────────────────────────────────────────────────────────── */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     WRAPPER: Center “VIEW RESUME” horizontally below content
+     ───────────────────────────────────────────────────────────────────────────── */
+  .resume-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px; /* equal spacing top and bottom */
+    position: relative; /* relative positioning for child absolute placement */
+  }
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     VIEW RESUME BUTTON (match VIEW PROJECTS styling but centered)
+     ───────────────────────────────────────────────────────────────────────────── */
+  .view-resume-container {
+    position: relative;
+    width: 320px;    /* fixed width to center the inner layout */
+    height: 128px;   /* match circle height */
+    margin: 0 auto;  /* center the container itself */
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Ensure “VIEW RESUME” text stays on a single line */
+  .view-resume-text {
+    white-space: nowrap;
+    position: absolute;
+    left: 159.29px; /* same horizontal offset as VIEW PROJECTS */
+    top: 42.67px;   /* same vertical offset as VIEW PROJECTS */
+    color: black;
+    font-size: 34.13px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 100;
+    word-wrap: normal; /* prevent wrapping */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Circular outline behind the arrow */
+  .view-resume-circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 128px;
+    height: 128px;
+    border-radius: 9999px;
+    border: 1.42px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Arrow inside the circle */
+  .view-resume-arrow {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover states */
+  .view-resume-container:hover .view-resume-circle {
+    transform: scale(1.05);
+  }
+  
+  .view-resume-container:hover .view-resume-text {
+    transform: scale(1.05);
+  }
+  
+  .view-resume-container:hover .view-resume-arrow {
+    transform: rotate(-45deg);
+  }
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     ADDITIONAL PARAGRAPHS (28px size, thin weight, centered, max-width 1025px)
+     ───────────────────────────────────────────────────────────────────────────── */
+  .additional-text {
+    max-width: 1025px;
+    margin: 150px auto 100px auto;
+  }
+  
+  .additional-text p {
+    font-size: 28px;
+    font-weight: 100;
+    text-align: center;
+    margin: 20px 1rem;
+  }
+.experience-title {
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-size: 48px;
+    font-weight: 110;
+    color: black;
+    /* Match the experiences‐container width and centering */
+    width: 1150px;
+    margin: 200px auto 20px auto;
+    margin-bottom: 50px;
+    text-align: left; /* align text to left edge of container */
+  }
+  /* ==============================
+   EXPERIENCES SECTION: SMOOTH DROPDOWN (max‐height)
+   ============================== */
+
+/* Container wrapping all experience items, centered at 1150px */
+.experiences-container {
+    width: 1150px;
+    margin: 20px auto;
+  }
+  
+  /* Each experience item: header + details */
+  .experience-item {
+    border-top: 1px solid black;
+    /* ensure it stays in normal flow */
+  }
+  
+  /* Header row: clickable */
+  .experience-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 0;
+    font-size: 28px;
+    font-family: "SF Pro Text", "SF Pro Display", -apple-system, system-ui,
+      sans-serif;
+    font-weight: 110;
+    color: black;
+    cursor: pointer;
+    /* no absolute positioning—remains in flow */
+  }
+  
+  /* Arrow icon on the right side */
+  .experience-header .arrow {
+    width: 30px;
+    height: 30px;
+    background: url("Images/darrow.png") no-repeat center;
+    background-size: contain;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Rotate arrow when expanded */
+  .experience-item.expanded .experience-header .arrow {
+    transform: rotate(180deg);
+  }
+  
+  /* Details container: hidden by default with max-height = 0 */
+  .experience-details {
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 7px;       /* spacing between header and list */
+    padding-bottom: 0;      /* bottom spacing when collapsed */
+    transition: max-height 0.5s ease, padding-bottom 0.5s ease;
+    /* remains in normal flow; no absolute/fixed position */
+  }
+  
+  /* When expanded, allow enough max-height to show all list items */
+  .experience-item.expanded .experience-details {
+    max-height: 400px;      /* enough for four <li> items */
+    padding-bottom: 20px;   /* bottom breathing room */
+  }
+  
+  /* Bullet list styling */
+  .experience-details ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+  
+  .experience-details ul li {
+    font-size: 20px;
+    font-weight: 100;
+    margin: 8px 0;
+  }
+  
+  /* ==============================
+   “JUST FOR FUN” SECTION STYLES (adjusted spacing)
+   ============================== */
+.fun-section {
+    width: 1150px;
+    /* Increase top margin to push it further below “My Experience” */
+    margin: 200px auto 120px auto;
+  }
+  
+  .fun-title {
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-size: 48px;
+    font-weight: 110;
+    color: black;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .fun-text {
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-size: 28px;
+    font-weight: 100;
+    color: black;
+    text-align: left;
+    line-height: 1.4;
+  }
+  
+  /* ==============================
+     FOOTER STYLES (extra space above footer)
+     ============================== */
+  footer {
+    position: relative;
+    width: 80%;
+    /* Increase top margin so there’s more space between “Just for fun” and footer */
+    margin: 200px auto 40px auto;
+    padding-top: 30px;
+  }
+  
+  footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: black;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .footer-content p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 100;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    color: black;
+  }
+  
+  .footer-content a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .footer-content a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-logo {
+    width: 32px;
+    height: auto;
+  }
+  /* Fade-In Effect Styles */
+.fade-in {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+
+/* When the element becomes visible, it will fade in */
+.fade-in.visible {
+  opacity: 1;
+}
+
+/* Add the scroll fade-in effect */
+body {
+  visibility: hidden;
+}
+
+/* Fade-in when body is visible */
+body.page-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Additional styles for smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+@media only screen and (max-width: 1000px) {
+  /* Prevent horizontal overflow */
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  /* ABOUT SECTION */
+  .about-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 1rem;
+    margin-top: 0px;
+    box-sizing: border-box;
+    position: relative; /* for pseudo-element */
+  }
+  .about-main::before {
+    content: "ABOUT ME";
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-size: 48px;
+    font-weight: 110;
+    color: black;
+    white-space: nowrap;
+  }
+  .about-title {
+    display: none;
+  }
+  .about-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50px;
+    margin-top: 50px;
+  }
+  .about-text {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  /* VIEW RESUME BUTTON */
+  .resume-button-wrapper {
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+  .view-resume-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 280px;
+    margin-top: -100px;
+    margin-left: 25%;
+  }
+  .view-resume-circle {
+    width: 100px;
+    height: 100px;
+  }
+  .view-resume-text {
+    font-size: 32px;
+    white-space: nowrap;
+    margin: 0;
+    margin-top: -10px;
+    margin-left: -30px;
+  }
+  .view-resume-arrow {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* ADDITIONAL PARAGRAPHS */
+  .additional-text {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+  .additional-text p {
+    font-size: 30px;
+    line-height: 1.5;
+    margin: 50px 0;
+    text-align: left;
+  }
+
+  /* EXPERIENCE SECTION */
+  .experience-title {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 100px;
+  }
+  .experiences-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+  .experience-item {
+    margin-bottom: 16px;
+    border-top: 2px solid black;
+  }
+  .experience-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 30px;
+  }
+  .experience-header .experience-text {
+    flex: 1;
+    word-break: break-word;
+    margin-right: 8px;
+  }
+  .experience-header .arrow {
+    width: 20px;
+    height: 20px;
+  }
+  .experience-details {
+    padding: 5px 0;
+  }
+  .experience-details ul li {
+    font-size: 24px;
+    margin: 6px 0;
+    line-height: 1.4;
+  }
+
+  /* JUST FOR FUN SECTION */
+  .fun-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .fun-title {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .fun-text {
+    font-size: 30px;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  }
+.footer-content {
+  width: 100%;
+  font-size: px;
+} 
+}
+@media only screen and (max-width: 600px) {
+/* Center navbar and its inner wrapper */
+#navbar {
+  position: fixed !important;
+  top: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 340px !important;
+  height: 55px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  backdrop-filter: blur(5px) !important;
+  border-radius: 27px !important;
+  z-index: 1000 !important;
+}
+
+#navbar > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 10px !important;
+}
+
+/* Logo: move down 4px and left 4px */
+#navbar .logo {
+  position: relative !important;
+  width: 32px !important;
+  height: 22px !important;
+  top: .05em !important;
+  left: 2px !important;
+  margin-right: 0px !important;
+}
+
+/* Nav items: move down 6px and right 6px */
+#navbar .nav-item {
+  position: relative !important;
+  display: inline-block !important;
+  top: .1em !important;
+  left: 10px !important;
+  margin: 0 10px !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+}
+}
+/* Prevent horizontal overflow and force full viewport width */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+  /* Ensure main content spans full screen and reserve space for the injected title */
+  .about-main {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    margin-top: 0;
+    position: relative;
+    padding-top: 60px; /* space for the “ABOUT ME” pseudo‐title */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Inject “ABOUT ME” above the image */
+  .about-main::before {
+    content: "ABOUT ME";
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-size: 40px;
+    font-weight: 110;
+    color: black;
+    white-space: nowrap;
+    overflow-wrap: normal;
+
+  }
+
+  /* Hide the original in‐text title */
+  .about-title {
+    display: none;
+  }
+
+  /* Center and scale the profile image */
+  .about-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    margin-top: 50px;
+    border-radius: 50px;
+  }
+
+  /* Text block below the image */
+  .about-description {
+    max-width: 350px;
+    font-size: 20px;
+    margin-top: 0;
+    text-align: Center;
+  }
+  /* Wrap and center the resume button on small screens */
+  .resume-button-wrapper {
+    padding: 0 1rem;
+    margin: 20px auto;
+    box-sizing: border-box;
+  }
+
+  .view-resume-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+    width: 100%;
+    max-width: 300px;
+    margin-top: -50px;
+    left: -20px;
+
+  }
+
+  /* Scale down the circle */
+  .view-resume-circle {
+    width: 80px;
+    height: 80px;
+    left: -30px;
+  }
+
+  /* Reduce text size and remove absolute positioning */
+  .view-resume-text {
+    position: static;
+    font-size: 24px;
+    margin-top: -50px;
+    margin-left: 10px;
+  }
+
+  /* Scale down the arrow icon */
+  .view-resume-arrow {
+    width: 20px;
+    height: 20px;
+  }
+  /* Ensure the additional-text container spans the full width */
+  .additional-text {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    margin: 0px auto 60px;
+    box-sizing: border-box;
+  }
+
+  /* Scale down paragraph text and tighten spacing */
+  .additional-text p {
+    text-align: left;
+    max-width: 400px;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 50px 0;
+    font-weight: 300;
+  }
+}
+@media only screen and (max-width: 600px) {
+  /* Title */
+  .experience-title {
+    width: 100%;
+    padding: 0 1rem;
+    margin: 120px auto 20px;
+    font-size: 32px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  /* Container */
+  .experiences-container {
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+
+  /* Each item */
+  .experience-item {
+    border-top: 1px solid black;
+    margin-bottom: 16px;
+  }
+
+  /* Header */
+  .experience-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  /* Allow text to wrap but keep arrow visible */
+  .experience-header .experience-text {
+    flex: 1;
+    margin-right: 8px;
+    word-break: break-word;
+  }
+
+  /* Smaller arrow hit area */
+  .experience-header .arrow {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Details */
+  .experience-details {
+    padding: 5px 0;
+  }
+  .experience-details ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .experience-details ul li {
+    font-size: 16px;
+    margin: 6px 0;
+    line-height: 1.4;
+  }
+}
+@media only screen and (max-width: 600px) {
+  /* Ensure fun section spans full width */
+  .fun-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    margin: 80px auto 60px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  /* Scale down the section title */
+  .fun-title {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  /* Adjust paragraph text for readability */
+  .fun-text {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 350px;
+  }
+    /* ────────────────────────────────────────────────────────────────────
+     Disable all fade-in effects on mobile
+     ──────────────────────────────────────────────────────────────────── */
+  body {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: none !important;
+  }
+
+  .fade-in,
+  .fade-in.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: none !important;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+   TURN OFF CUSTOM CURSOR ON MOBILE
+   ───────────────────────────────────────────────────────────────────────────── */
+html, body {
+  cursor: auto !important;
+}
+
+.custom-cursor {
+  display: none !important;
+}
+}
+/* Smooth enlarge on hover for the LinkedIn logo in the footer */
+.footer-logo {
+  width: 32px;               /* your existing size */
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+  transform-origin: center;
+}
+
+.footer-logo:hover {
+  transform: scale(1.2);     /* adjust scale factor as desired */
+}
+@media only screen and (max-width: 600px) {
+    /* Center the “A creative UX designer…” paragraph */
+    .about-description {
+      text-align: center !important;
+      margin: 1rem auto 0;    /* vertical spacing, auto horizontal */
+      width: 100%;            /* allow it to fill its container */
+      max-width: 350px;       /* cap the line length if you like */
+    }
+  }
+  

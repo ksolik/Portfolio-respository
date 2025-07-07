@@ -1,0 +1,453 @@
+/* NAV BAR (fixed above content) */
+#navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 750px;   /* same as background shape width */
+    height: 55px;
+    z-index: 10;    /* above header content */
+  }
+  
+  #navbar .logo {
+    position: absolute;
+    z-index: 11;
+    margin-top: 6px;
+    /* left/top remain inline in HTML */
+    padding-bottom: 2px; /* lower the underline slightly */
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center center;
+  }
+  
+  #navbar .logo:hover {
+    transform: scale(1.1);
+  }
+  
+  .navbar-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;      /* fill #navbar */
+    height: 100%;
+    background: rgba(240, 149, 63, 0.10);
+    border-radius: 27.59px;
+    border: 1px solid black;
+    backdrop-filter: blur(5.21px);
+  }
+  
+  .nav-item {
+    position: absolute;
+    color: black;
+    font-size: 24px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 100;
+    word-wrap: break-word;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+    padding-bottom: 2px; /* lower the underline slightly */
+  }
+  
+  .nav-item:hover {
+    border-bottom-color: black;
+  }
+  .nav-item {
+    position: absolute;
+    /* …all your existing properties… */
+    /* remove the old border-bottom/transition: */
+    border-bottom: none !important;
+    padding-bottom: 2px; /* keep your vertical spacing */
+  }
+  
+  .nav-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;                     /* match your desired underline thickness */
+    width: 0;
+    background-color: black;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .nav-item:hover::after {
+    width: 100%;
+  }
+  
+  
+  /* PAGE & DROPDOWN STYLES */
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffe5b4;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+  }
+  
+  .container {
+    width: 70vw;
+    max-width: 1550px;
+    margin: 40vh auto 40px; /* headings at 40% down */
+    text-align: center;
+  }
+  
+  .dropdown-toggle {
+    font-size: 64px;
+    font-weight: 100;
+    margin: 0.5em 0;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-in;
+    transition: max-height 0.8s ease-out;
+  
+    padding: 0;
+  }
+  
+  .dropdown-content.open {
+    max-height: 2000px;
+  }
+  
+  /* MASONRY CONTAINERS */
+  #graphic-content,
+  #illustration-content {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .masonry-item {
+    position: absolute;
+    overflow: hidden;
+  }
+  
+  .masonry-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+    
+    .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      background-color: #F0953F;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition:
+        width 0.2s ease,
+        height 0.2s ease,
+        background-color 0.2s ease,
+        border-radius 0.2s ease;
+      z-index: 9999;
+    }
+    
+    .custom-cursor.cursor-hover {
+      width: 50px !important;
+      height: 50px !important;
+      background-color: rgba(240, 149, 63, 0.5) !important; /* 50% opacity on hover */
+      border-radius: 50% !important;
+    }
+    
+    .custom-cursor.cursor-text-hover {
+      width: 2px !important;
+      background-color: rgba(240, 149, 63,) !important; /* vertical line at 50% opacity */
+      border: none !important;
+      border-radius: 0 !important;
+    }
+    /* ──────────────────────────────
+     Hide the default system cursor
+     ────────────────────────────── */
+  html, body, * {
+    cursor: none !important;   /* ensure it wins over built-in styles */
+  }
+  /* ──────────────────────────────
+     Page-load fade-in animation
+     ────────────────────────────── */
+     body {
+      opacity: 0;                       /* start invisible */
+      animation: fadeInPage 3s ease-out forwards;
+    }
+    
+    /* keyframes for the fade-in */
+    @keyframes fadeInPage {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @media only screen and (max-width: 600px) {
+      /* Center navbar and its inner wrapper */
+      #navbar {
+        position: fixed !important;
+        top: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 340px !important;
+        height: 55px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        backdrop-filter: blur(5px) !important;
+        border-radius: 27px !important;
+        z-index: 1000 !important;
+      }
+      
+      #navbar > div {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 10px !important;
+      }
+      
+      /* Logo: move down 4px and left 4px */
+      #navbar .logo {
+        position: relative !important;
+        width: 32px !important;
+        height: 22px !important;
+        top: .05em !important;
+        left: 2px !important;
+        margin-right: 0px !important;
+      }
+      
+      /* Nav items: move down 6px and right 6px */
+      #navbar .nav-item {
+        position: relative !important;
+        display: inline-block !important;
+        top: .1em !important;
+        left: 10px !important;
+        margin: 0 10px !important;
+        font-size: 14px !important;
+        font-weight: 300 !important;
+      }
+      html, body {
+        cursor: auto !important;
+      }
+      
+      .custom-cursor {
+        display: none !important;
+      }
+      }
+      /* ==============================
+       FOOTER STYLES (extra space above footer)
+       ============================== */
+    footer {
+      position: relative;
+      width: 80%;
+      /* Increase top margin so there’s more space between “Just for fun” and footer */
+      margin: 200px auto 40px auto;
+      padding-top: 30px;
+    }
+    
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: black;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    .footer-content p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 100;
+      font-family:
+        "SF Pro Text",
+        "SF Pro Display",
+        -apple-system,
+        system-ui,
+        sans-serif;
+      color: black;
+    }
+    
+    .footer-content a {
+      color: black;
+      text-decoration: none;
+    }
+    
+    .footer-content a:hover {
+      text-decoration: underline;
+    }
+    
+    .footer-logo {
+      width: 32px;
+      height: auto;
+    }
+    /* Smooth enlarge on hover for the LinkedIn logo in the footer */
+  .footer-logo {
+    width: 32px;               /* your existing size */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
+  }
+  
+  .footer-logo:hover {
+    transform: scale(1.2);     /* adjust scale factor as desired */
+  }
+  /* Enhanced circle+arrow on dropdown-toggle with extra gap */
+  .dropdown-toggle {
+    position: relative;
+    display: inline-block;
+    /* increased space for the circle plus padding */
+    padding-right: calc(var(--circle-size) + 16px);
+    
+    /* adjustable variables */
+    --circle-size: 64px;     /* outer circle diameter */
+    --arrow-size: 18px;      /* arrow icon size */
+    --arrow-angle: 135deg;   /* default arrow rotation */
+    --hover-rotate: -90deg;  /* extra rotation on hover */
+    
+    cursor: pointer;
+  }
+  
+  .dropdown-toggle::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) scale(1);
+    width: var(--circle-size);
+    height: var(--circle-size);
+    border: 1px solid black;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  .dropdown-toggle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    /* center arrow inside circle */
+    right: calc((var(--circle-size) - var(--arrow-size)) / 2);
+    transform: translateY(-50%) rotate(var(--arrow-angle)) scale(1);
+    width: var(--arrow-size);
+    height: var(--arrow-size);
+    background: url('Images/Arow.png') no-repeat center / contain;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover: enlarge circle & arrow, rotate arrow */
+  .dropdown-toggle:hover::before {
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .dropdown-toggle:hover::after {
+    transform: translateY(-50%) rotate(calc(var(--arrow-angle) + var(--hover-rotate))) scale(1.1);
+  }
+  @media only screen and (max-width: 600px) {
+    /* Mobile: hide until toggled & force one-column flow */
+    .dropdown-content {
+      display: none !important;
+      overflow: visible !important;
+      max-height: none !important;
+      transition: none !important;
+    }
+    .dropdown-content.open {
+      display: block !important;
+    }
+  
+    .dropdown-content.open .masonry-item {
+      position: static !important;
+      width: 100% !important;
+      margin: 16px 0 !important;
+      top: auto !important;
+      left: auto !important;
+    }
+    .dropdown-content.open .masonry-item img {
+      width: 100% !important;
+      height: auto !important;
+      display: block !important;
+    }
+  
+    /* Shrink toggle text & circle/arrow */
+    .dropdown-toggle {
+      font-size: 32px !important;
+      --circle-size: 48px;
+      --arrow-size: 14px;
+      padding-right: calc(var(--circle-size) + 16px) !important;
+    }
+    .dropdown-toggle::before {
+      width: var(--circle-size) !important;
+      height: var(--circle-size) !important;
+    }
+    .dropdown-toggle::after {
+      width: var(--arrow-size) !important;
+      height: var(--arrow-size) !important;
+      right: calc((var(--circle-size) - var(--arrow-size)) / 2) !important;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    /* Base: always in flow, clip with max-height */
+    .dropdown-content {
+      display: block !important;
+      overflow: hidden !important;
+      max-height: 0 !important;
+      transition: max-height 0.5s ease;
+    }
+    .dropdown-content.open {
+      /* big enough to show all images */
+      max-height: 9999px !important;
+    }
+  
+    /* One‐column layout */
+    .dropdown-content.open .masonry-item {
+      position: static !important;
+      width: 100% !important;
+      margin: 0 0 20px !important;
+      top: auto !important;
+      left: auto !important;
+    }
+    .dropdown-content.open .masonry-item img {
+      width: 100% !important;
+      height: auto !important;
+      display: block !important;
+    }
+  
+    /* Disable hover transforms on mobile */
+    .dropdown-toggle::before,
+    .dropdown-toggle::after {
+      transition: transform 0.3s ease !important;
+    }
+    .dropdown-toggle:hover::before,
+    .dropdown-toggle:hover::after {
+      /* reset to default */
+      transform: translateY(-50%) rotate(var(--arrow-angle)) scale(1) !important;
+    }
+  
+    /* Rotate/enlarge only when .active */
+    .dropdown-toggle.active::before {
+      transform: translateY(-50%) scale(1.1) !important;
+    }
+    .dropdown-toggle.active::after {
+      transform: translateY(-50%)
+                 rotate(calc(var(--arrow-angle) + var(--hover-rotate)))
+                 scale(1.1) !important;
+    }
+  }
+  

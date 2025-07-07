@@ -1,0 +1,2098 @@
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* … your existing l.css … */
+  @media only screen and (min-width: 1024px) {
+  /* ==============================
+     CUSTOM CURSOR & BASE STYLING
+     ============================== */
+     html,
+     body {
+       cursor: none !important;
+     }
+     
+     .custom-cursor {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 30px;
+       height: 30px;
+       background-color: #F0953F;
+       border-radius: 50%;
+       pointer-events: none;
+       transform: translate(-50%, -50%);
+       transition:
+         width 0.2s ease,
+         height 0.2s ease,
+         background-color 0.2s ease,
+         border-radius 0.2s ease;
+       z-index: 9999;
+     }
+     
+     .custom-cursor.cursor-hover {
+       width: 50px !important;
+       height: 50px !important;
+       background-color: rgba(240, 149, 63, 0.5) !important;
+       border-radius: 50% !important;
+     }
+     
+     .custom-cursor.cursor-text-hover {
+       width: 2px !important;
+       background-color: rgba(240, 149, 63, 0.5) !important;
+       border: none !important;
+       border-radius: 0 !important;
+     }
+     
+  
+  /* Fade-in on load */
+  body {
+    opacity: 0;
+    transition: opacity 3s ease;
+    margin: 0;
+    padding: 0;
+    background: #ffe5b4;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+  }
+  body.page-visible {
+    opacity: 1;
+  }
+  
+  #navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 750px;   /* same as background shape width */
+    height: 55px;
+    z-index: 10;    /* above header content */
+  }
+  
+  #navbar .logo {
+    position: absolute;
+    z-index: 11;
+    margin-top: 6px;
+    /* left/top remain inline in HTML */
+    padding-bottom: 2px; /* lower the underline slightly */
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center center;
+  }
+  
+  #navbar .logo:hover {
+    transform: scale(1.1);
+  }
+  
+  .navbar-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;      /* fill #navbar */
+    height: 100%;
+    background: rgba(240, 149, 63, 0.10);
+    border-radius: 27.59px;
+    border: 1px solid black;
+    backdrop-filter: blur(5.21px);
+  }
+  
+  .nav-item {
+    position: absolute;
+    color: black;
+    font-size: 24px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 100;
+    word-wrap: break-word;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+    padding-bottom: 2px; /* lower the underline slightly */
+  }
+  
+  .nav-item:hover {
+    border-bottom-color: black;
+  }
+  .nav-item {
+    position: absolute;
+    /* …all your existing properties… */
+    /* remove the old border-bottom/transition: */
+    border-bottom: none !important;
+    padding-bottom: 2px; /* keep your vertical spacing */
+  }
+  
+  .nav-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;                     /* match your desired underline thickness */
+    width: 0;
+    background-color: black;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .nav-item:hover::after {
+    width: 100%;
+  }
+  
+  
+  /* INTRO SECTION */
+  .intro-section {
+    position: absolute;
+    top: 100px;
+    left: 699px;
+    width: 617px;
+    overflow: hidden;
+  }
+  
+  /* turn off previous absolute offsets on these children */
+  .intro-section > .intro-title,
+  .intro-section > .intro-description,
+  .intro-section > .project-meta {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+  }
+  
+  /* “Leopolds” title */
+  .intro-title {
+    color: black;
+    font-size: 64px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    margin: 0 0 20px 0;    /* 20px below title */
+  }
+  
+  /* Description paragraph */
+  .intro-description {
+    color: black;
+    font-size: 24px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+    margin: 0 0 20px 0;    /* 20px below description */
+  }
+  
+  /* Meta lines (Project type, Roles, etc.) */
+  .project-meta {
+    width: 617px;           /* keep your existing width */
+    margin: 0 0 20px 0;     /* 20px between each meta line */
+  }
+  .project-meta .label {
+    color: black;
+    font-size: 20px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  .project-meta .value {
+    color: black;
+    font-size: 20px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+  }
+  .intro-gif-container {
+    position: relative;
+    /* no top/left here */
+  }
+  
+  .intro-gif-container img {
+    position: absolute;
+    top: 100px;
+    left: 250px;
+    max-width: 300px;
+    width: 90%;
+    height: auto;
+    display: block;
+  }
+  
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     VIEW PROTOTYPE BUTTON (match VIEW RESUME styling but with 36px light text)
+     ───────────────────────────────────────────────────────────────────────────── */
+     .view-projects-container {
+      position: relative;
+      width: 320px;    /* fixed width to center inner layout */
+      height: 128px;   /* match circle height */
+      margin: 0 auto;  /* center container */
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    /* Ensure “VIEW PROTOTYPE” text stays on one line */
+    .view-projects-text {
+      white-space: nowrap;
+      position: absolute;
+      left: 159.29px;  /* same horizontal offset as VIEW RESUME */
+      top: 42.67px;    /* same vertical offset as VIEW RESUME */
+      color: black;
+      font-size: 36px;
+      font-family:
+        "SF Pro Text",
+        "SF Pro Display",
+        -apple-system,
+        system-ui,
+        sans-serif;
+      font-weight: 300;  /* light */
+      word-wrap: normal;
+      transition: transform 0.3s ease;
+    }
+    
+    /* Circular outline behind the arrow */
+    .view-projects-circle {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 128px;
+      height: 128px;
+      border-radius: 9999px;
+      border: 1.42px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+    
+    /* Arrow inside the circle */
+    .view-projects-arrow {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease;
+    }
+    
+    /* Hover states */
+    .view-projects-container:hover .view-projects-circle {
+      transform: scale(1.05);
+    }
+    
+    .view-projects-container:hover .view-projects-text {
+      transform: scale(1.05);
+    }
+    
+    .view-projects-container:hover .view-projects-arrow {
+      transform: rotate(-45deg);
+    }
+    
+  /* — Position VIEW PROTOTYPE 70px below last meta line and center it within the intro width — */
+  .view-prototype-section {
+    position: absolute;
+    /* intro-section starts at top:150px; last meta line is at 637px within that, so:
+       absolute top = 150px + 637px + 70px = 857px */
+    top: 650px;
+    left: 600px;      /* match intro-section’s left */
+    width: 617px;     /* match intro-section’s width */
+    display: flex;
+    justify-content: center;
+  }
+  /* ─────────────────────────────────────────────────────────────────────────────
+     PROBLEM & GOAL SECTION (grid layout)
+     ───────────────────────────────────────────────────────────────────────────── */
+     .problem-goal-section {
+      position: absolute;
+      top: 850px;             /* fixed 850px from top */
+      left: 0;
+      width: 100%;
+      height: 400px;          /* fixed height */
+      background: #282D30;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      padding: 103px 146px;   /* vertical offset + horizontal inset */
+      box-sizing: border-box;
+      column-gap: 200px;      /* space between the two columns */
+      row-gap: 20px;          /* 20px between title and paragraph in each column */
+    }
+    
+    /* disable any old absolute positioning */
+    .problem-goal-section > * {
+      position: static !important;
+      top: auto !important;
+      left: auto !important;
+    }
+    
+    /* Problem Statement column */
+    .problem-goal-section .problem-title {
+      grid-column: 1;
+      grid-row: 1;
+      margin: 0;
+      color: #ffffff;
+      font-size: 48px;
+      font-family: "SF Pro Text", "SF Pro Display", -apple-system, system-ui, sans-serif;
+      font-weight: 700;
+    }
+    .problem-goal-section .problem-text {
+      grid-column: 1;
+      grid-row: 2;
+      margin: 0;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "SF Pro Text", "SF Pro Display", -apple-system, system-ui, sans-serif;
+      font-weight: 274;
+    }
+    
+    /* Goal column */
+    .problem-goal-section .goal-title {
+      grid-column: 2;
+      grid-row: 1;
+      margin: 0;
+      color: #ffffff;
+      font-size: 48px;
+      font-family: "SF Pro Text", "SF Pro Display", -apple-system, system-ui, sans-serif;
+      font-weight: 700;
+    }
+    .problem-goal-section .goal-text {
+      grid-column: 2;
+      grid-row: 2;
+      margin: 0;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "SF Pro Text", "SF Pro Display", -apple-system, system-ui, sans-serif;
+      font-weight: 274;
+    }
+    /* ─────────────────────────────────────────────────────────────────────────────
+     TABLE OF CONTENTS SECTION
+     ───────────────────────────────────────────────────────────────────────────── */
+  .toc-section {
+    position: absolute;
+    top: 1350px;           /* 1400px from top */
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .toc-title {
+    text-align: center;
+    color: black;
+    font-size: 48px;
+    font-weight: 700;
+    font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+    margin-bottom: 40px;   /* space before items */
+  }
+  
+  .toc-items {
+    position: relative;
+    top: 25px;
+    width: 1400px;         /* width spanning from first circle at 0 to last label around 1053px */
+    height: 100px;         /* same as before */
+    margin: 0 auto;   /* horizontally center the group */
+    left: 30px;
+  }
+  
+  /* Step labels */
+  .toc-label {
+    position: absolute;
+    color: black;
+    font-size: 32px;
+    font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+  }
+  /* Enable relative positioning for pseudo‐element */
+  .toc-circle {
+    position: absolute;
+    width: 71.07px;
+    height: 71.07px;
+    border-radius: 9999px;
+    border: 1.5px solid black;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Arrow icon via pseudo-element */
+  .toc-circle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: url("Images/tocarrow.png") no-repeat center center;
+    background-size: contain;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover: slightly enlarge circle */
+  .toc-circle:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Hover: rotate arrow 45° */
+  .toc-circle:hover::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  /* ─────────────────────────────────────────────────────────────────────────────
+     STEP HIGHLIGHT SECTION
+     ───────────────────────────────────────────────────────────────────────────── */
+     .step-section {
+      position: absolute;
+      top: 1650px;             /* adjust as needed to sit just below the TOC */
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background: #282D30;     /* same color */
+      display: flex;
+      justify-content: center; /* center horizontally */
+      align-items: center;     /* center vertically */
+      box-sizing: border-box;
+    }
+    
+    .step-text {
+      color: white;
+      font-size: 64px;
+      font-family:
+        "SF Pro Text",
+        "SF Pro Display",
+        -apple-system,
+        system-ui,
+        sans-serif;
+      font-weight: 700;
+    }
+  /* ─────────────────────────────────────────────────────────────────────────────
+     INSIGHTS & ANALYSIS SECTION – CENTERED PANELS WITH 500px WIDTH
+     ───────────────────────────────────────────────────────────────────────────── */
+     .insights-section {
+      position: absolute;
+      top: 1850px;
+      width: 100%;
+      background: #ffe5b4;
+      padding: 80px 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .insights-container {
+      display: flex;
+      gap: 100px;               /* space between the two panels */
+      justify-content: center;
+      width: 100%;
+      max-width: 1100px;        /* 2×500px + 100px gap */
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+    
+    /* each panel is 500px wide, with centered text */
+    .insights-panel {
+      width: 500px;
+      text-align: center;
+    }
+    
+    .insights-title {
+      margin: 0;
+      font-size: 40px;
+      font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+      font-weight: 700;
+      color: black;
+      word-wrap: break-word;
+      text-align: left;
+    }
+    
+    .insights-text {
+      margin: 20px 0 0;         /* 20px below title */
+      font-size: 20px;
+      font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+      font-weight: 274;
+      color: black;
+      word-wrap: break-word;
+      text-align: left;
+    }
+    
+    /* ─────────────────────────────────────────────────────────────────────────────
+     COMPARATIVE ANALYSIS HEADER & IMAGE – MOVE UP 20px
+     ───────────────────────────────────────────────────────────────────────────── */
+  .insights-comparison-title {
+    margin: 50px 0 30px;    /* was 40px top → now 20px */
+    font-size: 36px;
+    font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+    font-weight: 274;
+    color: black;
+    text-align: center;
+  }
+  
+  .insights-comparison-img {
+    display: block;
+    width: 800px;
+    height: auto;
+    margin: 0px auto 0;    /* was 50px top → now 20px */
+  }
+  /* ─────────────────────────────────────────────────────────────────────────────
+     STEP HIGHLIGHT SECTION – 02 Define (override inline-top if needed)
+     ───────────────────────────────────────────────────────────────────────────── */
+     .step-section-2 {
+      position: absolute !important;
+      top: 2700px !important;      /* adjust this value to move the “02 Define” section up or down */
+      left: 0;
+      width: 100%;
+      height: 200px;               /* match your other step‐section height */
+      background: #282D30;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    
+    .step-text-2 {
+      color: #ffffff;
+      font-size: 64px;
+      font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+      font-weight: 700;
+      margin: 0;
+    }
+    /* ─────────────────────────────────────────────────────────────────────────────
+     DEFINE & PERSONAS SECTION – CENTERED TITLE, TEXT & SLIDER
+     ───────────────────────────────────────────────────────────────────────────── */
+  .define-personas {
+    position: absolute;
+    top: 3000px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    text-align: left;         /* center children by default */
+  }
+  
+  .define-personas-title {
+    margin: 0 auto;
+    max-width: 500px;
+    color: black;
+    font-size: 40px;
+    font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  
+  .define-personas-text {
+    margin: 20px auto 0;
+    max-width: 500px;
+    color: black;
+    font-size: 20px;
+    font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+  }
+  
+  /* Persona Slider (centered under the text) */
+  .persona-slider {
+    position: relative;
+    width: 500px;
+    margin: 50px auto 0;
+    overflow: visible;
+  }
+  
+  .slider-viewport {
+    width: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .slider-wrapper {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+  
+  .slider-img {
+    flex-shrink: 0;
+    width: 500px;
+    height: auto;
+  }
+  
+  /* Arrow Buttons */
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .slider-arrow.prev {
+    left: -64px;
+    transform: translateY(-50%) rotate(135deg);
+  }
+  
+  .slider-arrow.next {
+    right: -64px;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  
+  .slider-arrow .view-projects-circle {
+    width: 128px;
+    height: 128px;
+    border-radius: 9999px;
+    border: 1.42px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .slider-arrow .view-projects-arrow {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s ease;
+  }
+  
+  .slider-arrow:hover .view-projects-circle {
+    transform: scale(1.05);
+  }
+  /* ─────────────────────────────────────────────────────────────────────────────
+     USER JOURNEY MAPPING & APP STRUCTURE SECTION
+     – positioned below the persona slider, centered container, left-aligned text
+     ───────────────────────────────────────────────────────────────────────────── */
+     .journey-section {
+      position: absolute;
+      top: 3800px;               /* adjust this so it sits ~50px below your slider */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 800px;          /* match your other sections */
+      box-sizing: border-box;
+      text-align: left;          /* left-align all text inside */
+    }
+    
+    /* Main heading */
+    .journey-section .journey-title {
+      margin: 0 auto;
+      max-width: 500px;
+      font-size: 40px;
+      font-weight: 700;
+      color: black;
+      font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+      word-wrap: break-word;
+    }
+    
+    /* Paragraph body */
+    .journey-section .journey-text {
+      margin: 20px auto 0;
+      max-width: 500px;
+      font-size: 20px;
+      font-weight: 274;
+      color: black;
+      font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+      word-wrap: break-word;
+      line-height: 1.4;
+    }
+    /* ─────────────────────────────────────────────────────────────────────────────
+     JOURNEY SECTION – IMAGE BLOCKS WITH CAPTIONS
+     ───────────────────────────────────────────────────────────────────────────── */
+  .journey-images {
+    display: flex;
+    flex-direction: column;      /* stack vertically */
+    align-items: center;         /* center all blocks */
+    gap: 50px;                   /* 50px between the two image‐blocks */
+    margin: 20px auto 0;         /* 20px below labels row */
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .journey-images .image-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;         /* center caption + image */
+  }
+  
+  /* Caption styling uses existing label styles but adds gap */
+  .journey-images .flow-label,
+  .journey-images .info-label {
+    margin: 50px 0 50px;            /* 50px below caption before image */
+    font-size: 36px;
+    font-weight: 274;
+    color: black;
+    font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+    word-wrap: break-word;
+    text-align: left;
+  }
+  
+  /* First image max-width */
+  .journey-images .image-block:nth-child(1) img {
+    max-width: 800px;
+    width: auto;
+    height: auto;
+    display: block;
+  }
+  /* ─────────────────────────────────────────────────────────────────────────────
+     STEP HIGHLIGHT SECTION – 02 Define (override inline-top if needed)
+     ───────────────────────────────────────────────────────────────────────────── */
+     .step-section-3 {
+      position: absolute !important;
+      top: 4900px !important;      /* adjust this value to move the “02 Define” section up or down */
+      left: 0;
+      width: 100%;
+      height: 200px;               /* match your other step‐section height */
+      background: #282D30;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    
+    .step-text-3 {
+      color: #ffffff;
+      font-size: 64px;
+      font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+      font-weight: 700;
+      margin: 0;
+    }
+    /* ---------------------------------
+     IDEATION DETAIL
+     --------------------------------- */
+  .ideation-section {
+    position: absolute;
+    top: 5200px;              /* adjust to sit just below “03 Ideate” */
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .ideation-container {
+    display: flex;
+    justify-content: center;  /* center the two columns */
+    gap: 100px;               /* 100px between the two blocks */
+    max-width: 1100px;        /* 2×500px + 100px gap */
+    margin: 0 auto;
+  }
+  
+  .ideation-column {
+    max-width: 500px;         /* restrict both title and text */
+    text-align: left;         /* left‐align all text */
+  }
+  
+  .ideation-title {
+    margin: 0 0 20px;         /* 20px beneath each title */
+    font-size: 40px;
+    font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    color: black;
+  }
+  
+  .ideation-text {
+    margin: 0;
+    font-size: 20px;
+    font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+    color: black;
+  }
+  /* wireframe image under ideation blocks */
+  .ideation-image {
+    margin-top: 100px;           /* 100px gap below the paragraphs */
+    display: flex;
+    justify-content: center;     /* center the image */
+  }
+  
+  .ideation-image img {
+    max-width: 900px;             /* scale responsively */
+    height: auto;
+  }
+  /* ─────────────────────────────────────────────────────────────────────────────
+     STEP HIGHLIGHT SECTION – 04 Design (override inline-top if needed)
+     ───────────────────────────────────────────────────────────────────────────── */
+     .step-section-4 {
+      position: absolute !important;
+      top: 6200px !important;      /* adjust this value to move the “02 Define” section up or down */
+      left: 0;
+      width: 100%;
+      height: 200px;               /* match your other step‐section height */
+      background: #282D30;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    
+    .step-text-4 {
+      color: #ffffff;
+      font-size: 64px;
+      font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+      font-weight: 700;
+      margin: 0;
+    }
+    
+  .prototype-section {
+    position: absolute;
+    top: 6500px;                /* 6200 + 200 (height) + 100px gap */
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .prototype-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0 20px;            /* optional horizontal padding */
+  }
+  
+  .prototype-title {
+    margin: 0 0 20px;
+    font-size: 40px;
+    font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    color: black;
+  }
+  
+  .prototype-text {
+    margin: 0;
+    font-size: 20px;
+    font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+    color: black;
+    line-height: 1.5;
+  }
+  /* ─────────────────────────────────────────────────────────────────────────────
+     HIGH-FIDELITY PROTOTYPING IMAGE
+     ───────────────────────────────────────────────────────────────────────────── */
+     .prototype-image {
+      margin-top: 100px;           /* 100px gap below the paragraph */
+      display: flex;
+      justify-content: center;     /* center the image horizontally */
+    }
+    
+    .prototype-image img {
+      max-width: 1200px;             /* scale responsively within its container */
+      height: auto;
+      display: block;
+    }
+    /* ─────────────────────────────────────────────────────────────────────────────
+     STEP HIGHLIGHT SECTION – 05 Test (override inline-top if needed)
+     ───────────────────────────────────────────────────────────────────────────── */
+     .step-section-5 {
+      position: absolute !important;
+      top: 7350px !important;      /* adjust this value to move the “02 Define” section up or down */
+      left: 0;
+      width: 100%;
+      height: 200px;               /* match your other step‐section height */
+      background: #282D30;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    
+    .step-text-5 {
+      color: #ffffff;
+      font-size: 64px;
+      font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+      font-weight: 700;
+      margin: 0;
+    }
+    /* ─────────────────────────────────────────────────────────────────────────────
+     USABILITY TESTING DETAIL
+     ───────────────────────────────────────────────────────────────────────────── */
+  .testing-detail-section {
+    position: absolute;
+    top: 7650px;                /* 7350 + 200 (height of step-section-5) + 100px gap */
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .testing-container {
+    display: flex;
+    justify-content: center;    /* center both columns */
+    gap: 100px;                 /* 100px between the two blocks */
+    max-width: 1100px;          /* 2×500px + 100px gap */
+    margin: 0 auto;
+    padding: 0 20px;            /* optional side padding */
+  }
+  
+  .testing-column {
+    max-width: 500px;           /* restrict title + text */
+    text-align: left;           /* left-align contents */
+  }
+  
+  .testing-title {
+    margin: 0 0 20px;           /* 20px beneath each title */
+    font-size: 40px;
+    font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    color: black;
+  }
+  
+  .testing-text {
+    margin: 0;
+    font-size: 20px;
+    font-family: "SF Pro Text","SF Pro Display",-apple-system,system-ui,sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+    color: black;
+    line-height: 1.5;
+  }
+  .testing-gif {
+    display: flex;
+    align-items: center;      /* vertical centering */
+    justify-content: center;  /* horizontal centering of flex items */
+    gap: 100px;               /* 100px between image and text */
+    margin: 100px 0 0;        /* 100px top margin, no left/right margins */
+    width: 100%;              /* full-width container so justify-content can work */
+    box-sizing: border-box;   /* ensure padding/borders don’t break centering */
+  }
+  
+  .testing-gif img {
+    max-width: 300px;
+    width: 90%;
+    height: auto;
+    display: block;
+  }
+  
+  .testing-gif--reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .testing-text-container {
+    max-width: 500px;
+    text-align: left;
+  }
+  
+  .testing-text-container h3 {
+    margin: 0;
+    color: black;
+    font-size: 40px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  
+  .testing-text-container p {
+    margin: 8px 0 0;
+    color: black;
+    font-size: 20px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+  }
+  .testing-gif {
+    display: flex;
+    align-items: center;      /* vertical centering */
+    justify-content: center;  /* horizontal centering */
+    gap: 100px;               /* 100px between image & text */
+    margin: 100px 0 0;        /* 100px top margin to stack below previous block */
+    width: 100%;              /* full-width container */
+    box-sizing: border-box;
+  }
+  
+  .testing-gif img {
+    max-width: 300px;
+    width: 90%;
+    height: auto;
+    display: block;
+  }
+  
+  .testing-text-container {
+    max-width: 500px;
+    text-align: left;
+  }
+  
+  .testing-text-container h3 {
+    margin: 0;
+    color: black;
+    font-size: 40px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  
+  .testing-text-container p {
+    margin: 8px 0 0;
+    color: black;
+    font-size: 20px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+  }
+  .style-guide-title {
+    margin: 100px 0 0;           /* 100px top margin */
+    text-align: center;   
+    align-items: center;         /* match your other headings */
+  }
+  
+  .style-guide-title h3 {
+    margin: 0;
+    color: black;
+    font-size: 40px;             /* same as your other <h3> titles */
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  .style-guide-image {
+    margin: 100px auto 0;   /* 100px top margin, auto left/right to center */
+    text-align: center;     /* center the img inside */
+    width: 100%;            /* full-width wrapper */
+    box-sizing: border-box;
+  }
+  
+  .style-guide-image img {
+    width: 1000px;           /* <-- adjust this value to resize */
+    max-width: 90%;         /* prevent overflow on small screens */
+    height: auto;
+    display: inline-block;
+  }
+  .bottom-left-btn {
+    position: fixed;
+    bottom: 20px;     /* 20px up from bottom */
+    right: 20px;      /* 20px in from right */
+    left: auto;       /* cancel any left setting */
+    z-index: 1000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* (the rest stays the same) */
+  .bottom-left-circle {
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background: rgba(240, 149, 63, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .bottom-left-btn:hover .bottom-left-circle {
+    transform: scale(1.1);
+  }
+  
+  .bottom-left-arrow {
+    width: 20px;
+    height: 20px;
+    transform: rotate(-135deg);
+    transition: transform 0.3s ease;
+  }
+  
+  .bottom-left-btn:hover .bottom-left-arrow {
+    transform: rotate(-135deg) scale(1.1);
+  }
+  
+  /* ensure smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+  /* Position the button 100px below the style-guide image, centered */
+  .view-takomo-section {
+    margin-top: 100px;       /* space below style-guide-image */
+    width: 100%;
+    display: flex;
+    justify-content: center; /* center the container */
+  }
+  
+  /* Make the container a flexbox so circle + text center nicely */
+  .view-takomo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;               /* spacing between circle and text */
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Circular outline behind the arrow */
+  .view-takomo-circle {
+    width: 128px;
+    height: 128px;
+    border-radius: 9999px;
+    border: 1.42px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Arrow inside the circle */
+  .view-takomo-arrow {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* “VIEW TAKOMO CASE STUDY” text */
+  .view-takomo-text {
+    margin: 0;
+    white-space: nowrap;
+    color: black;
+    font-size: 36px;
+    font-family:
+      "SF Pro Text",
+      "SF Pro Display",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover states */
+  .view-takomo-container:hover .view-takomo-circle {
+    transform: scale(1.05);
+  }
+  .view-takomo-container:hover .view-takomo-text {
+    transform: scale(1.05);
+  }
+  .view-takomo-container:hover .view-takomo-arrow {
+    transform: rotate(-45deg);
+  }
+  /* ==============================
+     FOOTER STYLES (100px below VIEW TAKOMO)
+     ============================== */
+     footer {
+      position: relative;
+      width: 80%;
+      margin: 100px auto 40px;  /* 100px above, auto sides, 40px below */
+      padding-top: 30px;
+    }
+    
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: black;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    .footer-content p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 100;
+      font-family:
+        "SF Pro Text",
+        "SF Pro Display",
+        -apple-system,
+        system-ui,
+        sans-serif;
+      color: black;
+    }
+    
+    .footer-content a {
+      color: black;
+      text-decoration: none;
+    }
+    
+    .footer-content a:hover {
+      text-decoration: underline;
+    }
+    
+    .footer-logo {
+      width: 32px;
+      height: auto;
+    }
+    /* Smooth enlarge on hover for the LinkedIn logo in the footer */
+  .footer-logo {
+    width: 32px;               /* your existing size */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
+  }
+  
+  .footer-logo:hover {
+    transform: scale(1.2);     /* adjust scale factor as desired */
+  }
+  }
+  /* ─────────────────────────────────────────────────────────────────────────────
+     MOBILE (≤600px) RESPONSIVENESS – COMPLETE REPLACEMENT
+  ──────────────────────────────────────────────────────────────────────────────── */
+  @media only screen and (max-width: 1024px) {
+    /* 1) RESET & BODY */
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      overflow-x: hidden !important;
+      box-sizing: border-box !important;
+    }
+    body {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: left !important;
+      padding-top: 75px !important; /* account for fixed navbar */
+      background: #ffe5b4 !important;
+      font-family:
+        'SF Pro Text',
+        'SF Pro Display',
+        -apple-system,
+        system-ui,
+        sans-serif !important;
+    }
+  
+    /* hide any custom cursor */
+    .custom-cursor {
+      display: none !important;
+    }
+  
+    /* 2) NAVBAR */
+  #navbar {
+    position: fixed !important;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 340px !important;
+    height: 55px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    backdrop-filter: blur(5px) !important;
+    border-radius: 27px !important;
+    background: rgba(240, 149, 63, 0.10) !important;
+    border: 1px solid black !important; /* ← added */
+    z-index: 1000 !important;
+  }
+  #navbar > div {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    width: 100% !important;
+    padding: 0 10px !important;
+  }
+  #navbar .logo {
+    position: relative !important;
+    width: 32px !important;
+    height: 22px !important;
+    top: 0.05em !important;
+    left: 0 !important;
+    margin-right: 0 !important;
+  }
+  #navbar .nav-item {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+    font-weight: 300 !important;
+  }
+  
+  
+    /* 3) GIF ABOVE INTRO */
+    .intro-gif-container {
+      order: -1 !important;
+      width: 100% !important;
+      max-width: 345px !important;
+      margin: 20px auto 16px !important;
+      box-sizing: border-box !important;
+    }
+    .intro-gif-container img {
+      display: block !important;
+      width: 60% !important;
+      height: auto !important;
+      margin: 0 auto 15px !important;
+    }
+  
+    /* VIEW PROTOTYPE button */
+    .view-projects-container {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-top: 15px !important;
+      margin-bottom: 30px !important; /* extra gap before problem/goal */
+    }
+  
+    .view-projects-circle {
+      width: 64px !important;
+      height: 64px !important;
+      border: 1px solid black !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+  
+    .view-projects-circle img {
+      width: 16px !important;
+      height: auto !important;
+    }
+  
+    .view-projects-text {
+      margin-left: 10px !important;
+      font-family: 'SF Pro', sans-serif !important;
+      font-size: 20px !important;
+      font-weight: 300 !important;
+      text-transform: uppercase !important;
+      color: black !important;
+      text-decoration: none !important;  /* remove underline */
+    }
+    .view-prototype-section a,
+    .view-prototype-section .view-projects-container,
+    .view-prototype-section .view-projects-text {
+      text-decoration: none !important;
+    }
+    
+    /* Problem & Goal section */
+    .problem-goal-section {
+      background-color: #282D30 !important;
+      width: 100% !important;
+      height: 300px !important;
+      box-sizing: border-box !important;
+      padding: 20px 25px !important;
+      margin-top: 30px !important; /* push down below view-prototype */
+    }
+    .problem-title,
+    .goal-title,
+    .problem-text,
+    .goal-text {
+      margin: 0 0 15px !important;
+      text-align: left !important;
+      word-wrap: break-word !important;
+    }
+    .problem-title {
+      color: white !important;
+      font-size: 28px !important;     /* rounded from 28.22 */
+      font-weight: 700 !important;
+    }
+    .problem-text {
+      color: white !important;
+      font-size: 16px !important;     /* rounded from 16.12 */
+      font-weight: 400 !important;
+    }
+    .goal-title {
+      color: white !important;
+      font-size: 28px !important;
+      font-weight: 700 !important;
+    }
+    .goal-text {
+      color: white !important;
+      font-size: 16px !important;
+      font-weight: 400 !important;
+    }
+  
+    /* ────────────────────────────────────────────────────────────────────────────
+       INTRO SECTION (mobile)
+    ──────────────────────────────────────────────────────────────────────────── */
+    .intro-section {
+      width: 100% !important;
+      padding: 0 15px !important;
+      box-sizing: border-box !important;
+    }
+  
+    .intro-section .intro-title {
+      color: #000 !important;
+      font-size: 40px !important;     /* rounded from 40.31 */
+      font-family: 'SF Pro', sans-serif !important;
+      font-weight: 700 !important;
+      word-wrap: break-word !important;
+      margin-bottom: 15px !important;
+    }
+  
+    .intro-section .intro-description {
+      color: #000 !important;
+      font-size: 20px !important;     /* rounded from 20.15 */
+      font-family: 'SF Pro', sans-serif !important;
+      font-weight: 400 !important;
+      word-wrap: break-word !important;
+      margin-bottom: 20px !important;
+      line-height: 1.3 !important;
+    }
+  
+    .intro-section .project-meta {
+      position: static !important;
+      margin: 0 0 10px !important;
+      display: flex !important;
+      flex-wrap: wrap !important;
+      align-items: baseline !important;
+      word-wrap: break-word !important;
+    }
+  
+    .intro-section .project-meta .label {
+      color: #000 !important;
+      font-size: 16px !important;     /* rounded from 16.12 */
+      font-family: 'SF Pro', sans-serif !important;
+      font-weight: 700 !important;
+      line-height: 20px !important;   /* approximate of 20.15 */
+      margin-right: 5px !important;
+    }
+  
+    .intro-section .project-meta .value {
+      color: #000 !important;
+      font-size: 16px !important;
+      font-family: 'SF Pro', sans-serif !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+    }
+  
+    /* Hide placeholder image if needed */
+    .intro-section .intro-image-placeholder {
+      display: none !important;
+    }
+    /* ─────────────────────────────────────────────────────────────────────────────
+     TABLE OF CONTENTS – OVERRIDE STYLES
+  ──────────────────────────────────────────────────────────────────────────────── */
+  .toc-section {
+    width: 100%;
+    padding: 20px 20px 20px 20px; /* 15px from left (and right if you like) */
+    text-align: left;
+    box-sizing: border-box;
+  }
+  
+  .toc-section .toc-title {
+    color: #000;
+    font-size: 28px;               /* rounded from 28.22 */
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    margin-bottom: 16px;
+  }
+  
+  .toc-section .toc-items {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .toc-section .toc-items a {
+    display: block;
+    text-decoration: none;
+  }
+  
+  .toc-section .toc-items .toc-label {
+    /* stack each label with the desired spacing */
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 0 0 0;
+    color: #000;
+    font-size: 24px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 400;
+    line-height: 40px;
+    word-wrap: break-word;
+  }
+  
+  .toc-section .toc-items .toc-circle {
+    display: none !important;  /* hide the circles */
+  }
+  /* ─────────────────────────────────────────────────────────────────────────────
+     STEP HIGHLIGHT SECTION – 01 Empathize
+  ──────────────────────────────────────────────────────────────────────────────── */
+  .step-section {
+    width: 100%;
+    height: 100px;
+    background-color: #282D30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  
+  .step-section .step-text {
+    color: #fff;
+    font-size: 28px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    text-align: center;
+  }
+  /* INSIGHTS & ANALYSIS SECTION */
+  .insights-section {
+    padding: 20px;
+    text-align: left;
+    box-sizing: border-box;
+  }
+  
+  .insights-section .insights-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .insights-section .insights-panel .insights-title {
+    color: #000;
+    font-size: 28px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+  }
+  
+  .insights-section .insights-panel .insights-text {
+    color: #000;
+    font-size: 16px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+    line-height: 1.4;
+  }
+  
+  /* FEATURE-BY-FEATURE COMPARATIVE ANALYSIS */
+  .insights-section .insights-comparison-title {
+    color: #000;
+    font-size: 24px;              /* “2-px” interpreted as 24px */
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    text-align: center;
+    margin: 20px 0 10px;
+  }
+  
+  .insights-section .insights-comparison-img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+  /* STEP HIGHLIGHT SECTION – 02 Define */
+  .step-section-2 {
+    width: 100%;
+    height: 100px;
+    background-color: #282D30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  
+  .step-section-2 .step-text-2 {
+    color: #fff;
+    font-size: 28px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    text-align: center;
+  }
+  .define-personas {
+    width: 100%;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  
+  .define-personas-title {
+    color: #000;
+    font-size: 28px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+  }
+  
+  .define-personas-text {
+    color: #000;
+    font-size: 16px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  
+  .persona-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .persona-slider .slider-arrow {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  
+  .persona-slider .view-projects-circle {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .persona-slider .slider-viewport {
+    overflow: hidden;
+    width: 60%;
+  }
+  
+  .persona-slider .slider-wrapper {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .persona-slider .slider-img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* USER JOURNEY MAPPING & APP STRUCTURE SECTION */
+  .journey-section {
+    width: 100%;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  
+  .journey-section .journey-title {
+    color: #000;
+    font-size: 28px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+  }
+  
+  .journey-section .journey-text {
+    color: #000;
+    font-size: 16px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  
+  .journey-section .journey-images {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .journey-section .flow-label {
+    color: #000;
+    font-size: 16px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  .journey-section .journey-images img {
+    max-width: 100%;
+  margin-top: 20px;  
+  margin-bottom: 20px;
+  height: auto;
+  }
+  /* Allow you to rotate arrows by adding a rotate() on the circle */
+  .persona-slider .slider-arrow .view-projects-circle {
+    transition: transform 0.3s ease;
+  }
+  /* Rotate the left (“prev”) arrow 180° */
+  .persona-slider .slider-arrow.prev .view-projects-arrow {
+    display: block;
+    transform: rotate(135deg);
+  }
+  
+  /* Keep the right (“next”) arrow upright (or rotate as desired) */
+  .persona-slider .slider-arrow.next .view-projects-arrow {
+    display: block;
+    transform: rotate(-45deg);
+  }
+  
+  
+  /* Smooth sliding for the sliding viewport */
+  .persona-slider .slider-wrapper {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.5s ease;  /* smooth move when you change translateX */
+  }
+  
+  /* Fade/slide in images smoothly if you ever change their order or opacity */
+  .persona-slider .slider-img {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  /* STEP HIGHLIGHT SECTION – 03 Ideate */
+  .step-section-3 {
+    width: 100%;
+    height: 100px;
+    background-color: #282D30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  
+  .step-section-3 .step-text-3 {
+    color: #fff;
+    font-size: 28px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    text-align: center;
+  }
+  /* IDEATION DETAIL SECTION */
+  .ideation-section {
+    width: 100%;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  
+  .ideation-section .ideation-title {
+    color: #000;
+    font-size: 28px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+  }
+  
+  .ideation-section .ideation-text {
+    color: #000;
+    font-size: 16px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  
+  /* center & shrink the wireframe image */
+  .ideation-image {
+    display: flex; 
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  .ideation-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  .step-section-4 {
+    width: 100%;
+    height: 100px;
+    background-color: #282D30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  
+  .step-section-4 .step-text-4 {
+    color: #fff;
+    font-size: 28px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    text-align: center;
+  }
+  /* HIGH-FIDELITY PROTOTYPING DETAIL */
+  .prototype-section {
+    width: 100%;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  
+  .prototype-section .prototype-title {
+    color: #000;
+    font-size: 28px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+  }
+  
+  .prototype-section .prototype-text {
+    color: #000;
+    font-size: 16px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+      /* ────────────────────────────────────────────────────────────────────
+       Mobile: Replace prototype-image with H1.png & H2.png (scaled)
+       ──────────────────────────────────────────────────────────────────── */
+       .prototype-image img {
+        display: none !important;
+      }
+    
+      .prototype-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;        /* space between the two images */
+        margin-top: 50px;/* preserve your original gap */
+      }
+    
+      .prototype-image::before,
+      .prototype-image::after {
+        content: "";
+        display: block;
+        width: 100%;             /* fills 80% of the viewport width */
+        max-width: 400px;       /* caps it so it never gets huge */
+        aspect-ratio: 16/9;     /* adjust to match your actual image ratio */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    
+      .prototype-image::before {
+        background-image: url('Images/Hi1.png');
+      }
+    
+      .prototype-image::after {
+        background-image: url('Images/Hi2.png');
+      }
+      /* STEP HIGHLIGHT SECTION – 05 Test/Final Design */
+      .step-section-5 {
+        width: 100%;
+        height: 100px;
+        background-color: #282D30;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+    
+      .step-section-5 .step-text-5 {
+        color: #fff;
+        font-size: 28px;
+        font-family: 'SF Pro', sans-serif;
+        font-weight: 700;
+        word-wrap: break-word;
+        text-align: center;
+      }
+    /* USABILITY TESTING DETAIL SECTION */
+  .testing-detail-section {
+    width: 100%;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  
+  .testing-detail-section .testing-title {
+    color: #000;
+    font-size: 28px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+  }
+  
+  .testing-detail-section .testing-text {
+    color: #000;
+    font-size: 16px;
+    font-family: 'SF Pro', sans-serif;
+    font-weight: 274;
+    word-wrap: break-word;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+    /* MOBILE: shrink & center testing GIFs */
+    .testing-gif,
+    .testing-gif--reverse {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 20px !important;              /* tighter spacing between image & text */
+      margin-top: 50px !important;      /* preserve gap below paragraphs */
+    }
+  
+    .testing-gif img {
+      max-width: 70% !important;         /* fit most phones */
+      height: auto !important;
+      display: block !important;
+      margin: 0 auto !important;
+    }
+  
+    .testing-text-container {
+      max-width: 90% !important;
+      margin: 0 auto !important;
+      text-align: left !important;
+    }
+    /* STYLE GUIDE: center title & image, shrink image */
+    .style-guide-title {
+      display: flex;
+      justify-content: center;
+      margin: 100px 0 20px;   /* space above/below as needed */
+    }
+  
+    .style-guide-title h3 {
+      margin: 0;
+      color: #000;
+      font-size: 28px;        /* match your other section headings */
+      font-family: 'SF Pro', sans-serif;
+      font-weight: 700;
+    }
+  
+    .style-guide-image {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 0px;   /* 100px below, adjust if needed */
+      width: 100%;
+    }
+  
+    .style-guide-image img {
+      max-width: 100%;         /* fit most phones */
+      height: auto;
+      display: block;
+    }
+    /* VIEW TAKOMO button */
+    .view-takomo-container {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-top: 50px !important;
+      margin-bottom: 30px !important; /* extra gap before next section */
+    }
+  
+    .view-takomo-circle {
+      width: 64px !important;
+      height: 64px !important;
+      border: 1px solid black !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+  
+    .view-takomo-circle img {
+      width: 16px !important;
+      height: auto !important;
+    }
+  
+    .view-takomo-text {
+      margin-left: 10px !important;
+      font-family: 'SF Pro', sans-serif !important;
+      font-size: 20px !important;
+      font-weight: 300 !important;
+      text-transform: uppercase !important;
+      color: black !important;
+      text-decoration: none !important;  /* remove underline */
+    }
+    .view-takomo-container {
+      text-decoration: none !important;
+    }
+    
+    .view-takomo-text {
+      text-decoration: none !important;
+    }
+    
+    .view-takomo-container:hover,
+    .view-takomo-container:focus {
+      text-decoration: none !important;
+      outline: none !important;
+    }
+     footer {
+      position: relative;
+      width: 80%;
+      margin: 100px auto 40px;  /* 100px above, auto sides, 40px below */
+      padding-top: 30px;
+    }
+    
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: black;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    .footer-content p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 100;
+      font-family:
+        "SF Pro Text",
+        "SF Pro Display",
+        -apple-system,
+        system-ui,
+        sans-serif;
+      color: black;
+    }
+    
+    .footer-content a {
+      color: black;
+      text-decoration: none;
+    }
+    
+    .footer-content a:hover {
+      text-decoration: underline;
+    }
+    
+    .footer-logo {
+      width: 32px;
+      height: auto;
+    }
+    #bottom-left-btn {
+      display: none !important;
+    }
+    
+  }
+  @media only screen and (max-width: 600px) {
+    /* Re-enable page fade-in on mobile */
+    body {
+      opacity: 0 !important;
+      transition: opacity 3s ease !important;
+    }
+    body.page-visible {
+      opacity: 1 !important;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    /* make the viewport the full container width */
+    .persona-slider .slider-viewport {
+      width: 100% !important;
+    }
+  
+    /* ensure wrapper stays a flex row with no extra gaps */
+    .persona-slider .slider-wrapper {
+      display: flex !important;
+      gap: 0 !important;
+      transition: transform 0.3s ease !important;
+    }
+  
+    /* each image becomes exactly 100% of that viewport */
+    .persona-slider .slider-img {
+      flex: 0 0 100% !important;
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
+  
